@@ -1,15 +1,28 @@
 package dao;
+
+import androidx.room.Dao;
+import androidx.room.Delete;
+import androidx.room.Insert;
+import androidx.room.Query;
+import androidx.room.Update;
+
+import java.util.List;
+
+import domain.Athlete;
+
 @Dao
 public interface AthleteDao {
+
     @Insert
-    public void insertAthlete(Athlete athlete);
+    void insertAthlete(Athlete athlete);
 
     @Update
-    public void updateAthlete(Athlete athlete);
+    void updateAthlete(Athlete athlete);
 
     @Delete
-    public void deleteAthlete(Athlete athlete);
+    void deleteAthlete(Athlete athlete);
 
     @Query("SELECT * FROM Athlete")
-    public Athlete[] loadAllAthletes; 
+    List<Athlete> loadAllAthletes();
+
 }

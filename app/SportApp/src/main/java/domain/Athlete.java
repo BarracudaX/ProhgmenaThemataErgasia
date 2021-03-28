@@ -1,8 +1,13 @@
 package domain;
-import android.room;
+
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+import java.time.LocalDate;
 
 @Entity
 public final class Athlete {
+
     @PrimaryKey
     public int AthleteCode;
     public String Name;

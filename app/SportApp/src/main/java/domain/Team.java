@@ -1,12 +1,17 @@
 package domain;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
 public final class Team {
 
+    @PrimaryKey
     private long teamId;
     private String teamName;
     private String stadiumName;
@@ -14,7 +19,6 @@ public final class Team {
     private String country;
     private LocalDate foundationYear;
     private Sport sport;
-    private Set<Athlete> athletes = new HashSet<>();
 
     protected Team(){
 
@@ -53,15 +57,4 @@ public final class Team {
         return foundationYear;
     }
 
-    public Set<Athlete> getAthletes() {
-        return Collections.unmodifiableSet(athletes);
-    }
-
-    public void addAthlete(Athlete athlete) {
-        athletes.add(athlete);
-    }
-
-    public void removeAthlete(Athlete athlete) {
-        athletes.remove(athlete);
-    }
 }
