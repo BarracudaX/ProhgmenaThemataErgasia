@@ -1,9 +1,18 @@
 package domain;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public final class Sport {
+
+    @PrimaryKey(autoGenerate = true)
     private long sportId;
+
     private String sportName;
+
     private Gender gender;
+
     private SportType sportType;
 
     public Sport(long sportId, String sportName, Gender gender, SportType sportType) {

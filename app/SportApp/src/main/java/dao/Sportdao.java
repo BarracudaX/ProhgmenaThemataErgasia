@@ -1,5 +1,14 @@
 package dao;
 
+import androidx.room.Delete;
+import androidx.room.Insert;
+import androidx.room.Query;
+import androidx.room.Update;
+
+import java.util.List;
+
+import domain.Sport;
+
 public interface SportDao {
 
     @Query("SELECT * FROM Sport")
@@ -13,4 +22,5 @@ public interface SportDao {
 
     @Delete
     void deleteSport(Sport sport);
+
 }
