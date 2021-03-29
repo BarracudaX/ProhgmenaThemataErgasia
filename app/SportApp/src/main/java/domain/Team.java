@@ -4,33 +4,30 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.time.LocalDate;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 public final class Team {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private long teamId;
     private String teamName;
     private String stadiumName;
     private String city;
     private String country;
-    private LocalDate foundationYear;
+    private LocalDate foundationDate;
     private Sport sport;
 
     protected Team(){
 
     }
 
-    public Team(Sport sport, String teamName, String stadiumName, String city, String country, LocalDate foundationYear) {
+    public Team(Sport sport, String teamName, String stadiumName, String city, String country, LocalDate foundationDate) {
         this.sport = sport;
         this.teamName = teamName;
         this.stadiumName = stadiumName;
         this.city = city;
         this.country = country;
-        this.foundationYear = foundationYear;
+        this.foundationDate = foundationDate;
     }
 
     public long getTeamId() {
@@ -53,8 +50,8 @@ public final class Team {
         return country;
     }
 
-    public LocalDate getFoundationYear() {
-        return foundationYear;
+    public LocalDate getFoundationDate() {
+        return foundationDate;
     }
 
 }

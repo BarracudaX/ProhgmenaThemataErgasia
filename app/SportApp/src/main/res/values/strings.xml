@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">SportApp</string>
+    <string name="team_label">Team</string>
+    <string name="add_team_label">Create Team</string>
+    <string name="team_name_label">Team Name:</string>
+    <string name="stadium_name_label">Stadium Name:</string>
+    <string name="team_city_label">Team\'s City:</string>
+    <string name="team_name_hint">The full name of the team</string>
+    <string name="stadium_name_hint">The full name of stadium</string>
+    <string name="team_city_hint">The city of the team</string>
+    <string name="team_country_label">Team\'s Country:</string>
+    <string name="team_country_hint">The country of the team:</string>
+    <string name="team_date_foundation_label">Team\'s Foundation Date:</string>
+    <string name="team_date_foundation_hint">The date the team was founded</string>
+    <string name="team_sport_label">Team\'s Sport</string>
+    <string name="team_create_button">Create Team</string>
 </resources>
