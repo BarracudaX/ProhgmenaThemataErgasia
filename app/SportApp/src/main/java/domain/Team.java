@@ -10,19 +10,18 @@ public final class Team {
 
     @PrimaryKey(autoGenerate = true)
     private long teamId;
+
     private String teamName;
+
     private String stadiumName;
+
     private String city;
+
     private String country;
+
     private LocalDate foundationDate;
-    private Sport sport;
 
-    protected Team(){
-
-    }
-
-    public Team(Sport sport, String teamName, String stadiumName, String city, String country, LocalDate foundationDate) {
-        this.sport = sport;
+    public Team(String teamName, String stadiumName, String city, String country, LocalDate foundationDate) {
         this.teamName = teamName;
         this.stadiumName = stadiumName;
         this.city = city;
@@ -54,4 +53,7 @@ public final class Team {
         return foundationDate;
     }
 
+    public void setTeamId(long teamId) {
+        this.teamId = teamId;
+    }
 }

@@ -6,52 +6,61 @@ import androidx.room.PrimaryKey;
 import java.time.LocalDate;
 
 @Entity
-public final class Athlete {
+public class Athlete {
 
-    @PrimaryKey
-    public int AthleteCode;
-    public String Name;
-    public String Surname;
-    public String City;
-    public String Country;
-    public int SportCode;
-    public LocalDate DateOfBirth;
+    @PrimaryKey(autoGenerate = true)
+    public long athleteCode;
 
-    public Athlete(int athleteCode, String name, String surname, String city, String country, int sportCode, LocalDate dateOfBirth) {
-        AthleteCode = athleteCode;
-        Name = name;
-        Surname = surname;
-        City = city;
-        Country = country;
-        SportCode = sportCode;
-        DateOfBirth = dateOfBirth;
+    public String name;
+
+    public String surname;
+
+    public String city;
+
+    public String country;
+
+    public int sportCode;
+
+    public LocalDate dateOfBirth;
+
+    public Athlete(String name, String surname, String city, String country, int sportCode, LocalDate dateOfBirth) {
+        this.name = name;
+        this.surname = surname;
+        this.city = city;
+        this.country = country;
+        this.sportCode = sportCode;
+        this.dateOfBirth = dateOfBirth;
     }
 
-    public int getAthleteCode() {
-        return AthleteCode;
+    public long getAthleteCode() {
+        return athleteCode;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public String getSurname() {
-        return Surname;
+        return surname;
     }
 
     public String getCity() {
-        return City;
+        return city;
     }
 
     public String getCountry() {
-        return Country;
+        return country;
     }
 
     public int getSportCode() {
-        return SportCode;
+        return sportCode;
     }
 
     public LocalDate getDateOfBirth() {
-        return DateOfBirth;
+        return dateOfBirth;
+    }
+
+    public void setAthleteCode(long athleteCode) {
+        this.athleteCode = athleteCode;
     }
 }
