@@ -1,17 +1,30 @@
 <resources>
     <string name="app_name">SportApp</string>
+
+<!--    TITLES-->
+    <string name="create_team_title">Create Team</string>
+    <string name="update_team_title">Update Team</string>
+
+<!--    LABELS-->
     <string name="team_label">Team</string>
-    <string name="add_team_label">Create Team</string>
     <string name="team_name_label">Team Name:</string>
     <string name="stadium_name_label">Stadium Name:</string>
     <string name="team_city_label">Team\'s City:</string>
-    <string name="team_name_hint">The full name of the team</string>
-    <string name="stadium_name_hint">The full name of stadium</string>
-    <string name="team_city_hint">The city of the team</string>
     <string name="team_country_label">Team\'s Country:</string>
-    <string name="team_country_hint">The country of the team:</string>
-    <string name="team_date_foundation_label">Team\'s Foundation Date:</string>
-    <string name="team_date_foundation_hint">The date the team was founded</string>
     <string name="team_sport_label">Team\'s Sport</string>
+    <string name="team_date_foundation_label">Team\'s Foundation Date:</string>
+
+<!--    HINTS-->
+    <string name="stadium_name_hint">The full name of stadium</string>
+    <string name="team_name_hint">The full name of the team</string>
+    <string name="team_city_hint">The city of the team</string>
+    <string name="team_country_hint">The country of the team:</string>
+    <string name="team_date_foundation_hint">The date the team was founded</string>
+
+<!--    Buttons-->
     <string name="team_create_button">Create Team</string>
+    <string name="team_update_button">Update Team</string>
+
+
+
 </resources>
