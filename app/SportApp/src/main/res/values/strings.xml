@@ -4,6 +4,9 @@
     <!--    TITLES-->
     <string name="create_team_title">Create Team</string>
     <string name="update_team_title">Update Team</string>
+    
+    <string name="create_athlete_title">Create Athlete</string>
+    <string name="update_athlete_title">Update Athlete</string>
 
     <!--    LABELS-->
     <string name="team_label">Team</string>
@@ -15,12 +18,25 @@
     <string name="team_date_foundation_label">Team\'s Foundation Date:</string>
     <string name="welcome_label">Welcome</string>
 
+    <string name="athlete_label">Athlete</string>
+    <string name="athlete_name_label">Athlete Name:</string>
+    <string name="athlete_surname_label">Athlete Surame:</string>
+    <string name="athlete_city_label">Athlete\'s City:</string>
+    <string name="athlete_country_label">Athlete\'s Country:</string>d
+    <string name="athlete_date_of_birth_label">Athlete\'s Date of Birth:</string>
+
     <!--    HINTS-->
     <string name="stadium_name_hint">The full name of stadium</string>
     <string name="team_name_hint">The full name of the team</string>
     <string name="team_city_hint">The city of the team</string>
     <string name="team_country_hint">The country of the team:</string>
     <string name="team_date_foundation_hint">The date the team was founded</string>
+
+    <string name="athlete_name_hint">The first name of the athlete</string>
+    <string name="athlete_surname_hint">The last name of the athlete</string>
+    <string name="athlete_city_hint">The city of the athlete</string>
+    <string name="athlete_country_hint">The country of the athlete:</string>
+    <string name="athlete_date_of_birth_hint">The date the athlete was born</string>
 
     <!--    Buttons-->
     <string name="team_create_button">Create Team</string>
@@ -30,5 +46,7 @@
     <string name="menu_item_athletes" >Athletes</string>
     <string name="menu_item_sports" >Sports</string>
     <string name="menu_item_teams" >Teams</string>
+    <string name="athlete_create_button">Create Athlete</string>
+    <string name="athlete_update_button">Update Athlete</string>
 
 </resources>
