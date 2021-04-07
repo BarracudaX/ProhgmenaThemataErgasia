@@ -1,11 +1,14 @@
 package domain;
 
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 import java.time.LocalDate;
 
-@Entity
+@Entity(foreignKeys = {
+        @ForeignKey(entity = Sport.class,parentColumns = "sportId",childColumns = "sportId")
+})
 public final class Team {
 
     @PrimaryKey(autoGenerate = true)
@@ -21,12 +24,15 @@ public final class Team {
 
     private LocalDate foundationDate;
 
-    public Team(String teamName, String stadiumName, String city, String country, LocalDate foundationDate) {
+    private long sportId;
+
+    public Team(String teamName, String stadiumName, String city, String country, LocalDate foundationDate,long sportId) {
         this.teamName = teamName;
         this.stadiumName = stadiumName;
         this.city = city;
         this.country = country;
         this.foundationDate = foundationDate;
+        this.sportId = sportId;
     }
 
     public long getTeamId() {
@@ -55,5 +61,9 @@ public final class Team {
 
     public void setTeamId(long teamId) {
         this.teamId = teamId;
+    }
+
+    public long getSportId() {
+        return sportId;
     }
 }
