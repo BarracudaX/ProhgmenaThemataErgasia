@@ -11,16 +11,7 @@ import java.util.List;
 import domain.Athlete;
 
 @Dao
-public interface AthleteDao {
-
-    @Insert
-    void insertAthlete(Athlete athlete);
-
-    @Update
-    void updateAthlete(Athlete athlete);
-
-    @Delete
-    void deleteAthlete(Athlete athlete);
+public interface AthleteDao extends BaseDao<Athlete> {
 
     @Query("SELECT * FROM Athlete")
     List<Athlete> loadAllAthletes();

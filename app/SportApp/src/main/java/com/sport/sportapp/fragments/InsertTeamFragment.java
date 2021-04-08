@@ -19,8 +19,11 @@ import androidx.lifecycle.ViewModelProvider;
 import com.sport.sportapp.R;
 import com.sport.sportapp.databinding.FragmentInsertTeamBinding;
 
+import java.util.List;
+
 import dao.TeamDao;
 import domain.Athlete;
+import domain.Sport;
 import domain.SportIdNameModel;
 import viewmodels.MainActivityViewModel;
 
@@ -35,7 +38,14 @@ public class InsertTeamFragment extends Fragment {
         super.onCreate(savedInstanceState);
         binding = FragmentInsertTeamBinding.inflate(getLayoutInflater());
         spinner = binding.createTeamSportInput;
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.support_simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
         viewModel = new ViewModelProvider(getActivity()).get(MainActivityViewModel.class);
+        viewModel.getSportIdsAndNames().observe(this, sportIdNameModels -> {
+            for (SportIdNameModel sportIdNameModel : sportIdNameModels) {
+                adapter.add(sportIdNameModel.getId()+"-"+sportIdNameModel.getSportName());
+            }
+        });
     }
 
     @Nullable

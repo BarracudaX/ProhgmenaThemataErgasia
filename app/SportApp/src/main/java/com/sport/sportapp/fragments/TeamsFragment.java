@@ -19,7 +19,7 @@ import com.sport.sportapp.R;
 import com.sport.sportapp.databinding.FragmentTeamMainBinding;
 import com.sport.sportapp.databinding.FragmentWelcomeBinding;
 
-public class TeamMainFragment extends Fragment {
+public class TeamsFragment extends Fragment {
 
     private  FragmentTeamMainBinding binding;
 

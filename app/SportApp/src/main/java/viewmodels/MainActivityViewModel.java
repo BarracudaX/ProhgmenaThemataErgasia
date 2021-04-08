@@ -5,7 +5,6 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.room.Room;
 
 import java.util.List;
 
@@ -13,7 +12,6 @@ import dao.AppDatabase;
 import dao.AthleteDao;
 import dao.SportDao;
 import dao.TeamDao;
-import domain.Athlete;
 import domain.SportIdNameModel;
 
 public class MainActivityViewModel extends AndroidViewModel {
@@ -25,8 +23,7 @@ public class MainActivityViewModel extends AndroidViewModel {
 
     public MainActivityViewModel(@NonNull Application application) {
         super(application);
-        AppDatabase appDatabase = Room.databaseBuilder(application, AppDatabase.class, "db")
-                .build();
+        AppDatabase appDatabase = AppDatabase.getInstance(application);
         teamDao = appDatabase.teamDao();
         sportDao = appDatabase.sportDao();
         athleteDao = appDatabase.athleteDao();

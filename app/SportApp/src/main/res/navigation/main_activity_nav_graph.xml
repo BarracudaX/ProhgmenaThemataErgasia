@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/teamsDestination"
-        android:name="com.sport.sportapp.fragments.TeamMainFragment"
+        android:name="com.sport.sportapp.fragments.TeamsFragment"
         android:label="Teams">
         <action
             android:id="@+id/action_teamMainFragment_to_insertTeamFragment2"

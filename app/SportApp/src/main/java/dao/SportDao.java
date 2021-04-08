@@ -13,19 +13,10 @@ import domain.Sport;
 import domain.SportIdNameModel;
 
 @Dao
-public interface SportDao {
+public interface SportDao extends BaseDao<Sport> {
 
     @Query("SELECT * FROM Sport")
     List<Sport> loadAllSports();
-
-    @Insert
-    void insertSport(Sport sport);
-
-    @Update
-    void updateSport(Sport sport);
-
-    @Delete
-    void deleteSport(Sport sport);
 
     @Query("SELECT sportId,sportName FROM Sport")
     LiveData<List<SportIdNameModel>> sportIdsAndNames();

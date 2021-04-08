@@ -23,4 +23,5 @@ public class SportIdNameModel {
     public String getSportName() {
         return sportName;
     }
+
 }

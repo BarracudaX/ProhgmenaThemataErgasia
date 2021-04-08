@@ -1,6 +1,7 @@
 package domain;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity
@@ -16,6 +17,14 @@ public final class Sport {
     private SportType sportType;
 
     public Sport(long sportId, String sportName, Gender gender, SportType sportType) {
+        this.sportId = sportId;
+        this.sportName = sportName;
+        this.gender = gender;
+        this.sportType = sportType;
+    }
+
+    @Ignore
+    public Sport(String sportName, Gender gender, SportType sportType) {
         this.sportId = sportId;
         this.sportName = sportName;
         this.gender = gender;

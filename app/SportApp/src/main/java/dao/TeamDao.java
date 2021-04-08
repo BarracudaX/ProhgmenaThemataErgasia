@@ -11,17 +11,9 @@ import java.util.List;
 import domain.Team;
 
 @Dao
-public interface TeamDao {
+public interface TeamDao extends BaseDao<Team>{
 
     @Query("SELECT * FROM Team")
     List<Team> loadAllTeams();
 
-    @Insert
-    void insertTeam(Team team);
-
-    @Update
-    void updateTeam(Team team);
-
-    @Delete
-    void deleteTeam(Team team);
 }
