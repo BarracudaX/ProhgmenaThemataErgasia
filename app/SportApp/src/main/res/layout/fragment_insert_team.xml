@@ -165,27 +165,13 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/createTeamCountryLabel" />
 
-                <EditText
-                    android:id="@+id/createTeamFoundationInput"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="32dp"
-                    android:layout_marginRight="32dp"
-                    android:ems="10"
-                    android:hint="@string/team_date_foundation_hint"
-                    android:inputType="date"
-                    android:textSize="10sp"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/createTeamFoundationLabel"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/createTeamCountryInput" />
-
                 <Button
                     android:id="@+id/createTeamButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="32dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginBottom="8dp"
@@ -195,22 +181,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/createTeamSportInput"
-                    app:layout_constraintVertical_bias="1.0" />
-
-                <Spinner
-                    android:id="@+id/createTeamSportInput"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginLeft="32dp"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginEnd="32dp"
-                    android:layout_marginRight="32dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/createTeamSportLabel"
-                    app:layout_constraintTop_toBottomOf="@+id/createTeamFoundationInput" />
+                    app:layout_constraintTop_toBottomOf="@+id/createTeamSportLabel" />
 
                 <TextView
                     android:id="@+id/createTeamSportLabel"
@@ -223,6 +194,34 @@
                     app:layout_constraintEnd_toEndOf="@+id/createTeamFoundationLabel"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/createTeamFoundationLabel" />
+
+                <Spinner
+                    android:id="@+id/createTeamSportInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginRight="32dp"
+                    android:scrollbarSize="14dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/createTeamSportLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/createTeamFoundationInput" />
+
+                <TextView
+                    android:id="@+id/createTeamFoundationInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginRight="32dp"
+                    android:background="@color/grey"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/createTeamFoundationLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/createTeamFoundationLabel" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>

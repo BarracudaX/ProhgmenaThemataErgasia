@@ -35,6 +35,7 @@ public abstract class AppDatabase extends RoomDatabase {
     }
 
     private static AppDatabase buildDatabase(Context context){
+        context.deleteDatabase("db");
         instance = Room.databaseBuilder(context, AppDatabase.class, "db")
                 .allowMainThreadQueries()
                 .build();

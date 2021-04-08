@@ -1,5 +1,6 @@
 package dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -14,6 +15,6 @@ import domain.Team;
 public interface TeamDao extends BaseDao<Team>{
 
     @Query("SELECT * FROM Team")
-    List<Team> loadAllTeams();
+    LiveData<List<Team>> loadAllTeams();
 
 }

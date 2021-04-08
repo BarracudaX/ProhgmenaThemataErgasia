@@ -35,6 +35,8 @@ public final class Team {
         this.sportId = sportId;
     }
 
+
+
     public long getTeamId() {
         return teamId;
     }
