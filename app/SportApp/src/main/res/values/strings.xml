@@ -41,12 +41,15 @@
     <!--    Buttons-->
     <string name="team_create_button">Create Team</string>
     <string name="team_update_button">Update Team</string>
+    <string name="athlete_create_button">Create Athlete</string>
+    <string name="athlete_update_button">Update Athlete</string>
 
 <!--    MENU-->
     <string name="menu_item_athletes" >Athletes</string>
     <string name="menu_item_sports" >Sports</string>
     <string name="menu_item_teams" >Teams</string>
-    <string name="athlete_create_button">Create Athlete</string>
-    <string name="athlete_update_button">Update Athlete</string>
+    <string name="menu_item_add_team">Add Team</string>
+    <string name="menu_item_update_team">Update Team</string>
+    <string name="menu_item_delete_team">Delete Team</string>
 
 </resources>

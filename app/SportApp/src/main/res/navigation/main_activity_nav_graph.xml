@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startDestination">
+
+    <fragment
+        android:id="@+id/startDestination"
+        android:name="com.sport.sportapp.fragments.WelcomeFragment"
+        android:label="Welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_teamMainFragment"
+            app:destination="@id/teamsDestination" />
+    </fragment>
+    <fragment
+        android:id="@+id/teamsDestination"
+        android:name="com.sport.sportapp.fragments.TeamMainFragment"
+        android:label="Teams">
+        <action
+            android:id="@+id/action_teamMainFragment_to_insertTeamFragment2"
+            app:destination="@id/insertTeamDestination" />
+    </fragment>
+    <fragment
+        android:id="@+id/insertTeamDestination"
+        android:name="com.sport.sportapp.fragments.InsertTeamFragment"
+        android:label="Add New Team" />
+</navigation>
