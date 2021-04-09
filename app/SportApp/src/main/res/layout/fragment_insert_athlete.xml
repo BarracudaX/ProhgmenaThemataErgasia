@@ -40,7 +40,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/title" />
 
                 <TextView
-                    android:id="@+id/teamNameLabel"
+                    android:id="@+id/athleteNameLabel"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -48,13 +48,13 @@
                     android:layout_marginTop="16dp"
                     android:text="@string/athlete_name_label"
                     android:textSize="12sp"
-                    app:layout_constraintEnd_toEndOf="@+id/stadiumNameLabel"
+                    app:layout_constraintEnd_toEndOf="@+id/athleteSurnameLabel"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divide" />
 
                 <EditText
-                    android:id="@+id/teamNameInput"
+                    android:id="@+id/athleteNameInput"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
@@ -65,13 +65,13 @@
                     android:hint="@string/athlete_name_hint"
                     android:inputType="textPersonName"
                     android:textSize="10sp"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/teamNameLabel"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/athleteNameLabel"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/teamNameLabel" />
+                    app:layout_constraintStart_toEndOf="@+id/athleteNameLabel" />
 
                 <TextView
-                    android:id="@+id/stadiumNameLabel"
+                    android:id="@+id/athleteSurnameLabel"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -79,12 +79,12 @@
                     android:layout_marginTop="42dp"
                     android:text="@string/athlete_surname_label"
                     android:textSize="12sp"
-                    app:layout_constraintEnd_toEndOf="@+id/teamCityLabel"
+                    app:layout_constraintEnd_toEndOf="@+id/athleteCityLabel"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/teamNameLabel" />
+                    app:layout_constraintTop_toBottomOf="@+id/athleteNameLabel" />
 
                 <EditText
-                    android:id="@+id/stadiumNameInput"
+                    android:id="@+id/athleteSurnameInput"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="32dp"
@@ -93,13 +93,13 @@
                     android:hint="@string/athlete_surname_hint"
                     android:inputType="textPersonName"
                     android:textSize="10sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/stadiumNameLabel"
+                    app:layout_constraintBottom_toBottomOf="@+id/athleteSurnameLabel"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/teamNameInput"
-                    app:layout_constraintTop_toTopOf="@+id/stadiumNameLabel" />
+                    app:layout_constraintStart_toStartOf="@+id/athleteNameInput"
+                    app:layout_constraintTop_toTopOf="@+id/athleteSurnameLabel" />
 
                 <TextView
-                    android:id="@+id/teamCityLabel"
+                    android:id="@+id/athleteCityLabel"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -107,12 +107,12 @@
                     android:layout_marginTop="42dp"
                     android:text="@string/athlete_city_label"
                     android:textSize="12sp"
-                    app:layout_constraintEnd_toEndOf="@+id/teamCountryLabel"
+                    app:layout_constraintEnd_toEndOf="@+id/athleteCountryLabel"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/stadiumNameLabel" />
+                    app:layout_constraintTop_toBottomOf="@+id/athleteSurnameLabel" />
 
                 <EditText
-                    android:id="@+id/teamCityInput"
+                    android:id="@+id/athleteCityInput"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="32dp"
@@ -121,13 +121,13 @@
                     android:hint="@string/athlete_city_hint"
                     android:inputType="textPersonName"
                     android:textSize="10sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/teamCityLabel"
+                    app:layout_constraintBottom_toBottomOf="@+id/athleteCityLabel"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/stadiumNameInput"
-                    app:layout_constraintTop_toTopOf="@+id/teamCityLabel" />
+                    app:layout_constraintStart_toStartOf="@+id/athleteSurnameInput"
+                    app:layout_constraintTop_toTopOf="@+id/athleteCityLabel" />
 
                 <TextView
-                    android:id="@+id/teamCountryLabel"
+                    android:id="@+id/athleteCountryLabel"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -135,12 +135,12 @@
                     android:layout_marginTop="42dp"
                     android:text="@string/athlete_country_label"
                     android:textSize="12sp"
-                    app:layout_constraintEnd_toEndOf="@+id/teamFoundationLabel"
+                    app:layout_constraintEnd_toEndOf="@+id/athelteDateOfBirthLabel"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/teamCityLabel" />
+                    app:layout_constraintTop_toBottomOf="@+id/athleteCityLabel" />
 
                 <EditText
-                    android:id="@+id/teamCountryInput"
+                    android:id="@+id/athleteCountryInput"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="32dp"
@@ -149,12 +149,12 @@
                     android:hint="@string/athlete_country_hint"
                     android:inputType="textPersonName"
                     android:textSize="10sp"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/teamCountryLabel"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/athleteCountryLabel"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/teamCityInput" />
+                    app:layout_constraintStart_toStartOf="@+id/athleteCityInput" />
 
                 <TextView
-                    android:id="@+id/teamFoundationLabel"
+                    android:id="@+id/athelteDateOfBirthLabel"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -163,10 +163,10 @@
                     android:text="@string/athlete_date_of_birth_label"
                     android:textSize="12sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/teamCountryLabel" />
+                    app:layout_constraintTop_toBottomOf="@+id/athleteCountryLabel" />
 
                 <EditText
-                    android:id="@+id/teamFoundationInput"
+                    android:id="@+id/athelteDateOfBirthInput"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="32dp"
@@ -175,12 +175,12 @@
                     android:hint="@string/athlete_date_of_birth_hint"
                     android:inputType="date"
                     android:textSize="10sp"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/teamFoundationLabel"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/athelteDateOfBirthLabel"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/teamCountryInput" />
+                    app:layout_constraintStart_toStartOf="@+id/athleteCountryInput" />
 
                 <Button
-                    android:id="@+id/teamButton"
+                    android:id="@+id/createAthleteButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -195,7 +195,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.48"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/teamFoundationLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/athelteDateOfBirthLabel"
                     app:layout_constraintVertical_bias="0.0" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
