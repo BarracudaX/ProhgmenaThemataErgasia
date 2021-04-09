@@ -32,5 +32,5 @@
     <fragment
         android:id="@+id/updateTeamDestination"
         android:name="com.sport.sportapp.fragments.UpdateTeamFragment"
-        android:label="UpdateTeamFragment" />
+        android:label="Update Team" />
 </navigation>

@@ -23,6 +23,7 @@ import com.sport.sportapp.databinding.ActivityMainBinding;
 import com.sport.sportapp.fragments.InsertTeamFragment;
 
 import viewmodels.MainActivityViewModel;
+import viewmodels.MyViewModelFactory;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,14 +37,18 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        viewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
-
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
         NavController navController = navHostFragment.getNavController();
+
+        viewModel = new ViewModelProvider(this,new MyViewModelFactory(getApplication(),navController)).get(MainActivityViewModel.class);
+
         appBarConfiguration = new AppBarConfiguration
                 .Builder(navController.getGraph())
-                .setOpenableLayout(binding.drawerLayout).build();
+                .setOpenableLayout(binding.drawerLayout)
+                .build();
+
         NavigationUI.setupActionBarWithNavController(this,navController,appBarConfiguration);
+
         NavigationUI.setupWithNavController(binding.navView,navController);
     }
 
