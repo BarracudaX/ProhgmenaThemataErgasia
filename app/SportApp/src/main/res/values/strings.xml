@@ -56,5 +56,6 @@
 
 <!--    TOAST MESSAGES-->
     <string name="added_team_success_message">The team was successfully added.</string>
+    <string name="update_team_success_message">The team was successfully updated.</string>
 
 </resources>

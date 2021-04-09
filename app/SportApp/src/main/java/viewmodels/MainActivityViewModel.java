@@ -1,11 +1,13 @@
 package viewmodels;
 
 import android.app.Application;
+import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.navigation.NavDirections;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -14,7 +16,6 @@ import dao.AppDatabase;
 import dao.AthleteDao;
 import dao.SportDao;
 import dao.TeamDao;
-import domain.Sport;
 import domain.SportIdNameModel;
 import domain.Team;
 
@@ -26,6 +27,8 @@ public class MainActivityViewModel extends AndroidViewModel {
     private LiveData<List<SportIdNameModel>> sportIdsAndNames ;
     private LiveData<List<Team>> teams;
     private MutableLiveData<LocalDate> pickedDate = new MutableLiveData<>();
+    private SingleLiveEvent<NavigationRequest> navDestinationRequest = new SingleLiveEvent<>();
+    private SingleLiveEvent<Void> navigateBackRequest = new SingleLiveEvent<>();
 
     public MainActivityViewModel(@NonNull Application application) {
         super(application);
@@ -53,11 +56,39 @@ public class MainActivityViewModel extends AndroidViewModel {
         teamDao.insert(team);
     }
 
+    public void updateTeam(Team team) {
+        teamDao.update(team);
+    }
+
     public LiveData<LocalDate> getPickedDate() {
         return pickedDate;
     }
 
     public void pickedDate(LocalDate pickedDate) {
         this.pickedDate.setValue(pickedDate);
+    }
+
+    public LiveData<Team> getTeamById(long teamId) {
+        return teamDao.findById(teamId);
+    }
+
+    public LiveData<NavigationRequest> navigationToEvent() {
+        return navDestinationRequest;
+    }
+
+    public void navigateTo(int destinationId, Bundle bundleRequest) {
+        navDestinationRequest.setValue(new NavigationRequest(destinationId,bundleRequest));
+    }
+
+    public LiveData<Void> navigateBackEvent() {
+        return navigateBackRequest;
+    }
+
+    public void navigateBack() {
+        navigateBackRequest.setValue(null);
+    }
+
+    public void deleteTeamById(long id) {
+        teamDao.deleteById(id);
     }
 }

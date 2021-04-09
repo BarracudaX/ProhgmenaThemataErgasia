@@ -25,7 +25,7 @@ import com.sport.sportapp.views.TeamsAdapter;
 
 import viewmodels.MainActivityViewModel;
 
-public class TeamsFragment extends Fragment {
+public class TeamsFragment extends BaseFragment {
 
     private  FragmentTeamMainBinding binding;
     private MainActivityViewModel viewModel;
@@ -42,25 +42,15 @@ public class TeamsFragment extends Fragment {
         binding = FragmentTeamMainBinding.inflate(inflater);
 
         viewModel.getTeams().observe(this,teams -> {
-            binding.teams.setAdapter(new TeamsAdapter(teams));
+            binding.teams.setAdapter(new TeamsAdapter(teams,viewModel));
         });
 
-        configureNavigation();
+        configureBottomNavigation(binding.bottomNavigationView);
         return binding.getRoot();
     }
 
     @Override
     public void onStart() {
         super.onStart();
-    }
-
-    private void configureNavigation() {
-        NavHostFragment navHostFragment = (NavHostFragment) getParentFragment();
-        NavController navController = navHostFragment.getNavController();
-        BottomNavigationView bottomNavigationView = binding.bottomNavigationView;
-        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
-            navController.navigate(item.getItemId());
-            return true;
-        });
     }
 }

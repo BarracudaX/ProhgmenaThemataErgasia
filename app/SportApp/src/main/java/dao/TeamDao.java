@@ -17,4 +17,9 @@ public interface TeamDao extends BaseDao<Team>{
     @Query("SELECT * FROM Team")
     LiveData<List<Team>> loadAllTeams();
 
+    @Query("SELECT * FROM Team WHERE teamId = :teamId")
+    LiveData<Team> findById(long teamId);
+
+    @Query("DELETE FROM Team WHERE teamId = :teamId")
+    void deleteById(long teamId);
 }

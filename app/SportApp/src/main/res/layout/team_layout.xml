@@ -55,7 +55,7 @@
         app:layout_constraintStart_toEndOf="@+id/teamItemIdLabel" />
 
     <Button
-        android:id="@+id/teamIteamUpdateButton"
+        android:id="@+id/teamItemUpdateButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -65,13 +65,13 @@
         android:layout_marginRight="8dp"
         android:text="@string/team_update_button"
         app:backgroundTint="@color/green"
-        app:layout_constraintEnd_toStartOf="@+id/teamIteamDeleteButton"
+        app:layout_constraintEnd_toStartOf="@+id/teamItemDeleteButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/teamItemIdLabel" />
 
     <Button
-        android:id="@+id/teamIteamDeleteButton"
+        android:id="@+id/teamItemDeleteButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -83,7 +83,7 @@
         app:backgroundTint="@color/warning"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/teamIteamUpdateButton"
+        app:layout_constraintStart_toEndOf="@+id/teamItemUpdateButton"
         app:layout_constraintTop_toBottomOf="@+id/teamIteamNameInput" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
