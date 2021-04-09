@@ -26,7 +26,7 @@ import domain.SportIdNameModel;
 import domain.Team;
 import viewmodels.MainActivityViewModel;
 
-public abstract class TeamFormFragment extends BaseFragment {
+public abstract class TeamFormFragment extends Fragment {
 
     protected FragmentTeamFormBinding binding;
     protected MainActivityViewModel viewModel;
