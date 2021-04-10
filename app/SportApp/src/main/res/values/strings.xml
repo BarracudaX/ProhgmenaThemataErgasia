@@ -4,7 +4,7 @@
     <!--    TITLES-->
     <string name="create_team_title">Create Team</string>
     <string name="update_team_title">Update Team</string>
-    
+
     <string name="create_athlete_title">Create Athlete</string>
     <string name="update_athlete_title">Update Athlete</string>
 
@@ -46,16 +46,18 @@
     <string name="athlete_create_button">Create Athlete</string>
     <string name="athlete_update_button">Update Athlete</string>
 
-<!--    MENU-->
-    <string name="menu_item_athletes" >Athletes</string>
-    <string name="menu_item_sports" >Sports</string>
-    <string name="menu_item_teams" >Teams</string>
+    <!--    MENU-->
+    <string name="menu_item_athletes">Athletes</string>
+    <string name="menu_item_sports">Sports</string>
+    <string name="menu_item_teams">Teams</string>
     <string name="menu_item_add_team">Add Team</string>
     <string name="menu_item_update_team">Update Team</string>
     <string name="menu_item_delete_team">Delete Team</string>
 
-<!--    TOAST MESSAGES-->
+    <!--    TOAST MESSAGES-->
     <string name="added_team_success_message">The team was successfully added.</string>
     <string name="update_team_success_message">The team was successfully updated.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
