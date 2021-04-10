@@ -31,7 +31,7 @@ public class InsertAthleteFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentInsertAthleteBinding.inflate(inflater);
+        binding = FragmentInsertAthleteBinding.inflate(inflater,container,false);
         return binding.getRoot();
     }
 }

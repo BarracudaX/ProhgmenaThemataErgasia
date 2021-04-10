@@ -26,7 +26,7 @@ import domain.SportIdNameModel;
 import domain.Team;
 import viewmodels.MainActivityViewModel;
 
-public abstract class TeamFormFragment extends Fragment {
+public abstract class TeamFormFragment extends BaseFragment {
 
     protected FragmentTeamFormBinding binding;
     protected MainActivityViewModel viewModel;
@@ -38,9 +38,21 @@ public abstract class TeamFormFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = FragmentTeamFormBinding.inflate(getLayoutInflater());
 
         viewModel = new ViewModelProvider(getActivity()).get(MainActivityViewModel.class);
+
+    }
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        binding = FragmentTeamFormBinding.inflate(getLayoutInflater(),container,false);
+
+        binding.teamFoundationInput.setOnClickListener(v -> {
+            DialogFragment dialogFragment = new DatePicker();
+            dialogFragment.show(getChildFragmentManager(),"datePicker");
+        });
+
+        createSpinner();
 
         binding.title.setText(getTitleStringResourceId());
         binding.teamButton.setText(getButtonStringResourceId());
@@ -56,20 +68,13 @@ public abstract class TeamFormFragment extends Fragment {
                     sportId
             ));
         });
-
-        createSpinner();
-
         viewModel.getPickedDate().observe(this,localDate -> {
             lastDatePicked = localDate;
             binding.teamFoundationInput.setText(localDate.toString());
         });
-
-        binding.teamFoundationInput.setOnClickListener(v -> {
-            DialogFragment dialogFragment = new DatePicker();
-            dialogFragment.show(getChildFragmentManager(),"datePicker");
-        });
-
+        return binding.getRoot();
     }
+
     private void createSpinner() {
         spinner = binding.teamSportInput;
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.support_simple_spinner_dropdown_item);
@@ -82,12 +87,6 @@ public abstract class TeamFormFragment extends Fragment {
                 }
             }
         });
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return binding.getRoot();
     }
 
     public abstract int getButtonStringResourceId();
