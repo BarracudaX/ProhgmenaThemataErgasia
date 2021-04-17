@@ -39,7 +39,7 @@ public class Athlete {
         return athleteCode;
     }
 
-    public String getName() {
+    public String getAthleteName() {
         return name;
     }
 

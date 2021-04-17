@@ -12,6 +12,7 @@ import com.sport.sportapp.R;
 
 
 public class UpdateAthleteFragment extends Fragment {
+    private static final String ID_KEY = "ATHLETE_ID";
 
     public UpdateAthleteFragment() {
         // Required empty public constructor
@@ -23,4 +24,9 @@ public class UpdateAthleteFragment extends Fragment {
         return fragment;
     }
 
+    public static Bundle getBundleRequest(long athleteId) {
+        Bundle bundle = new Bundle();
+        bundle.putLong(ID_KEY,athleteId);
+        return bundle;
+    }
 }
