@@ -1,5 +1,6 @@
 package dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -9,11 +10,13 @@ import androidx.room.Update;
 import java.util.List;
 
 import domain.Athlete;
+import domain.Team;
 
 @Dao
 public interface AthleteDao extends BaseDao<Athlete> {
 
     @Query("SELECT * FROM Athlete")
-    List<Athlete> loadAllAthletes();
-
+    LiveData<List<Athlete>> loadAllAthletes();
+    @Query("DELETE FROM Athlete WHERE athleteCode = :id")
+    void deleteById(long id);
 }
