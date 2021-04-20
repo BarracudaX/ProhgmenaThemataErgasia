@@ -21,4 +21,7 @@ public interface SportDao extends BaseDao<Sport> {
     @Query("SELECT sportId,sportName FROM Sport")
     LiveData<List<SportIdNameModel>> sportIdsAndNames();
 
+    @Query("DELETE FROM Sport")
+    void deleteAll();
+
 }

@@ -1,5 +1,6 @@
 package com.sport.sportapp.fragments;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +14,9 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -40,7 +43,13 @@ public class TeamsFragment extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentTeamMainBinding.inflate(inflater);
-
+        if (getActivity().getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            binding.teams.setLayoutManager(new LinearLayoutManager(getContext()));
+        }else{
+            GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
+            gridLayoutManager.setOrientation(RecyclerView.VERTICAL);
+            binding.teams.setLayoutManager(gridLayoutManager);
+        }
         viewModel.getTeams().observe(this,teams -> {
             binding.teams.setAdapter(new TeamsAdapter(teams,viewModel));
         });

@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey;
 import java.time.LocalDate;
 
 @Entity(foreignKeys = {
-        @ForeignKey(entity = Sport.class,parentColumns = "sportId",childColumns = "sportId")
+        @ForeignKey(entity = Sport.class,parentColumns = "sportId",childColumns = "sportId",onDelete = ForeignKey.CASCADE)
 })
 public final class Team {
 
