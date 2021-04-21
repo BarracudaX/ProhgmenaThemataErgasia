@@ -69,8 +69,8 @@ public class SportsAdapter extends RecyclerView.Adapter<SportsAdapter.SportViewH
         }
 
         private void onDeleteButtonClicked(View view) {
-            long id = Long.parseLong(binding.sportIdInput.getText(String.valueOf(sport.getSportId())));
-            viewModel.deleteSportById(id);
+            //long id = Long.parseLong(binding.sportIdInput.getText(String.valueOf(sport.getSportId())));
+            viewModel.deleteAll();
         }
     }
 }

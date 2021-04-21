@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_startDestination_to_athleteMainMenuFragment"
             app:destination="@id/athleteMainMenuFragment" />
+        <action
+            android:id="@+id/action_startDestination_to_sportMainFragment"
+            app:destination="@id/sportMainFragment" />
     </fragment>
     <fragment
         android:id="@+id/teamsDestination"
@@ -55,4 +58,23 @@
         android:id="@+id/updateAthleteFragment"
         android:name="com.sport.sportapp.fragments.UpdateAthleteFragment"
         android:label="Update Athlete" />
+    <fragment
+        android:id="@+id/insertSportDestination"
+        android:name="com.sport.sportapp.fragments.InsertSportFragment"
+        android:label="Add New Sport" />
+    <fragment
+        android:id="@+id/sportMainFragment"
+        android:name="com.sport.sportapp.fragments.SportMainFragment"
+        android:label="Sports">
+        <action
+            android:id="@+id/action_sportMainFragment_to_insertSportFragment"
+            app:destination="@+id/insertSportDestination" />
+        <action
+            android:id="@+id/action_sportMainFragment_to_updateSportFragment"
+            app:destination="@+id/updateSportFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateSportFragment"
+        android:name="com.sport.sportapp.fragments.UpdateSportFragment"
+        android:label="Update Sport"/>
 </navigation>

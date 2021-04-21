@@ -15,6 +15,7 @@ import com.sport.sportapp.R;
 import com.sport.sportapp.databinding.FragmentSportMainBinding;
 import com.sport.sportapp.views.SportsAdapter;
 
+import domain.SportIdNameModel;
 import viewmodels.MainActivityViewModel;
 
 
@@ -34,8 +35,8 @@ public class SportMainFragment extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentSportMainBinding.inflate(inflater);
-        viewModel.getSportIdsAndNames().observe(this, sportIdsAndNames -> portIdNameModel -> {
-            binding.sports.setAdapter(new SportsAdapter(sportIdsAndNames,viewModel));
+        viewModel.getSportIdsAndNames().observe(this, SportIdNameModel -> {
+            binding.sports.setAdapter(new SportsAdapter(sports, viewModel));
         });
 
         configureBottomNavigation(binding.bottomNavigationView);

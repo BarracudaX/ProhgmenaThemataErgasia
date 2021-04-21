@@ -80,13 +80,10 @@
     <string name="added_team_success_message">The team was successfully added.</string>
     <string name="update_team_success_message">The team was successfully updated.</string>
 
-    <string name="added_athelet_success_message">The athlete was successfully added.</string>
-    <string name="update_atlete_success_message">The athlete was successfully updated.</string>
+    <string name="added_athlete_success_message">The athlete was successfully added.</string>
+    <string name="update_athlete_success_message">The athlete was successfully updated.</string>
 
     <string name="added_sport_success_message">The sport was successfully added.</string>
     <string name="update_sport_success_message">The sport was successfully updated.</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
 
 </resources>

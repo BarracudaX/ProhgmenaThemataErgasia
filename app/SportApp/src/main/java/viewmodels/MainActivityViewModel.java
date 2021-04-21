@@ -106,4 +106,9 @@ public class MainActivityViewModel extends AndroidViewModel {
 
     public void insertAthlete(Athlete athlete) {athleteDao.insert(athlete);
     }
+
+    public void deleteAll() {sportDao.deleteAll();
+    }
+
+
 }

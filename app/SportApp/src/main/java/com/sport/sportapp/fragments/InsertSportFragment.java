@@ -18,6 +18,7 @@ import com.sport.sportapp.R;
 import com.sport.sportapp.databinding.FragmentInsertSportBinding;
 
 
+import converters.GenderConverter;
 import dao.SportDao;
 import domain.Gender;
 import domain.Sport;
@@ -47,6 +48,7 @@ public class InsertSportFragment extends BaseFragment {
                     binding.sportNameInput.getText().toString(),
                     SportType.valueOf(sportTypeString),
                     Gender.valueOf(genderString)
+
             ));
             viewModel.navigateBack();
             Toast.makeText(getActivity(), R.string.added_sport_success_message, Toast.LENGTH_LONG).show();
