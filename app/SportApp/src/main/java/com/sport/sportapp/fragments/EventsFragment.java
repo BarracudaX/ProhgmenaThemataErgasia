@@ -12,38 +12,27 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.sport.sportapp.R;
-import com.sport.sportapp.databinding.FragmentSportMainBinding;
-import com.sport.sportapp.views.SportsAdapter;
+import com.sport.sportapp.databinding.FragmentAthleteMainMenuBinding;
+import com.sport.sportapp.databinding.FragmentEventsBinding;
+import com.sport.sportapp.views.AthletesAdapter;
 
-import domain.SportIdNameModel;
 import viewmodels.MainActivityViewModel;
 
+public class EventsFragment extends BaseFragment {
 
-public class SportMainFragment extends BaseFragment {
-
-    private FragmentSportMainBinding binding;
+    private FragmentEventsBinding binding;
     private MainActivityViewModel viewModel;
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        viewModel = new ViewModelProvider(getActivity()).get(MainActivityViewModel.class);
+    public EventsFragment() {
     }
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentSportMainBinding.inflate(inflater);
-        viewModel.getSports().observe(this, sports -> {
-            binding.sports.setAdapter(new SportsAdapter(sports, viewModel));
-        });
-
+        binding = FragmentEventsBinding.inflate(inflater);
         configureBottomNavigation(binding.bottomNavigationView);
         return  binding.getRoot();
 
     }
-
     @Override
     public void onStart() {
         super.onStart();

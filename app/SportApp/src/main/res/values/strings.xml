@@ -2,6 +2,8 @@
     <string name="app_name">SportApp</string>
 
     <!--    TITLES-->
+    <string name="create_event_title">Create Event</string>
+
     <string name="create_team_title">Create Team</string>
     <string name="update_team_title">Update Team</string>
 
@@ -64,6 +66,8 @@
     <string name="sport_delete_button">Delete Sport</string>
 
     <!--    MENU-->
+    <string name="menu_item_events">Events</string>
+    <string name="menu_item_add_event">Add Event</string>
     <string name="menu_item_athletes">Athletes</string>
     <string name="menu_item_add_athlete">Add Athlete</string>
     <string name="menu_item_delete_athlete">Delete Athlete</string>
@@ -85,5 +89,16 @@
 
     <string name="added_sport_success_message">The sport was successfully added.</string>
     <string name="update_sport_success_message">The sport was successfully updated.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="event_name_label">Event Name</string>
+    <string name="event_name_hint">The name of the event</string>
+    <string name="event_date_label">Event Date</string>
+    <string name="event_date_hint">The date the event took place</string>
+    <string name="event_city_label">City</string>
+    <string name="event_city_hint">The city the event took place in</string>
+    <string name="event_country_label">Country</string>
+    <string name="event_country_hint">Country the event took place in</string>
+    <string name="event_create_button">Create Event</string>
 
 </resources>

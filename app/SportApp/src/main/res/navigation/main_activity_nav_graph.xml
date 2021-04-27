@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_startDestination_to_sportMainFragment"
             app:destination="@id/sportMainFragment" />
+        <action
+            android:id="@+id/action_startDestination_to_eventsFragment"
+            app:destination="@id/eventsFragment" />
     </fragment>
     <fragment
         android:id="@+id/teamsDestination"
@@ -77,4 +80,17 @@
         android:id="@+id/updateSportFragment"
         android:name="com.sport.sportapp.fragments.UpdateSportFragment"
         android:label="Update Sport"/>
+    <fragment
+        android:id="@+id/eventsFragment"
+        android:name="com.sport.sportapp.fragments.EventsFragment"
+        android:label="fragment_events"
+        tools:layout="@layout/fragment_events" >
+        <action
+            android:id="@+id/action_eventsFragment_to_insertEventFragment"
+            app:destination="@id/insertEventFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/insertEventFragment"
+        android:name="com.sport.sportapp.fragments.InsertEventFragment"
+        android:label="InsertEventFragment" />
 </navigation>

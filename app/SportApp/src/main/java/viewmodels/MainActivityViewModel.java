@@ -17,6 +17,7 @@ import dao.AthleteDao;
 import dao.SportDao;
 import dao.TeamDao;
 import domain.Athlete;
+import domain.Sport;
 import domain.SportIdNameModel;
 import domain.Team;
 
@@ -28,6 +29,7 @@ public class MainActivityViewModel extends AndroidViewModel {
     private LiveData<List<SportIdNameModel>> sportIdsAndNames ;
     private LiveData<List<Team>> teams;
     private LiveData<List<Athlete>> athletes;
+    private LiveData<List<Sport>> sports;
     private MutableLiveData<LocalDate> pickedDate = new MutableLiveData<>();
     private SingleLiveEvent<NavigationRequest> navDestinationRequest = new SingleLiveEvent<>();
     private SingleLiveEvent<Void> navigateBackRequest = new SingleLiveEvent<>();
@@ -45,6 +47,12 @@ public class MainActivityViewModel extends AndroidViewModel {
             sportIdsAndNames = sportDao.sportIdsAndNames();
         }
         return sportIdsAndNames;
+    }
+    public LiveData<List<Sport>> getSports(){
+        if (teams == null) {
+            sports = sportDao.liveLoadAllSports();
+        }
+        return sports;
     }
 
     public LiveData<List<Team>> getTeams() {
@@ -111,4 +119,6 @@ public class MainActivityViewModel extends AndroidViewModel {
     }
 
 
+    public void insertSport(Sport sport) {sportDao.insert(sport);
+    }
 }

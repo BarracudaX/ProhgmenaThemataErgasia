@@ -45,11 +45,11 @@ public class InsertSportFragment extends BaseFragment {
         binding = FragmentInsertSportBinding.inflate(inflater);
         binding.createSportButton.setOnClickListener((v) -> {
             viewModel.insertSport(new Sport(
-                    binding.sportNameInput.getText().toString(),
-                    SportType.valueOf(sportTypeString),
-                    Gender.valueOf(genderString)
+                                binding.sportNameInput.getText().toString(),
+                    Gender.valueOf(binding.genderTypeInput.getText().toString()),
+                    SportType.valueOf(binding.sportTypeInput.getText().toString())
 
-            ));
+                        ));
             viewModel.navigateBack();
             Toast.makeText(getActivity(), R.string.added_sport_success_message, Toast.LENGTH_LONG).show();
         });

@@ -9,11 +9,15 @@ import androidx.room.Update;
 
 import java.util.List;
 
+import domain.Athlete;
 import domain.Sport;
 import domain.SportIdNameModel;
 
 @Dao
 public interface SportDao extends BaseDao<Sport> {
+
+    @Query("SELECT * FROM Sport")
+    LiveData<List<Sport>> liveLoadAllSports();
 
     @Query("SELECT * FROM Sport")
     List<Sport> loadAllSports();
