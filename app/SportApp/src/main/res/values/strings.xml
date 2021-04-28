@@ -2,11 +2,16 @@
     <string name="app_name">SportApp</string>
 
     <!--    TITLES-->
+    <string name="create_event_title">Create Event</string>
+
     <string name="create_team_title">Create Team</string>
     <string name="update_team_title">Update Team</string>
 
     <string name="create_athlete_title">Create Athlete</string>
     <string name="update_athlete_title">Update Athlete</string>
+
+    <string name="create_sport_title">Create Sport</string>
+    <string name="update_sport_title">Update Sport</string>
 
     <!--    LABELS-->
     <string name="team_label">Team</string>
@@ -26,6 +31,11 @@
     <string name="athlete_country_label">Athlete\'s Country:</string>d
     <string name="athlete_date_of_birth_label">Athlete\'s Date of Birth:</string>
 
+    <string name="sport_label">Sport</string>
+    <string name="sport_name_label">Sport Name:</string>
+    <string name="sport_type_label">Sport Type:</string>
+    <string name="sport_gender_label">Sports Gender:</string>
+
     <!--    HINTS-->
     <string name="stadium_name_hint">The full name of stadium</string>
     <string name="team_name_hint">The full name of the team</string>
@@ -39,6 +49,10 @@
     <string name="athlete_country_hint">The country of the athlete:</string>
     <string name="athlete_date_of_birth_hint">The date the athlete was born</string>
 
+    <string name="sport_name_hint">sport name</string>
+    <string name="sport_type_hint">SINGLE or TEAM</string>
+    <string name="sport_gender_hint">MALE or FEMALE or BOTH</string>
+
     <!--    Buttons-->
     <string name="team_create_button">Create Team</string>
     <string name="team_update_button">Update Team</string>
@@ -47,20 +61,44 @@
     <string name="athlete_update_button">Update Athlete</string>
     <string name="athlete_delete_button">Delete Athlete</string>
     <string name="athlete_insert_menu">Create New Athlete</string>
+    <string name="sport_create_button">Create Sport</string>
+    <string name="sport_update_button">Update Sport</string>
+    <string name="sport_delete_button">Delete Sport</string>
+
     <!--    MENU-->
+    <string name="menu_item_events">Events</string>
+    <string name="menu_item_add_event">Add Event</string>
     <string name="menu_item_athletes">Athletes</string>
     <string name="menu_item_add_athlete">Add Athlete</string>
     <string name="menu_item_delete_athlete">Delete Athlete</string>
     <string name="menu_item_sports">Sports</string>
+    <string name="menu_item_add_sports">Add Sport</string>
+    <string name="menu_item_delete_sport">Delete Sport</string>
     <string name="menu_item_teams">Teams</string>
     <string name="menu_item_add_team">Add Team</string>
     <string name="menu_item_update_team">Update Team</string>
     <string name="menu_item_delete_team">Delete Team</string>
 
+
     <!--    TOAST MESSAGES-->
     <string name="added_team_success_message">The team was successfully added.</string>
     <string name="update_team_success_message">The team was successfully updated.</string>
 
-    <string name="added_athelet_success_message">The athlete was successfully added.</string>
-    <string name="update_atlete_success_message">The athlete was successfully updated.</string>
+    <string name="added_athlete_success_message">The athlete was successfully added.</string>
+    <string name="update_athlete_success_message">The athlete was successfully updated.</string>
+
+    <string name="added_sport_success_message">The sport was successfully added.</string>
+    <string name="update_sport_success_message">The sport was successfully updated.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="event_name_label">Event Name</string>
+    <string name="event_name_hint">The name of the event</string>
+    <string name="event_date_label">Event Date</string>
+    <string name="event_date_hint">The date the event took place</string>
+    <string name="event_city_label">City</string>
+    <string name="event_city_hint">The city the event took place in</string>
+    <string name="event_country_label">Country</string>
+    <string name="event_country_hint">Country the event took place in</string>
+    <string name="event_create_button">Create Event</string>
+
 </resources>

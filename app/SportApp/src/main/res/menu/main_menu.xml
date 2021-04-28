@@ -6,10 +6,15 @@
         android:icon="@drawable/baseline_person_18"
         android:title="@string/menu_item_athletes" />
     <item
+        android:id="@+id/sportMainFragment"
         android:icon="@drawable/baseline_sports_20"
         android:title="@string/menu_item_sports" />
     <item
         android:id="@+id/teamsDestination"
         android:icon="@drawable/baseline_groups_24"
         android:title="@string/menu_item_teams" />
+    <item
+        android:id="@+id/eventsFragment"
+        android:icon="@android:drawable/btn_star_big_on"
+        android:title="@string/menu_item_events" />
 </menu>

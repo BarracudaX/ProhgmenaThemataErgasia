@@ -51,7 +51,7 @@ public class InsertAthleteFragment extends BaseFragment {
                     LocalDate.parse("2018-11-01")
             ));
             viewModel.navigateBack();
-            Toast.makeText(getActivity(), R.string.added_athelet_success_message, Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), R.string.added_athlete_success_message, Toast.LENGTH_LONG).show();
         });
         return binding.getRoot();
     }
