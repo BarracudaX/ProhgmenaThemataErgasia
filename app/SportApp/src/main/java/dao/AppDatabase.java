@@ -34,15 +34,15 @@ public abstract class AppDatabase extends RoomDatabase {
         return instance != null ? instance : buildDatabase(context);
     }
 
-    private static AppDatabase buildDatabase(Context context){
+    private static AppDatabase buildDatabase(Context context) {
         instance = Room.databaseBuilder(context, AppDatabase.class, "db")
                 .allowMainThreadQueries()
                 .build();
         SportDao sportDao = instance.sportDao();
-        if(sportDao.loadAllSports().isEmpty()){
-           sportDao.insert(new Sport("Basketball",Gender.BOTH,SportType.TEAM));
-           sportDao.insert(new Sport("Football",Gender.MALE,SportType.TEAM));
-           sportDao.insert(new Sport("Ping Pong",Gender.FEMALE,SportType.SINGLE));
+        if (sportDao.loadAllSports().isEmpty()) {
+            sportDao.insert(new Sport("Basketball", Gender.BOTH, SportType.TEAM));
+            sportDao.insert(new Sport("Football", Gender.MALE, SportType.TEAM));
+            sportDao.insert(new Sport("Ping Pong", Gender.FEMALE, SportType.SINGLE));
         }
         return instance;
     }
