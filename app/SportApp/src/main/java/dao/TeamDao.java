@@ -9,7 +9,9 @@ import androidx.room.Update;
 
 import java.util.List;
 
+import domain.SportIdNameModel;
 import domain.Team;
+import domain.TeamIdNameModel;
 
 @Dao
 public interface TeamDao extends BaseDao<Team>{
@@ -22,4 +24,7 @@ public interface TeamDao extends BaseDao<Team>{
 
     @Query("DELETE FROM Team WHERE teamId = :teamId")
     void deleteById(long teamId);
+
+    @Query("SELECT teamId,teamName FROM Team WHERE sportId = :id")
+    LiveData<List<TeamIdNameModel>> teamIdsAndNames(long id);
 }

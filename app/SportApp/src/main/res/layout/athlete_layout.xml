@@ -24,7 +24,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="32dp"
-        android:text="@string/team_name_label"
+        android:text="@string/athlete_name_label"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/athleteIdLabel" />
 
@@ -63,7 +63,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="@string/team_update_button"
+        android:text="@string/athlete_update_button"
         app:backgroundTint="@color/green"
         app:layout_constraintEnd_toStartOf="@+id/athleteDeleteButton"
         app:layout_constraintHorizontal_bias="0.5"

@@ -19,7 +19,9 @@ import dao.TeamDao;
 import domain.Athlete;
 import domain.Sport;
 import domain.SportIdNameModel;
+import domain.SportType;
 import domain.Team;
+import domain.TeamIdNameModel;
 
 public class MainActivityViewModel extends AndroidViewModel {
 
@@ -27,6 +29,7 @@ public class MainActivityViewModel extends AndroidViewModel {
     private final SportDao sportDao;
     private final AthleteDao athleteDao;
     private LiveData<List<SportIdNameModel>> sportIdsAndNames ;
+    private LiveData<List<TeamIdNameModel>> teamIdsAndNames ;
     private LiveData<List<Team>> teams;
     private LiveData<List<Athlete>> athletes;
     private LiveData<List<Sport>> sports;
@@ -47,6 +50,12 @@ public class MainActivityViewModel extends AndroidViewModel {
             sportIdsAndNames = sportDao.sportIdsAndNames();
         }
         return sportIdsAndNames;
+    }
+    public LiveData<List<TeamIdNameModel>> getTeamIdsAndNames(long sportId) {
+        if (teamIdsAndNames == null) {
+            teamIdsAndNames = teamDao.teamIdsAndNames(sportId);
+        }
+        return teamIdsAndNames;
     }
     public LiveData<List<Sport>> getSports(){
         if (teams == null) {
@@ -118,7 +127,9 @@ public class MainActivityViewModel extends AndroidViewModel {
     public void deleteAll() {sportDao.deleteAll();
     }
 
-
+    public SportType getSportType(long sportId){
+        return sportDao.sportTypeById(sportId);
+    }
     public void insertSport(Sport sport) {sportDao.insert(sport);
     }
 }

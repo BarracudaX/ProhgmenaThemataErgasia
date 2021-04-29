@@ -19,20 +19,20 @@ public class Athlete {
 
     public String country;
 
-    //public Sport sport;
+    private long sportId;
 
     public LocalDate dateOfBirth;
 
-    //public Team team;
+    public long teamId;
 
-    public Athlete(String name, String surname, String city, String country, LocalDate dateOfBirth) {
+    public Athlete(String name, String surname, String city, String country, LocalDate dateOfBirth, long sportId, long teamId) {
         this.name = name;
         this.surname = surname;
         this.city = city;
         this.country = country;
-        //this.sport = sport;
         this.dateOfBirth = dateOfBirth;
-        //this.team= team;
+        this.sportId = sportId;
+        this.teamId = teamId;
     }
 
     public long getAthleteCode() {
@@ -58,6 +58,8 @@ public class Athlete {
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
+
+    public long getSportId() { return sportId; }
 
     public void setAthleteCode(long athleteCode) {
         this.athleteCode = athleteCode;

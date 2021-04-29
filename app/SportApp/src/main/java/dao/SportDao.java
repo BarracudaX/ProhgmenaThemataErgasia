@@ -12,6 +12,7 @@ import java.util.List;
 import domain.Athlete;
 import domain.Sport;
 import domain.SportIdNameModel;
+import domain.SportType;
 
 @Dao
 public interface SportDao extends BaseDao<Sport> {
@@ -28,4 +29,6 @@ public interface SportDao extends BaseDao<Sport> {
     @Query("DELETE FROM Sport")
     void deleteAll();
 
+    @Query("SELECT sportType FROM Sport WHERE sportId = :id")
+    public SportType sportTypeById(long id);
 }
