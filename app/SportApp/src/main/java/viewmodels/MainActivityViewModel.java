@@ -76,7 +76,12 @@ public class MainActivityViewModel extends AndroidViewModel {
         }
         return athletes;
     }
-
+    public LiveData<List<Athlete>> getAthletesBySport(long sportId) {
+        if (teams == null) {
+            athletes = athleteDao.loadAllAthletesBySport(sportId);
+        }
+        return athletes;
+    }
     public void insertTeam(Team team) {
         teamDao.insert(team);
     }
@@ -130,6 +135,10 @@ public class MainActivityViewModel extends AndroidViewModel {
     public SportType getSportType(long sportId){
         return sportDao.sportTypeById(sportId);
     }
-    public void insertSport(Sport sport) {sportDao.insert(sport);
+
+    public void insertSport(Sport sport) {sportDao.insert(sport); }
+
+    public LiveData<Integer> getSportCount(){
+        return sportDao.getSportCount();
     }
 }

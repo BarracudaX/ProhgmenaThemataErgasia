@@ -31,4 +31,7 @@ public interface SportDao extends BaseDao<Sport> {
 
     @Query("SELECT sportType FROM Sport WHERE sportId = :id")
     public SportType sportTypeById(long id);
+
+    @Query("SELECT COUNT(sportId) FROM Sport")
+    LiveData<Integer> getSportCount();
 }

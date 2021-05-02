@@ -42,6 +42,7 @@ public class InsertAthleteFragment extends BaseFragment {
     private Spinner spinner;
     private Spinner teamSpinner;
     private final Set<String> spinnerData = new HashSet<>();
+    private final Set<String> teamSpinnerData = new HashSet<>();
     private SportType sportType = TEAM;
 
 
@@ -59,7 +60,6 @@ public class InsertAthleteFragment extends BaseFragment {
         binding = FragmentInsertAthleteBinding.inflate(inflater);
 
         createSpinner();
-        createTeamSpinner(0);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
@@ -72,7 +72,6 @@ public class InsertAthleteFragment extends BaseFragment {
             public void onNothingSelected(AdapterView<?> parentView) {
                 createTeamSpinner(0);
             }
-
         });
 
         //sportType = viewModel.getSportType(sportId);
@@ -94,7 +93,6 @@ public class InsertAthleteFragment extends BaseFragment {
             }
             else
             {
-                createTeamSpinner(sportId);
                 String teamIdAsString = ((String) teamSpinner.getSelectedItem());
                 long teamId = Long.parseLong(teamIdAsString.substring(0, teamIdAsString.indexOf("-")));
                 viewModel.insertAthlete(new Athlete(
@@ -134,7 +132,7 @@ public class InsertAthleteFragment extends BaseFragment {
         viewModel.getTeamIdsAndNames(sportId).observe(this, teamIdNameModels -> {
             for (TeamIdNameModel teamIdNameModel : teamIdNameModels) {
                 String teamIdName = teamIdNameModel.getId() + "-" + teamIdNameModel.getTeamName();
-                if (spinnerData.add(teamIdName)) {
+                if (teamSpinnerData.add(teamIdName)) {
                     adapter.add(teamIdName);
                 }
             }
