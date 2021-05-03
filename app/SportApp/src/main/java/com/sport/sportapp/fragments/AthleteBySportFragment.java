@@ -10,16 +10,17 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.sport.sportapp.databinding.FragmentAthleteBySportBinding;
 import com.sport.sportapp.databinding.FragmentAthleteMainMenuBinding;
 import com.sport.sportapp.views.AthletesAdapter;
+import com.sport.sportapp.views.AthletesBySportAdapter;
 
 import viewmodels.MainActivityViewModel;
 
 public class AthleteBySportFragment extends BaseFragment {
 
-    private FragmentAthleteMainMenuBinding binding;
+    private FragmentAthleteBySportBinding binding;
     private MainActivityViewModel viewModel;
-    LiveData<Integer> sportCount;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,11 +31,11 @@ public class AthleteBySportFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentAthleteMainMenuBinding.inflate(inflater);
-        sportCount=viewModel.getSportCount();
-        viewModel.getAthletesBySport().observe(this, athletes -> {
-            binding.athletes.setAdapter(new AthletesAdapter(athletes,viewModel));
+        binding = FragmentAthleteBySportBinding.inflate(inflater);
+        viewModel.getAthletesBySport().observe(this, athletesBySport -> {
+            binding.athletesBySport.setAdapter(new AthletesBySportAdapter(athletesBySport,viewModel));
         });
+
 
         configureBottomNavigation(binding.bottomNavigationView);
         return  binding.getRoot();

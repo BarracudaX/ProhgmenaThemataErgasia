@@ -79,32 +79,15 @@ public class InsertAthleteFragment extends BaseFragment {
         binding.createAthleteButton.setOnClickListener((v) -> {
             String sportIdAsString = ((String) spinner.getSelectedItem());
             long sportId = Long.parseLong(sportIdAsString.substring(0, sportIdAsString.indexOf("-")));
-            if(sportType.equals(SINGLE))
-            {
+
                 viewModel.insertAthlete(new Athlete(
                     binding.athleteNameInput.getText().toString(),
                     binding.athleteSurnameInput.getText().toString(),
                     binding.athleteCityInput.getText().toString(),
                     binding.athleteCountryInput.getText().toString(),
                     LocalDate.parse("2018-11-01"),
-                    sportId,
-                        0
+                    sportId
                 ));
-            }
-            else
-            {
-                String teamIdAsString = ((String) teamSpinner.getSelectedItem());
-                long teamId = Long.parseLong(teamIdAsString.substring(0, teamIdAsString.indexOf("-")));
-                viewModel.insertAthlete(new Athlete(
-                        binding.athleteNameInput.getText().toString(),
-                        binding.athleteSurnameInput.getText().toString(),
-                        binding.athleteCityInput.getText().toString(),
-                        binding.athleteCountryInput.getText().toString(),
-                        LocalDate.parse("2018-11-01"),
-                        sportId,
-                        teamId
-                ));
-            }
 
             viewModel.navigateBack();
             Toast.makeText(getActivity(), R.string.added_athlete_success_message, Toast.LENGTH_LONG).show();

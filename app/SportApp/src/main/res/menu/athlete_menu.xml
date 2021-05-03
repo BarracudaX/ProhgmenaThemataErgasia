@@ -6,7 +6,7 @@
         android:icon="@drawable/baseline_add_20"
         android:title="@string/menu_item_add_athlete" />
     <item
-        android:id="@+id/athletesBySportDestination"
+        android:id="@+id/athleteBySportDestination"
         android:icon="@drawable/baseline_sports_20"
-        android:title="Find athletes by sport" />
+        android:title="Group athletes by sport" />
 </menu>

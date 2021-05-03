@@ -56,6 +56,9 @@
         <action
             android:id="@+id/action_athleteMainMenuFragment_to_updateAthleteFragment"
             app:destination="@id/updateAthleteFragment" />
+        <action
+            android:id="@+id/action_athleteMainMenuFragment_to_athleteBySportFragment"
+            app:destination="@id/athleteBySportDestination" />
     </fragment>
     <fragment
         android:id="@+id/updateAthleteFragment"
@@ -93,4 +96,8 @@
         android:id="@+id/insertEventFragment"
         android:name="com.sport.sportapp.fragments.InsertEventFragment"
         android:label="InsertEventFragment" />
+    <fragment
+        android:id="@+id/athleteBySportDestination"
+        android:name="com.sport.sportapp.fragments.AthleteBySportFragment"
+        android:label="AthleteBySportFragment" />
 </navigation>

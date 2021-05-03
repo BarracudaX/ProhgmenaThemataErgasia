@@ -25,14 +25,14 @@ public class Athlete {
 
     public long teamId;
 
-    public Athlete(String name, String surname, String city, String country, LocalDate dateOfBirth, long sportId, long teamId) {
+    public Athlete(String name, String surname, String city, String country, LocalDate dateOfBirth, long sportId) {
         this.name = name;
         this.surname = surname;
         this.city = city;
         this.country = country;
         this.dateOfBirth = dateOfBirth;
         this.sportId = sportId;
-        this.teamId = teamId;
+        //this.teamId = teamId;
     }
 
     public long getAthleteCode() {
