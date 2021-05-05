@@ -52,9 +52,15 @@ public class MainActivityViewModel extends AndroidViewModel {
         }
         return sportIdsAndNames;
     }
-    public LiveData<List<TeamIdNameModel>> getTeamIdsAndNames(long sportId) {
+    public LiveData<List<TeamIdNameModel>> getTeamIdsAndNamesBySport(long sportId) {
         if (teamIdsAndNames == null) {
-            teamIdsAndNames = teamDao.teamIdsAndNames(sportId);
+            teamIdsAndNames = teamDao.teamIdsAndNamesBySport(sportId);
+        }
+        return teamIdsAndNames;
+    }
+    public LiveData<List<TeamIdNameModel>> getTeamIdsAndNames() {
+        if (teamIdsAndNames == null) {
+            teamIdsAndNames = teamDao.teamIdsAndNames();
         }
         return teamIdsAndNames;
     }

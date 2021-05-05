@@ -60,32 +60,39 @@ public class InsertAthleteFragment extends BaseFragment {
         binding = FragmentInsertAthleteBinding.inflate(inflater);
 
         createSpinner();
+        createTeamSpinner();
+        /*
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 String sportIdAsString = ((String) spinner.getSelectedItem());
-                long sportId = Long.parseLong(sportIdAsString.substring(0, sportIdAsString.indexOf("-")));
-                createTeamSpinner(sportId);
+                sportId = Long.parseLong(sportIdAsString.substring(0, sportIdAsString.indexOf("-")));
+                //createTeamSpinner(sportId);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
-                createTeamSpinner(0);
+                createTeamSpinner(1);
             }
         });
+
+         */
 
         //sportType = viewModel.getSportType(sportId);
         //if(sportType.equals(TEAM))
         binding.createAthleteButton.setOnClickListener((v) -> {
             String sportIdAsString = ((String) spinner.getSelectedItem());
             long sportId = Long.parseLong(sportIdAsString.substring(0, sportIdAsString.indexOf("-")));
+            String teamIdAsString = ((String) teamSpinner.getSelectedItem());
+            long teamId = Long.parseLong(teamIdAsString.substring(0, teamIdAsString.indexOf("-")));
                 viewModel.insertAthlete(new Athlete(
                     binding.athleteNameInput.getText().toString(),
                     binding.athleteSurnameInput.getText().toString(),
                     binding.athleteCityInput.getText().toString(),
                     binding.athleteCountryInput.getText().toString(),
                     LocalDate.parse("2018-11-01"),
-                    sportId
+                    sportId,
+                    teamId
                 ));
 
             viewModel.navigateBack();
@@ -107,11 +114,11 @@ public class InsertAthleteFragment extends BaseFragment {
             }
         });
     }
-    private void createTeamSpinner(long sportId) {
+    private void createTeamSpinner() {
         teamSpinner = binding.athleteTeamInput;
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.support_simple_spinner_dropdown_item);
         teamSpinner.setAdapter(adapter);
-        viewModel.getTeamIdsAndNames(sportId).observe(this, teamIdNameModels -> {
+        viewModel.getTeamIdsAndNames().observe(this, teamIdNameModels -> {
             for (TeamIdNameModel teamIdNameModel : teamIdNameModels) {
                 String teamIdName = teamIdNameModel.getId() + "-" + teamIdNameModel.getTeamName();
                 if (teamSpinnerData.add(teamIdName)) {
