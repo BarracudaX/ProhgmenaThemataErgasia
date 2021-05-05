@@ -79,7 +79,6 @@ public class InsertAthleteFragment extends BaseFragment {
         binding.createAthleteButton.setOnClickListener((v) -> {
             String sportIdAsString = ((String) spinner.getSelectedItem());
             long sportId = Long.parseLong(sportIdAsString.substring(0, sportIdAsString.indexOf("-")));
-
                 viewModel.insertAthlete(new Athlete(
                     binding.athleteNameInput.getText().toString(),
                     binding.athleteSurnameInput.getText().toString(),
