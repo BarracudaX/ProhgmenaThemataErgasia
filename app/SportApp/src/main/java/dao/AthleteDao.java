@@ -21,4 +21,6 @@ public interface AthleteDao extends BaseDao<Athlete> {
     List<Athlete> findAthletesBySport(long sport);
     @Query("DELETE FROM Athlete WHERE athleteCode = :id")
     void deleteById(long id);
+    @Query("SELECT * FROM Athlete WHERE athleteCode = :athleteId")
+    LiveData<Athlete> findById(long athleteId);
 }

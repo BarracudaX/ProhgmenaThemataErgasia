@@ -37,7 +37,7 @@ import static domain.SportType.TEAM;
 
 
 public class InsertAthleteFragment extends BaseFragment {
-    private FragmentInsertAthleteBinding binding;
+    protected FragmentInsertAthleteBinding binding;
     protected MainActivityViewModel viewModel;
     private Spinner spinner;
     private Spinner teamSpinner;

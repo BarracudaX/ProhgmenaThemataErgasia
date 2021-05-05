@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.navigation.NavDirections;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -145,4 +144,11 @@ public class MainActivityViewModel extends AndroidViewModel {
 
     public void insertSport(Sport sport) {sportDao.insert(sport); }
 
+    public void updateAthlete(Athlete athlete) {
+        athleteDao.update(athlete);
+    }
+
+    public LiveData<Athlete> getAthleteById(long athleteId){
+        return athleteDao.findById(athleteId);
+    }
 }
