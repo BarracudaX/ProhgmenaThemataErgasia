@@ -18,7 +18,9 @@ import dao.TeamDao;
 import domain.Athlete;
 import domain.Sport;
 import domain.SportIdNameModel;
+import domain.SportType;
 import domain.Team;
+import domain.TeamIdNameModel;
 
 public class MainActivityViewModel extends AndroidViewModel {
 
@@ -26,8 +28,10 @@ public class MainActivityViewModel extends AndroidViewModel {
     private final SportDao sportDao;
     private final AthleteDao athleteDao;
     private LiveData<List<SportIdNameModel>> sportIdsAndNames ;
+    private LiveData<List<TeamIdNameModel>> teamIdsAndNames ;
     private LiveData<List<Team>> teams;
     private LiveData<List<Athlete>> athletes;
+    private List<Athlete> athletesBySportId;
     private LiveData<List<Sport>> sports;
     private MutableLiveData<LocalDate> pickedDate = new MutableLiveData<>();
     private SingleLiveEvent<NavigationRequest> navDestinationRequest = new SingleLiveEvent<>();
@@ -46,6 +50,18 @@ public class MainActivityViewModel extends AndroidViewModel {
             sportIdsAndNames = sportDao.sportIdsAndNames();
         }
         return sportIdsAndNames;
+    }
+    public LiveData<List<TeamIdNameModel>> getTeamIdsAndNamesBySport(long sportId) {
+        if (teamIdsAndNames == null) {
+            teamIdsAndNames = teamDao.teamIdsAndNamesBySport(sportId);
+        }
+        return teamIdsAndNames;
+    }
+    public LiveData<List<TeamIdNameModel>> getTeamIdsAndNames() {
+        if (teamIdsAndNames == null) {
+            teamIdsAndNames = teamDao.teamIdsAndNames();
+        }
+        return teamIdsAndNames;
     }
     public LiveData<List<Sport>> getSports(){
         if (sports == null) {
@@ -66,7 +82,12 @@ public class MainActivityViewModel extends AndroidViewModel {
         }
         return athletes;
     }
-
+    public List<Athlete> getAthletesBySportId(long sportId) {
+        if (teams == null) {
+            athletesBySportId = athleteDao.findAthletesBySport(sportId);
+        }
+        return athletesBySportId;
+    }
     public void insertTeam(Team team) {
         teamDao.insert(team);
     }
@@ -117,8 +138,18 @@ public class MainActivityViewModel extends AndroidViewModel {
     public void deleteAll() {sportDao.deleteAll();
     }
 
+    public SportType getSportType(long sportId){
+        return sportDao.sportTypeById(sportId);
+    }
 
-    public void insertSport(Sport sport) {sportDao.insert(sport);
+    public void insertSport(Sport sport) {sportDao.insert(sport); }
+
+    public void updateAthlete(Athlete athlete) {
+        athleteDao.update(athlete);
+    }
+
+    public LiveData<Athlete> getAthleteById(long athleteId){
+        return athleteDao.findById(athleteId);
     }
 
     public LiveData<List<Team>> getTeamsOfSport(long sportId) {

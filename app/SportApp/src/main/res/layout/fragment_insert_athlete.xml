@@ -135,7 +135,7 @@
                     android:layout_marginTop="42dp"
                     android:text="@string/athlete_country_label"
                     android:textSize="12sp"
-                    app:layout_constraintEnd_toEndOf="@+id/athelteDateOfBirthLabel"
+                    app:layout_constraintEnd_toEndOf="@+id/athleteDateOfBirthLabel"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/athleteCityLabel" />
 
@@ -154,7 +154,7 @@
                     app:layout_constraintStart_toStartOf="@+id/athleteCityInput" />
 
                 <TextView
-                    android:id="@+id/athelteDateOfBirthLabel"
+                    android:id="@+id/athleteDateOfBirthLabel"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -166,7 +166,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/athleteCountryLabel" />
 
                 <EditText
-                    android:id="@+id/athelteDateOfBirthInput"
+                    android:id="@+id/athleteDateOfBirthInput"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="32dp"
@@ -175,9 +175,63 @@
                     android:hint="@string/athlete_date_of_birth_hint"
                     android:inputType="date"
                     android:textSize="10sp"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/athelteDateOfBirthLabel"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/athleteDateOfBirthLabel"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/athleteCountryInput" />
+
+                <TextView
+                    android:id="@+id/athleteSportLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="42dp"
+                    android:text="@string/athlete_sport_label"
+                    app:layout_constraintEnd_toEndOf="@+id/athleteDateOfBirthLabel"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/athleteDateOfBirthLabel" />
+
+                <Spinner
+                    android:id="@+id/athleteSportInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginRight="32dp"
+                    android:scrollbarSize="14dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/athleteSportLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/athleteDateOfBirthInput" />
+
+                <TextView
+                    android:id="@+id/athleteTeamLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="42dp"
+                    android:text="@string/athlete_team_label"
+                    app:layout_constraintEnd_toEndOf="@+id/athleteSportLabel"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/athleteSportLabel" />
+
+                <Spinner
+                    android:id="@+id/athleteTeamInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginRight="32dp"
+                    android:scrollbarSize="14dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/athleteTeamLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/athleteSportInput" />
 
                 <Button
                     android:id="@+id/createAthleteButton"
@@ -195,7 +249,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.48"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/athelteDateOfBirthLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/athleteTeamLabel"
                     app:layout_constraintVertical_bias="0.0" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

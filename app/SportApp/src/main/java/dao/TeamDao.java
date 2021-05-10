@@ -9,7 +9,9 @@ import androidx.room.Update;
 
 import java.util.List;
 
+import domain.SportIdNameModel;
 import domain.Team;
+import domain.TeamIdNameModel;
 
 @Dao
 public interface TeamDao extends BaseDao<Team>{
@@ -25,4 +27,10 @@ public interface TeamDao extends BaseDao<Team>{
 
     @Query("SELECT * FROM Team WHERE sportId = :sportId")
     LiveData<List<Team>> teamsBySportId(long sportId);
+
+    @Query("SELECT teamId,teamName FROM Team WHERE sportId = :id")
+    LiveData<List<TeamIdNameModel>> teamIdsAndNamesBySport(long id);
+    
+    @Query("SELECT teamId,teamName FROM Team")
+    LiveData<List<TeamIdNameModel>> teamIdsAndNames();
 }

@@ -1,6 +1,7 @@
 package domain;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.time.LocalDate;
@@ -19,20 +20,32 @@ public class Athlete {
 
     public String country;
 
-    //public Sport sport;
+    private long sportId;
 
     public LocalDate dateOfBirth;
 
-    //public Team team;
+    public long teamId;
 
-    public Athlete(String name, String surname, String city, String country, LocalDate dateOfBirth) {
+    @Ignore
+    public Athlete(String name, String surname, String city, String country, LocalDate dateOfBirth, long sportId, long teamId) {
         this.name = name;
         this.surname = surname;
         this.city = city;
         this.country = country;
-        //this.sport = sport;
         this.dateOfBirth = dateOfBirth;
-        //this.team= team;
+        this.sportId = sportId;
+        this.teamId = teamId;
+    }
+
+    public Athlete(long athleteCode, String name, String surname, String city, String country, LocalDate dateOfBirth, long sportId, long teamId) {
+        this.athleteCode = athleteCode;
+        this.name = name;
+        this.surname = surname;
+        this.city = city;
+        this.country = country;
+        this.dateOfBirth = dateOfBirth;
+        this.sportId = sportId;
+        this.teamId = teamId;
     }
 
     public long getAthleteCode() {
@@ -59,7 +72,12 @@ public class Athlete {
         return dateOfBirth;
     }
 
+    public long getSportId() { return sportId; }
+
+    public long getTeamId() { return teamId; }
+
     public void setAthleteCode(long athleteCode) {
         this.athleteCode = athleteCode;
     }
+
 }

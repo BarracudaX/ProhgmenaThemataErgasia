@@ -18,7 +18,7 @@ import domain.Sport;
 import domain.SportType;
 import domain.Team;
 
-@Database(entities = {Team.class, Athlete.class, Sport.class}, version = 3)
+@Database(entities = {Team.class, Athlete.class, Sport.class}, version = 4)
 @TypeConverters({LocalDateConverter.class, GenderConverter.class, SportTypeConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
 
@@ -36,6 +36,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase buildDatabase(Context context) {
         instance = Room.databaseBuilder(context, AppDatabase.class, "db")
+                .fallbackToDestructiveMigration()
                 .allowMainThreadQueries()
                 .build();
         SportDao sportDao = instance.sportDao();
