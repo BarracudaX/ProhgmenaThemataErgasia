@@ -25,7 +25,6 @@ public final class Sport {
 
     @Ignore
     public Sport(String sportName, Gender gender, SportType sportType) {
-        this.sportId = sportId;
         this.sportName = sportName;
         this.gender = gender;
         this.sportType = sportType;
