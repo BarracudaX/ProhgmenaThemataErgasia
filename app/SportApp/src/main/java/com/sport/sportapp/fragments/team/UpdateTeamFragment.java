@@ -1,20 +1,16 @@
-package com.sport.sportapp.fragments;
+package com.sport.sportapp.fragments.team;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.sport.sportapp.R;
-import com.sport.sportapp.databinding.FragmentUpdateTeamBinding;
 
 import domain.Team;
 import viewmodels.MainActivityViewModel;

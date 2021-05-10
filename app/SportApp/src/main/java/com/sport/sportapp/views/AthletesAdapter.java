@@ -3,21 +3,17 @@ package com.sport.sportapp.views;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.sport.sportapp.R;
 import com.sport.sportapp.databinding.AthleteLayoutBinding;
-import com.sport.sportapp.databinding.TeamLayoutBinding;
 import com.sport.sportapp.fragments.UpdateAthleteFragment;
-import com.sport.sportapp.fragments.UpdateTeamFragment;
 
 import java.util.List;
 
 import domain.Athlete;
-import domain.Team;
 import viewmodels.MainActivityViewModel;
 
 public class AthletesAdapter extends RecyclerView.Adapter<AthletesAdapter.AthleteViewHolder> {

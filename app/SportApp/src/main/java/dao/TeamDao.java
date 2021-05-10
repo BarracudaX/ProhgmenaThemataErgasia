@@ -22,4 +22,7 @@ public interface TeamDao extends BaseDao<Team>{
 
     @Query("DELETE FROM Team WHERE teamId = :teamId")
     void deleteById(long teamId);
+
+    @Query("SELECT * FROM Team WHERE sportId = :sportId")
+    LiveData<List<Team>> teamsBySportId(long sportId);
 }

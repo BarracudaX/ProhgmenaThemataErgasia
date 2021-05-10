@@ -5,4 +5,9 @@
         android:id="@+id/insertTeamDestination"
         android:icon="@drawable/baseline_add_20"
         android:title="@string/menu_item_add_team" />
+    <item
+        android:id="@+id/sportsDestination"
+        android:icon="@drawable/outline_groups_24"
+        android:title="@string/menu_item_teams_group_by_sport"
+        />
 </menu>

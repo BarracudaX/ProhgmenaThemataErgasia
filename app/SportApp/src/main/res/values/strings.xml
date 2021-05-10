@@ -100,5 +100,8 @@
     <string name="event_country_label">Country</string>
     <string name="event_country_hint">Country the event took place in</string>
     <string name="event_create_button">Create Event</string>
+    <string name="menu_item_teams_group_by_sport">Teams Grouped By Sport</string>
+    <string name="label_available_sports">Available Sports</string>
+    <string name="label_teams">Found Teams In Sport</string>
 
 </resources>

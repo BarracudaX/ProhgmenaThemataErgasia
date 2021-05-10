@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.navigation.NavDirections;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -49,7 +48,7 @@ public class MainActivityViewModel extends AndroidViewModel {
         return sportIdsAndNames;
     }
     public LiveData<List<Sport>> getSports(){
-        if (teams == null) {
+        if (sports == null) {
             sports = sportDao.liveLoadAllSports();
         }
         return sports;
@@ -120,5 +119,9 @@ public class MainActivityViewModel extends AndroidViewModel {
 
 
     public void insertSport(Sport sport) {sportDao.insert(sport);
+    }
+
+    public LiveData<List<Team>> getTeamsOfSport(long sportId) {
+        return teamDao.teamsBySportId(sportId);
     }
 }

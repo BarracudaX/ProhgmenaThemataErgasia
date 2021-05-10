@@ -1,4 +1,4 @@
-package com.sport.sportapp.fragments;
+package com.sport.sportapp.fragments.team;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -24,6 +24,7 @@ import com.sport.sportapp.MainActivity;
 import com.sport.sportapp.R;
 import com.sport.sportapp.databinding.FragmentTeamMainBinding;
 import com.sport.sportapp.databinding.FragmentWelcomeBinding;
+import com.sport.sportapp.fragments.BaseFragment;
 import com.sport.sportapp.views.TeamsAdapter;
 
 import viewmodels.MainActivityViewModel;
@@ -31,13 +32,6 @@ import viewmodels.MainActivityViewModel;
 public class TeamsFragment extends BaseFragment {
 
     private  FragmentTeamMainBinding binding;
-    private MainActivityViewModel viewModel;
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        viewModel = new ViewModelProvider(getActivity()).get(MainActivityViewModel.class);
-    }
 
     @Nullable
     @Override
@@ -50,16 +44,11 @@ public class TeamsFragment extends BaseFragment {
             gridLayoutManager.setOrientation(RecyclerView.VERTICAL);
             binding.teams.setLayoutManager(gridLayoutManager);
         }
-        viewModel.getTeams().observe(this,teams -> {
-            binding.teams.setAdapter(new TeamsAdapter(teams,viewModel));
+        activityViewModel.getTeams().observe(this,teams -> {
+            binding.teams.setAdapter(new TeamsAdapter(teams,activityViewModel));
         });
-
         configureBottomNavigation(binding.bottomNavigationView);
         return binding.getRoot();
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-    }
 }

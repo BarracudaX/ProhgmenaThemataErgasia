@@ -1,26 +1,16 @@
 package com.sport.sportapp;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 
-import com.google.android.material.navigation.NavigationView;
-import com.sport.sportapp.R;
 import com.sport.sportapp.databinding.ActivityMainBinding;
-import com.sport.sportapp.fragments.InsertTeamFragment;
 
 import viewmodels.MainActivityViewModel;
 
