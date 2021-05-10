@@ -9,6 +9,8 @@ import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import java.time.LocalDate;
+
 import converters.GenderConverter;
 import converters.LocalDateConverter;
 import converters.SportTypeConverter;
@@ -44,6 +46,10 @@ public abstract class AppDatabase extends RoomDatabase {
             sportDao.insert(new Sport("Basketball", Gender.BOTH, SportType.TEAM));
             sportDao.insert(new Sport("Football", Gender.MALE, SportType.TEAM));
             sportDao.insert(new Sport("Ping Pong", Gender.FEMALE, SportType.SINGLE));
+        }
+        TeamDao teamDao = instance.teamDao();
+        if(teamDao.loadAllTeams().isEmpty()){
+            teamDao.insert(new Team("Test Team","Test Stadium","Test City","Test Country", LocalDate.parse("2018-11-01"),1));
         }
         return instance;
     }

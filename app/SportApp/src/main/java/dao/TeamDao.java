@@ -9,6 +9,7 @@ import androidx.room.Update;
 
 import java.util.List;
 
+import domain.Sport;
 import domain.SportIdNameModel;
 import domain.Team;
 import domain.TeamIdNameModel;
@@ -17,7 +18,7 @@ import domain.TeamIdNameModel;
 public interface TeamDao extends BaseDao<Team>{
 
     @Query("SELECT * FROM Team")
-    LiveData<List<Team>> loadAllTeams();
+    LiveData<List<Team>> liveLoadAllTeams();
 
     @Query("SELECT * FROM Team WHERE teamId = :teamId")
     LiveData<Team> findById(long teamId);
@@ -33,4 +34,7 @@ public interface TeamDao extends BaseDao<Team>{
     
     @Query("SELECT teamId,teamName FROM Team")
     LiveData<List<TeamIdNameModel>> teamIdsAndNames();
+
+    @Query("SELECT * FROM Team")
+    List<Team> loadAllTeams();
 }

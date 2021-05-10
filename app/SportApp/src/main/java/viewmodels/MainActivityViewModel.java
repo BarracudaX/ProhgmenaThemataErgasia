@@ -72,7 +72,7 @@ public class MainActivityViewModel extends AndroidViewModel {
 
     public LiveData<List<Team>> getTeams() {
         if (teams == null) {
-            teams = teamDao.loadAllTeams();
+            teams = teamDao.liveLoadAllTeams();
         }
         return teams;
     }
