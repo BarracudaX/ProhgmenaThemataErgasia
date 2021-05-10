@@ -1,12 +1,15 @@
 package domain;
 
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.time.LocalDate;
-
-@Entity
+@Entity(foreignKeys = {
+        @ForeignKey(entity = Sport.class,parentColumns = "sportId",childColumns = "sportId",onDelete = ForeignKey.CASCADE),
+        @ForeignKey(entity = Team.class,parentColumns = "teamId",childColumns = "teamId",onDelete = ForeignKey.CASCADE)
+})
 public class Athlete {
 
     @PrimaryKey(autoGenerate = true)
