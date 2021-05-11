@@ -1,4 +1,4 @@
-package com.sport.sportapp.fragments;
+package com.sport.sportapp.fragments.athlete;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.sport.sportapp.R;
 import com.sport.sportapp.databinding.FragmentAthleteBySportBinding;
+import com.sport.sportapp.fragments.BaseFragment;
 import com.sport.sportapp.views.AthletesAdapter;
 
 import java.util.HashSet;

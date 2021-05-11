@@ -47,11 +47,11 @@
         android:label="UpdateTeamFragment" />
     <fragment
         android:id="@+id/insertAthleteDestination"
-        android:name="com.sport.sportapp.fragments.InsertAthleteFragment"
+        android:name="com.sport.sportapp.fragments.athlete.InsertAthleteFragment"
         android:label="Add New Athlete" />
     <fragment
         android:id="@+id/athleteMainMenuFragment"
-        android:name="com.sport.sportapp.fragments.AthleteMainMenuFragment"
+        android:name="com.sport.sportapp.fragments.athlete.AthleteMainMenuFragment"
         android:label="Athletes">
         <action
             android:id="@+id/action_athleteMainMenuFragment_to_insertAthleteFragment"
@@ -65,7 +65,7 @@
     </fragment>
     <fragment
         android:id="@+id/updateAthleteFragment"
-        android:name="com.sport.sportapp.fragments.UpdateAthleteFragment"
+        android:name="com.sport.sportapp.fragments.athlete.UpdateAthleteFragment"
         android:label="Update Athlete" />
     <fragment
         android:id="@+id/insertSportDestination"
@@ -113,6 +113,6 @@
         android:label="@string/label_teams" />
     <fragment
         android:id="@+id/athleteBySportDestination"
-        android:name="com.sport.sportapp.fragments.AthleteBySportFragment"
+        android:name="com.sport.sportapp.fragments.athlete.AthleteBySportFragment"
         android:label="AthleteBySportFragment" />
 </navigation>
