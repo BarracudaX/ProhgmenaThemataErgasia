@@ -1,13 +1,15 @@
 package domain;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class SingleMatch extends Match {
 
-    private final Set<AthleteScore> scores = new HashSet<>();
+    private final List<AthleteScore> athleteScores = new ArrayList<>();
 
     public SingleMatch(){
 
@@ -17,8 +19,8 @@ public class SingleMatch extends Match {
         super(matchDate, city, country, sport);
     }
 
-    public Set<AthleteScore> getAthleteScores() {
-        return scores;
+    public List<AthleteScore> getAthleteScores() {
+        return athleteScores;
     }
 
 

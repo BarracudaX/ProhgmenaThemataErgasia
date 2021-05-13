@@ -1,5 +1,7 @@
 package domain;
 
+import com.google.firebase.firestore.Exclude;
+
 import java.util.Date;
 
 public abstract class Match {
@@ -38,10 +40,16 @@ public abstract class Match {
         return country;
     }
 
+    @Exclude
     public Sport getSport() {
         return sport;
     }
 
+    public long getSportId(){
+        return sport.getSportId();
+    }
+
+    @Exclude
     public String getId() {
         return Id;
     }

@@ -26,14 +26,18 @@ public class FirestoreMatchDao implements MatchDao{
 
     @Override
     public void insertTeamMatch(TeamMatch match) {
-        db.collection(MatchCollectionName).add(match).addOnSuccessListener(documentReference ->{
+        db.collection(MatchCollectionName).add(match)
+                .addOnSuccessListener(documentReference ->{
                     match.setId(documentReference.getId());
                 });
     }
 
     @Override
     public void insertSingleMatch(SingleMatch match) {
-
+        db.collection(MatchCollectionName).add(match)
+                .addOnSuccessListener( documentReference -> {
+                   match.setId(documentReference.getId());
+                });
     }
 
     @Override

@@ -26,4 +26,7 @@ public interface AthleteDao extends BaseDao<Athlete> {
 
     @Query("SELECT * FROM Athlete WHERE athleteCode = :athleteId")
     LiveData<Athlete> findById(long athleteId);
+
+    @Query("SELECT * FROM Athlete")
+    List<Athlete> Athletes();
 }
