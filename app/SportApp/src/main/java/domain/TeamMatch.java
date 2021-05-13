@@ -4,17 +4,16 @@ import com.google.firebase.firestore.Exclude;
 import com.google.firebase.firestore.IgnoreExtraProperties;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 public class TeamMatch extends Match {
 
-    @Exclude
     private Team firstTeam;
 
     private long firstTeamId;
 
     private int firstTeamScore;
 
-    @Exclude
     private Team secondTeam;
 
     private long secondTeamId;
@@ -25,8 +24,8 @@ public class TeamMatch extends Match {
 
     }
 
-    public TeamMatch(LocalDateTime matchDate, String city, String country,
-                        Sport sport, Team firstTeam, int firstTeamScore, Team secondTeam, int secondTeamScore) {
+    public TeamMatch(Date matchDate, String city, String country,
+                     Sport sport, Team firstTeam, int firstTeamScore, Team secondTeam, int secondTeamScore) {
         super(matchDate, city, country, sport);
         this.firstTeam = firstTeam;
         this.firstTeamScore = firstTeamScore;
@@ -36,6 +35,7 @@ public class TeamMatch extends Match {
         this.secondTeamId = secondTeam.getTeamId();
     }
 
+    @Exclude
     public Team getFirstTeam() {
         return firstTeam;
     }
@@ -48,6 +48,7 @@ public class TeamMatch extends Match {
         return firstTeamScore;
     }
 
+    @Exclude
     public Team getSecondTeam() {
         return secondTeam;
     }

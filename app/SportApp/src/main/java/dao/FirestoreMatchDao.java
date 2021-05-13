@@ -26,8 +26,9 @@ public class FirestoreMatchDao implements MatchDao{
 
     @Override
     public void insertTeamMatch(TeamMatch match) {
-        DocumentReference matchDocument = db.collection(MatchCollectionName).document();
-        match.setId(matchDocument.getId());
+        db.collection(MatchCollectionName).add(match).addOnSuccessListener(documentReference ->{
+                    match.setId(documentReference.getId());
+                });
     }
 
     @Override

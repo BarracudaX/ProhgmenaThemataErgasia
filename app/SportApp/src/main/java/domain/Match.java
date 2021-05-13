@@ -1,10 +1,10 @@
 package domain;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public abstract class Match {
 
-    private LocalDateTime matchDate;
+    private Date matchDate;
     private String city;
     private String country;
     private Sport sport;
@@ -15,7 +15,7 @@ public abstract class Match {
 
     }
 
-    public Match(LocalDateTime matchDate, String city, String country, Sport sport) {
+    public Match(Date matchDate, String city, String country, Sport sport) {
         this.matchDate = matchDate;
         this.city = city;
         this.country = country;
@@ -26,7 +26,7 @@ public abstract class Match {
         Id = id;
     }
 
-    public LocalDateTime getMatchDate() {
+    public Date getMatchDate() {
         return matchDate;
     }
 
