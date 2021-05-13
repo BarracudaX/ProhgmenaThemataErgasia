@@ -9,6 +9,8 @@ import domain.TeamMatch;
 
 public class FirestoreMatchDao implements MatchDao{
 
+    private final static String MatchCollectionName = "matches";
+
     private final TeamDao teamDao;
     private final AthleteDao athleteDao;
     private final SportDao sportDao;

@@ -8,8 +8,8 @@ public class SingleMatch extends Match {
 
     private final Set<AthleteScore> scores = new HashSet<>();
 
-    protected SingleMatch(boolean isTeamMatch, LocalDateTime matchDate, String city, String country, Sport sport) {
-        super(isTeamMatch, matchDate, city, country, sport);
+    protected SingleMatch(LocalDateTime matchDate, String city, String country, Sport sport,String id) {
+        super(matchDate, city, country, sport, id);
     }
 
     public Set<AthleteScore> getAthleteScores() {
