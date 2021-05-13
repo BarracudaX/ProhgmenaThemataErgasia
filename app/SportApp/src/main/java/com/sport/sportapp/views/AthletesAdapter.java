@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.sport.sportapp.R;
 import com.sport.sportapp.databinding.AthleteLayoutBinding;
-import com.sport.sportapp.fragments.UpdateAthleteFragment;
+import com.sport.sportapp.fragments.athlete.UpdateAthleteFragment;
 
 import java.util.List;
 

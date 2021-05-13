@@ -1,4 +1,4 @@
-package com.sport.sportapp.fragments;
+package com.sport.sportapp.fragments.athlete;
 
 import android.os.Bundle;
 
@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import com.sport.sportapp.R;
 import com.sport.sportapp.databinding.FragmentAthleteMainMenuBinding;
 import com.sport.sportapp.databinding.FragmentTeamMainBinding;
+import com.sport.sportapp.fragments.BaseFragment;
 import com.sport.sportapp.views.AthletesAdapter;
 import com.sport.sportapp.views.TeamsAdapter;
 
