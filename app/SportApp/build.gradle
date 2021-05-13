@@ -10,6 +10,7 @@ android {
         viewBinding true
     }
     defaultConfig {
+        multiDexEnabled true
         applicationId "com.sport.sportapp"
         minSdkVersion 16
         targetSdkVersion 30
@@ -37,6 +38,7 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.firebase:firebase-firestore:21.4.0'
     def room_version = "2.2.6"

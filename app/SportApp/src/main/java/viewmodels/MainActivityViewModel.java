@@ -13,6 +13,8 @@ import java.util.List;
 
 import dao.AppDatabase;
 import dao.AthleteDao;
+import dao.FirestoreMatchDao;
+import dao.MatchDao;
 import dao.SportDao;
 import dao.TeamDao;
 import domain.Athlete;
@@ -27,6 +29,7 @@ public class MainActivityViewModel extends AndroidViewModel {
     private final TeamDao teamDao;
     private final SportDao sportDao;
     private final AthleteDao athleteDao;
+    private final MatchDao matchDao;
     private LiveData<List<SportIdNameModel>> sportIdsAndNames ;
     private LiveData<List<TeamIdNameModel>> teamIdsAndNames ;
     private LiveData<List<Team>> teams;
@@ -34,8 +37,8 @@ public class MainActivityViewModel extends AndroidViewModel {
     private List<Athlete> athletesBySportId;
     private LiveData<List<Sport>> sports;
     private MutableLiveData<LocalDate> pickedDate = new MutableLiveData<>();
-    private SingleLiveEvent<NavigationRequest> navDestinationRequest = new SingleLiveEvent<>();
-    private SingleLiveEvent<Void> navigateBackRequest = new SingleLiveEvent<>();
+    private UpdateActiveLiveData<NavigationRequest> navDestinationRequest = new UpdateActiveLiveData<>();
+    private UpdateActiveLiveData<Void> navigateBackRequest = new UpdateActiveLiveData<>();
 
     public MainActivityViewModel(@NonNull Application application) {
         super(application);
@@ -43,6 +46,7 @@ public class MainActivityViewModel extends AndroidViewModel {
         teamDao = appDatabase.teamDao();
         sportDao = appDatabase.sportDao();
         athleteDao = appDatabase.athleteDao();
+        matchDao = new FirestoreMatchDao(teamDao,athleteDao, sportDao);
     }
 
     public LiveData<List<SportIdNameModel>> getSportIdsAndNames() {
@@ -77,7 +81,7 @@ public class MainActivityViewModel extends AndroidViewModel {
         return teams;
     }
     public LiveData<List<Athlete>> getAthletes() {
-        if (teams == null) {
+        if (athletes == null) {
             athletes = athleteDao.loadAllAthletes();
         }
         return athletes;
@@ -155,4 +159,5 @@ public class MainActivityViewModel extends AndroidViewModel {
     public LiveData<List<Team>> getTeamsOfSport(long sportId) {
         return teamDao.teamsBySportId(sportId);
     }
+
 }

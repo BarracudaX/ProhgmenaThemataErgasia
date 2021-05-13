@@ -1,10 +1,12 @@
-package viewmodels;
+ package viewmodels;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
@@ -12,7 +14,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * Only notifies observers when setValue is used.
  * @param <T>
  */
-public class SingleLiveEvent<T> extends MutableLiveData<T> {
+public class UpdateActiveLiveData<T> extends MutableLiveData<T> {
 
     private final AtomicBoolean pending = new AtomicBoolean(false);
 

@@ -20,7 +20,7 @@ import domain.Sport;
 import domain.SportType;
 import domain.Team;
 
-@Database(entities = {Team.class, Athlete.class, Sport.class}, version = 4)
+@Database(entities = {Team.class, Athlete.class, Sport.class}, version = 5)
 @TypeConverters({LocalDateConverter.class, GenderConverter.class, SportTypeConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
 
