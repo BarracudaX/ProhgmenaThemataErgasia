@@ -51,13 +51,12 @@ public class FirestoreMatchDao implements MatchDao{
     }
 
     @Override
-    public void deleteTeamMatch(TeamMatch match) {
-
-    }
-
-    @Override
-    public void deleteSingleMatch(SingleMatch match) {
-
+    public void deleteMatch(Match match) {
+        db.collection(MatchCollectionName).document(match.getId())
+                .delete()
+                .addOnSuccessListener( (Void unused) ->{
+                    match.setId(null);
+                });
     }
 
     @Override

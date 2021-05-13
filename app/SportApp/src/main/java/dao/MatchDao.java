@@ -16,9 +16,7 @@ public interface MatchDao {
 
     void updateSingleMatch(SingleMatch match);
 
-    void deleteTeamMatch(TeamMatch match);
-
-    void deleteSingleMatch(SingleMatch match);
+    void deleteMatch(Match match);
 
     Set<TeamMatch> selectTeamMatches();
 
