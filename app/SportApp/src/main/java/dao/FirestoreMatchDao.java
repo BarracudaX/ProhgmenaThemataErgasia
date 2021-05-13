@@ -1,9 +1,11 @@
   package dao;
 
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Set;
 
+import domain.Match;
 import domain.SingleMatch;
 import domain.TeamMatch;
 
@@ -25,6 +27,7 @@ public class FirestoreMatchDao implements MatchDao{
 
     @Override
     public void insertTeamMatch(TeamMatch match) {
+        DocumentReference matchDocument = db.collection(MatchCollectionName).document();
     }
 
     @Override

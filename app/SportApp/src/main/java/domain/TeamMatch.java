@@ -12,11 +12,27 @@ public class TeamMatch extends Match {
 
 
     protected TeamMatch(LocalDateTime matchDate, String city, String country,
-                        Sport sport, Team firstTeam, int firstTeamScore, Team secondTeam, int secondTeamScore,String id) {
-        super(matchDate, city, country, sport, id);
+                        Sport sport, Team firstTeam, int firstTeamScore, Team secondTeam, int secondTeamScore) {
+        super(matchDate, city, country, sport);
         this.firstTeam = firstTeam;
         this.firstTeamScore = firstTeamScore;
         this.secondTeam = secondTeam;
         this.secondTeamScore = secondTeamScore;
+    }
+
+    public Team getFirstTeam() {
+        return firstTeam;
+    }
+
+    public int getFirstTeamScore() {
+        return firstTeamScore;
+    }
+
+    public Team getSecondTeam() {
+        return secondTeam;
+    }
+
+    public int getSecondTeamScore() {
+        return secondTeamScore;
     }
 }
