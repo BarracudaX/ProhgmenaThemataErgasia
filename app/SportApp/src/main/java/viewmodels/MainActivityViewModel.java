@@ -18,6 +18,7 @@ import dao.MatchDao;
 import dao.SportDao;
 import dao.TeamDao;
 import domain.Athlete;
+import domain.SingleMatch;
 import domain.Sport;
 import domain.SportIdNameModel;
 import domain.SportType;
@@ -29,7 +30,7 @@ public class MainActivityViewModel extends AndroidViewModel {
     private final TeamDao teamDao;
     private final SportDao sportDao;
     private final AthleteDao athleteDao;
-    private final MatchDao matchDao;
+    private final FirestoreMatchDao matchDao;
     private LiveData<List<SportIdNameModel>> sportIdsAndNames ;
     private LiveData<List<TeamIdNameModel>> teamIdsAndNames ;
     private LiveData<List<Team>> teams;
@@ -135,6 +136,9 @@ public class MainActivityViewModel extends AndroidViewModel {
     public void deleteAthleteById(long id) {
         athleteDao.deleteById(id);
     }
+    public void deleteMatchById(long id) {
+        matchDao.deleteById(id);
+    }
 
     public void insertAthlete(Athlete athlete) {athleteDao.insert(athlete);
     }
@@ -158,6 +162,9 @@ public class MainActivityViewModel extends AndroidViewModel {
 
     public LiveData<List<Team>> getTeamsOfSport(long sportId) {
         return teamDao.teamsBySportId(sportId);
+    }
+    public LiveData<List<SingleMatch>> getSingleMatches(){
+        return(matchDao.selectSingleMatches());
     }
 
 }

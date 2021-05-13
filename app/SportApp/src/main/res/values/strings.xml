@@ -67,7 +67,8 @@
 
     <!--    MENU-->
     <string name="menu_item_events">Events</string>
-    <string name="menu_item_add_event">Add Event</string>
+    <string name="menu_item_add_single_match">Add Single Match</string>
+    <string name="menu_item_add_team_match">Add Team Match</string>
     <string name="menu_item_athletes">Athletes</string>
     <string name="menu_item_add_athlete">Add Athlete</string>
     <string name="menu_item_delete_athlete">Delete Athlete</string>
@@ -105,5 +106,7 @@
     <string name="label_teams">Found Teams In Sport</string>
     <string name="athlete_sport_label">Athlete Sport</string>
     <string name="athlete_team_label">Athelet\'s Team</string>
+    <string name="event_delete_button">Delete Event</string>
+    <string name="event_update_button">Update Event</string>
 
 </resources>

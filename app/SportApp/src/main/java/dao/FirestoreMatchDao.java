@@ -107,4 +107,6 @@ public class FirestoreMatchDao implements MatchDao{
         });
         return matches;
     }
+    public void deleteById(long id){}
+
 }

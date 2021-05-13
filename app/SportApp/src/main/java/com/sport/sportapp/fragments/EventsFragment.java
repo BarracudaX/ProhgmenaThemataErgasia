@@ -29,6 +29,9 @@ public class EventsFragment extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentEventsBinding.inflate(inflater);
+        viewModel.getSingleMatches().observe(this, events -> {
+
+        });
         configureBottomNavigation(binding.bottomNavigationView);
         return  binding.getRoot();
 

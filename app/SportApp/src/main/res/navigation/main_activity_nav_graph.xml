@@ -92,13 +92,9 @@
         android:label="fragment_events"
         tools:layout="@layout/fragment_events">
         <action
-            android:id="@+id/action_eventsFragment_to_insertEventFragment"
-            app:destination="@id/insertEventFragment" />
+            android:id="@+id/action_eventsFragment_to_insertSingleMatchFragment"
+            app:destination="@id/insertSingleMatchFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/insertEventFragment"
-        android:name="com.sport.sportapp.fragments.InsertEventFragment"
-        android:label="InsertEventFragment" />
     <fragment
         android:id="@+id/sportsDestination"
         android:name="com.sport.sportapp.fragments.team.SportsFragment"
@@ -115,4 +111,9 @@
         android:id="@+id/athleteBySportDestination"
         android:name="com.sport.sportapp.fragments.athlete.AthleteBySportFragment"
         android:label="AthleteBySportFragment" />
+    <fragment
+        android:id="@+id/insertSingleMatchFragment"
+        android:name="com.sport.sportapp.insertSingleMatchFragment"
+        android:label="fragment_insert_single_match"
+        tools:layout="@layout/fragment_insert_single_match" />
 </navigation>

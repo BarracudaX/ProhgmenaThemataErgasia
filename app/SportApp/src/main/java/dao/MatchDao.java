@@ -25,4 +25,6 @@ public interface MatchDao {
 
     LiveData<List<SingleMatch>> selectSingleMatches();
 
+    void deleteById(long id);
+
 }

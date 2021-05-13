@@ -23,5 +23,13 @@ public class SingleMatch extends Match {
         return athleteScores;
     }
 
+    public Long getAthlete1Id(){ return athleteScores.get(0).getAthleteId();}
+
+    public Long getAthlete2Id(){ return athleteScores.get(1).getAthleteId();}
+
+    public Athlete getAthlete1(){ return athleteScores.get(0).getAthlete();}
+
+    public Athlete getAthlete2(){ return athleteScores.get(1).getAthlete();}
+
 
 }
