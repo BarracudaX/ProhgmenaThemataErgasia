@@ -1,27 +1,47 @@
 package domain;
 
+import com.google.firebase.firestore.Exclude;
+import com.google.firebase.firestore.IgnoreExtraProperties;
+
 import java.time.LocalDateTime;
 
 public class TeamMatch extends Match {
 
-    private final Team firstTeam;
-    private final int firstTeamScore;
+    @Exclude
+    private Team firstTeam;
 
-    private final Team secondTeam;
-    private final int secondTeamScore;
+    private long firstTeamId;
 
+    private int firstTeamScore;
 
-    protected TeamMatch(LocalDateTime matchDate, String city, String country,
+    @Exclude
+    private Team secondTeam;
+
+    private long secondTeamId;
+
+    private int secondTeamScore;
+
+    public TeamMatch(){
+
+    }
+
+    public TeamMatch(LocalDateTime matchDate, String city, String country,
                         Sport sport, Team firstTeam, int firstTeamScore, Team secondTeam, int secondTeamScore) {
         super(matchDate, city, country, sport);
         this.firstTeam = firstTeam;
         this.firstTeamScore = firstTeamScore;
         this.secondTeam = secondTeam;
         this.secondTeamScore = secondTeamScore;
+        this.firstTeamId = firstTeam.getTeamId();
+        this.secondTeamId = secondTeam.getTeamId();
     }
 
     public Team getFirstTeam() {
         return firstTeam;
+    }
+
+    public long getFirstTeamId() {
+        return firstTeamId;
     }
 
     public int getFirstTeamScore() {
@@ -30,6 +50,10 @@ public class TeamMatch extends Match {
 
     public Team getSecondTeam() {
         return secondTeam;
+    }
+
+    public long getSecondTeamId() {
+        return secondTeamId;
     }
 
     public int getSecondTeamScore() {

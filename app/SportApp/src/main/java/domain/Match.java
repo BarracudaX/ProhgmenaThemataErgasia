@@ -4,14 +4,18 @@ import java.time.LocalDateTime;
 
 public abstract class Match {
 
-    private final LocalDateTime matchDate;
-    private final String city;
-    private final String country;
-    private final Sport sport;
+    private LocalDateTime matchDate;
+    private String city;
+    private String country;
+    private Sport sport;
     private String Id;
 
+    public Match(){
 
-    protected Match(LocalDateTime matchDate, String city, String country, Sport sport) {
+
+    }
+
+    public Match(LocalDateTime matchDate, String city, String country, Sport sport) {
         this.matchDate = matchDate;
         this.city = city;
         this.country = country;

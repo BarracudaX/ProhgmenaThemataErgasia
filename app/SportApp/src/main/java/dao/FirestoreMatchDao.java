@@ -24,10 +24,10 @@ public class FirestoreMatchDao implements MatchDao{
         this.sportDao = sportDao;
     }
 
-
     @Override
     public void insertTeamMatch(TeamMatch match) {
         DocumentReference matchDocument = db.collection(MatchCollectionName).document();
+        match.setId(matchDocument.getId());
     }
 
     @Override
