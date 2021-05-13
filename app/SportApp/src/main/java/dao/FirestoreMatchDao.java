@@ -70,9 +70,7 @@ public class FirestoreMatchDao implements MatchDao{
     @Override
     public LiveData<List<TeamMatch>> selectTeamMatches() {
         MutableLiveData<List<TeamMatch>> matches = new MutableLiveData<>();
-        db.collection(MatchCollectionName)
-                .get()
-                .addOnSuccessListener(querySnapshot ->{
+        db.collection(MatchCollectionName).addSnapshotListener((querySnapshot, e) ->{
                     List<TeamMatch> result = new ArrayList<>();
                     for(DocumentSnapshot document : querySnapshot.getDocuments() ){
                         if(document.contains("firstTeamId")){
@@ -92,23 +90,21 @@ public class FirestoreMatchDao implements MatchDao{
     @Override
     public LiveData<List<SingleMatch>> selectSingleMatches() {
         MutableLiveData<List<SingleMatch>> matches = new MutableLiveData<>();
-        db.collection(MatchCollectionName)
-                .get()
-                .addOnSuccessListener(querySnapshot ->{
-                    List<SingleMatch> result = new ArrayList<>();
-                    for(DocumentSnapshot document : querySnapshot.getDocuments() ){
-                        if(document.contains("athleteScores")){
-                            SingleMatch match = document.toObject(SingleMatch.class);
-                            match.setId(document.getId());
-                            match.setSport(sportDao.findSportById(match.getSportId()));
-                            for(AthleteScore athleteScore : match.getAthleteScores()){
-                                athleteScore.setAthlete(athleteDao.findAthleteById(athleteScore.getAthleteId()));
-                            }
-                            result.add(match);
-                        }
+        db.collection(MatchCollectionName).addSnapshotListener((querySnapshot, e) -> {
+            List<SingleMatch> result = new ArrayList<>();
+            for(DocumentSnapshot document : querySnapshot.getDocuments() ){
+                if(document.contains("athleteScores")){
+                    SingleMatch match = document.toObject(SingleMatch.class);
+                    match.setId(document.getId());
+                    match.setSport(sportDao.findSportById(match.getSportId()));
+                    for(AthleteScore athleteScore : match.getAthleteScores()){
+                        athleteScore.setAthlete(athleteDao.findAthleteById(athleteScore.getAthleteId()));
                     }
-                    matches.postValue(result);
-                });
+                    result.add(match);
+                }
+            }
+            matches.postValue(result);
+        });
         return matches;
     }
 }
