@@ -30,6 +30,10 @@ public interface SportDao extends BaseDao<Sport> {
     void deleteAll();
 
     @Query("SELECT sportType FROM Sport WHERE sportId = :id")
-    public SportType sportTypeById(long id);
+    SportType sportTypeById(long id);
+
+    @Query("SELECT * FROM Sport WHERE sportId = :sportId")
+    Sport findSportById(long sportId);
+
 
 }

@@ -1,5 +1,8 @@
 package dao;
 
+import androidx.lifecycle.LiveData;
+
+import java.util.List;
 import java.util.Set;
 
 import domain.Match;
@@ -18,8 +21,8 @@ public interface MatchDao {
 
     void deleteMatch(Match match);
 
-    Set<TeamMatch> selectTeamMatches();
+    LiveData<List<TeamMatch>> selectTeamMatches();
 
-    Set<SingleMatch> selectSingleMatches();
+    LiveData<List<SingleMatch>> selectSingleMatches();
 
 }

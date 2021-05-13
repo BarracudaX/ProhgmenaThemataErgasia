@@ -10,6 +10,7 @@ public abstract class Match {
     private String city;
     private String country;
     private Sport sport;
+    private long sportId;
     private String Id;
 
     public Match(){
@@ -22,6 +23,7 @@ public abstract class Match {
         this.city = city;
         this.country = country;
         this.sport = sport;
+        this.sportId = sport.getSportId();
     }
 
     public void setId(String id) {
@@ -46,11 +48,15 @@ public abstract class Match {
     }
 
     public long getSportId(){
-        return sport.getSportId();
+        return sportId;
     }
 
     @Exclude
     public String getId() {
         return Id;
+    }
+
+    public void setSport(Sport sport) {
+        this.sport = sport;
     }
 }

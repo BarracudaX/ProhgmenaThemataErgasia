@@ -4,12 +4,18 @@ import com.google.firebase.firestore.Exclude;
 
 public class AthleteScore {
 
-    private final Athlete athlete;
-    private final double score;
+    private Athlete athlete;
+    private long athleteId;
+    private double score;
+
+    public AthleteScore(){
+
+    }
 
     public AthleteScore(Athlete athlete, double score) {
         this.athlete = athlete;
         this.score = score;
+        this.athleteId = athlete.getAthleteCode();
     }
 
     @Exclude
@@ -22,6 +28,10 @@ public class AthleteScore {
     }
 
     public long getAthleteId(){
-        return athlete.getAthleteCode();
+        return athleteId;
+    }
+
+    public void setAthlete(Athlete athlete) {
+        this.athlete = athlete;
     }
 }

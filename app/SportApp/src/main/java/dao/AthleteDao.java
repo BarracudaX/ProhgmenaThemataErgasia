@@ -29,4 +29,7 @@ public interface AthleteDao extends BaseDao<Athlete> {
 
     @Query("SELECT * FROM Athlete")
     List<Athlete> Athletes();
+
+    @Query("SELECT * FROM Athlete WHERE athleteCode = :athleteId")
+    Athlete findAthleteById(long athleteId);
 }

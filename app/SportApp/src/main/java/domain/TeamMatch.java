@@ -60,4 +60,12 @@ public class TeamMatch extends Match {
     public int getSecondTeamScore() {
         return secondTeamScore;
     }
+
+    public void setFirstTeam(Team firstTeam) {
+        this.firstTeam = firstTeam;
+    }
+
+    public void setSecondTeam(Team secondTeam) {
+        this.secondTeam = secondTeam;
+    }
 }
