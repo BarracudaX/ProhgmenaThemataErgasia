@@ -26,6 +26,7 @@ public class SingleMatchAdapter extends RecyclerView.Adapter<SingleMatchAdapter.
     private final MainActivityViewModel viewModel;
     private final Athlete athlete1 = null;
     private final Athlete athlete2 = null;
+    String id;
 
     public SingleMatchAdapter(List<SingleMatch> matches, MainActivityViewModel viewModel) {
         this.matches = matches;
@@ -36,7 +37,7 @@ public class SingleMatchAdapter extends RecyclerView.Adapter<SingleMatchAdapter.
     @Override
     public SingleMatchViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new SingleMatchViewHolder(
-                LayoutInflater.from(parent.getContext()).inflate(R.layout.athlete_layout,parent,false),
+                LayoutInflater.from(parent.getContext()).inflate(R.layout.event_layout,parent,false),
                 viewModel
         );
     }
@@ -71,6 +72,7 @@ public class SingleMatchAdapter extends RecyclerView.Adapter<SingleMatchAdapter.
             binding.athlete2NameInput.setText(String.valueOf(athlete2.getAthleteName()));
             binding.athleteNamesInput.setText(String.valueOf(athlete1.getAthleteName()) + " vs " + String.valueOf(athlete2.getAthleteName()) );
             binding.eventIdInput.setText(match.getId());
+
         }
 
         private void onUpdateButtonClicked(View view) {
@@ -79,8 +81,8 @@ public class SingleMatchAdapter extends RecyclerView.Adapter<SingleMatchAdapter.
         }
 
         private void onDeleteButtonClicked(View view) {
-            long id = Long.parseLong(binding.eventIdInput.getText().toString());
-            viewModel.deleteMatchById(id);
+            //long id =
+           // viewModel.deleteMatchById(id);
         }
     }
 

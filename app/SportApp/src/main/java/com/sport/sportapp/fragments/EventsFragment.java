@@ -24,7 +24,10 @@ public class EventsFragment extends BaseFragment {
     private FragmentEventsBinding binding;
     private MainActivityViewModel viewModel;
 
-    public EventsFragment() {
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        viewModel = new ViewModelProvider(getActivity()).get(MainActivityViewModel.class);
     }
     @Nullable
     @Override
