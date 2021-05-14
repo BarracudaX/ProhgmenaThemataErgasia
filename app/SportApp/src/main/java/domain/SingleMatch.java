@@ -19,6 +19,7 @@ public class SingleMatch extends Match {
         super(matchDate, city, country, sport);
     }
 
+
     public List<AthleteScore> getAthleteScores() {
         return athleteScores;
     }
@@ -30,6 +31,10 @@ public class SingleMatch extends Match {
     public Athlete getAthlete1(){ return athleteScores.get(0).getAthlete();}
 
     public Athlete getAthlete2(){ return athleteScores.get(1).getAthlete();}
+
+    public double getAthlete1Score(){return athleteScores.get(0).getScore();}
+
+    public double getAthlete2Score(){return athleteScores.get(1).getScore();}
 
 
 }

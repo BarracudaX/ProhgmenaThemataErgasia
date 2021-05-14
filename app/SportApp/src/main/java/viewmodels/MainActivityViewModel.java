@@ -24,6 +24,7 @@ import domain.SportIdNameModel;
 import domain.SportType;
 import domain.Team;
 import domain.TeamIdNameModel;
+import domain.TeamMatch;
 
 public class MainActivityViewModel extends AndroidViewModel {
 
@@ -166,5 +167,7 @@ public class MainActivityViewModel extends AndroidViewModel {
     public LiveData<List<SingleMatch>> getSingleMatches(){
         return(matchDao.selectSingleMatches());
     }
-
+    public LiveData<List<TeamMatch>> getTeamMatches(){
+        return(matchDao.selectTeamMatches());
+    }
 }

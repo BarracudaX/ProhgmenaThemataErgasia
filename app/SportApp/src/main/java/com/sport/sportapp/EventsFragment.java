@@ -1,4 +1,4 @@
-package com.sport.sportapp.fragments;
+package com.sport.sportapp;
 
 import android.os.Bundle;
 
@@ -12,33 +12,30 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.sport.sportapp.R;
-import com.sport.sportapp.databinding.FragmentAthleteMainMenuBinding;
 import com.sport.sportapp.databinding.FragmentEventsBinding;
-import com.sport.sportapp.views.AthletesAdapter;
-import com.sport.sportapp.views.SingleMatchAdapter;
+import com.sport.sportapp.fragments.BaseFragment;
+import com.sport.sportapp.fragments.SingleMatchesFragment;
 
 import viewmodels.MainActivityViewModel;
 
 public class EventsFragment extends BaseFragment {
-
-    private FragmentEventsBinding binding;
-    private MainActivityViewModel viewModel;
-
+    protected FragmentEventsBinding binding;
+    protected MainActivityViewModel viewModel;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewModel = new ViewModelProvider(getActivity()).get(MainActivityViewModel.class);
     }
-    @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentEventsBinding.inflate(inflater);
-        viewModel.getSingleMatches().observe(this, events -> {
-            binding.events.setAdapter(new SingleMatchAdapter(events,viewModel));
+        binding = FragmentEventsBinding.inflate(inflater, container, false);
+        binding.SingleButton.setOnClickListener((v) -> {
+            viewModel.navigateTo(R.id.singleMatchesFragment, SingleMatchesFragment.getBundleRequest());
         });
         configureBottomNavigation(binding.bottomNavigationView);
         return  binding.getRoot();
     }
+
     @Override
     public void onStart() {
         super.onStart();

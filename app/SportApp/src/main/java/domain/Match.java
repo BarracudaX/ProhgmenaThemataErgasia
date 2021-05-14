@@ -59,4 +59,5 @@ public abstract class Match {
     public void setSport(Sport sport) {
         this.sport = sport;
     }
+
 }

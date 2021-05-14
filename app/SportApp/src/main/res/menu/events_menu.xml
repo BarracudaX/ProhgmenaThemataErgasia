@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/insertSingleMatchFragment"
+        android:id="@+id/singleMatchesFragment"
         android:icon="@drawable/baseline_add_20"
-        android:title="@string/menu_item_add_single_match" />
+        android:title="@string/menu_item_single_match" />
     <item
-        android:id="@+id/insertTeamMatchFragment"
+        android:id="@+id/teamMatchFragment"
         android:icon="@drawable/baseline_add_20"
-        android:title="@string/menu_item_add_single_match" />
+        android:title="@string/menu_item_team_match" />
 </menu>

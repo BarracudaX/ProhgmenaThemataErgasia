@@ -8,15 +8,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.sport.sportapp.R;
-import com.sport.sportapp.databinding.AthleteLayoutBinding;
-import com.sport.sportapp.databinding.EventLayoutBinding;
-import com.sport.sportapp.fragments.athlete.UpdateAthleteFragment;
+import com.sport.sportapp.databinding.SingleMatchLayoutBinding;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import domain.Athlete;
-import domain.AthleteScore;
 import domain.SingleMatch;
 import viewmodels.MainActivityViewModel;
 
@@ -37,7 +33,7 @@ public class SingleMatchAdapter extends RecyclerView.Adapter<SingleMatchAdapter.
     @Override
     public SingleMatchViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new SingleMatchViewHolder(
-                LayoutInflater.from(parent.getContext()).inflate(R.layout.event_layout,parent,false),
+                LayoutInflater.from(parent.getContext()).inflate(R.layout.single_match_layout,parent,false),
                 viewModel
         );
     }
@@ -54,29 +50,30 @@ public class SingleMatchAdapter extends RecyclerView.Adapter<SingleMatchAdapter.
 
     public static class SingleMatchViewHolder extends RecyclerView.ViewHolder{
 
-        private final EventLayoutBinding binding;
+        private final @NonNull SingleMatchLayoutBinding binding;
         private final MainActivityViewModel viewModel;
 
         public SingleMatchViewHolder(@NonNull View itemView, MainActivityViewModel viewModel) {
             super(itemView);
             this.viewModel = viewModel;
-            binding = EventLayoutBinding.bind(itemView);
+            binding = SingleMatchLayoutBinding.bind(itemView);
             binding.eventUpdateButton.setOnClickListener(this::onUpdateButtonClicked);
             binding.eventDeleteButton.setOnClickListener(this::onDeleteButtonClicked);
         }
 
         private void bindData(SingleMatch match,Athlete athlete1, Athlete athlete2) {
-            binding.athlete1IdInput.setText(String.valueOf(athlete1.getAthleteName()));
+            binding.athlete1IdInput.setText(String.valueOf(athlete1.getAthleteCode()));
             binding.athlete1NameInput.setText(String.valueOf(athlete1.getAthleteName()));
-            binding.athlete2IdInput.setText(String.valueOf(athlete2.getAthleteName()));
+            binding.athlete2IdInput.setText(String.valueOf(athlete2.getAthleteCode()));
             binding.athlete2NameInput.setText(String.valueOf(athlete2.getAthleteName()));
             binding.athleteNamesInput.setText(String.valueOf(athlete1.getAthleteName()) + " vs " + String.valueOf(athlete2.getAthleteName()) );
             binding.eventIdInput.setText(match.getId());
-
+            binding.athlete1ScoreInput.setText(String.valueOf(match.getAthlete1Score()));
+            binding.athlete2ScoreInput.setText(String.valueOf(match.getAthlete2Score()));
         }
 
         private void onUpdateButtonClicked(View view) {
-            long id = Long.parseLong(binding.eventIdInput.getText().toString());
+            //long id = Long.parseLong(binding.eventIdInput.getText().toString());
            // viewModel.navigateTo(R.id.updateEventFragment, UpdateAthleteFragment.getBundleRequest(id));
         }
 

@@ -34,4 +34,6 @@ public class AthleteScore {
     public void setAthlete(Athlete athlete) {
         this.athlete = athlete;
     }
+
+
 }

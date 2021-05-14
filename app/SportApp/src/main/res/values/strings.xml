@@ -108,5 +108,14 @@
     <string name="athlete_team_label">Athelet\'s Team</string>
     <string name="event_delete_button">Delete Event</string>
     <string name="event_update_button">Update Event</string>
+    <string name="event_athlete_score">Athlete Score:</string>
+    <string name="event_type_select_hint">Select the type of event:</string>
+    <string name="event_single_button">Single Match</string>
+    <string name="event_track_button">Track Event</string>
+    <string name="event_race_button">Race</string>
+    <string name="event_team_button">Team Match</string>
+    <string name="menu_item_single_match">Single Match</string>
+    <string name="event_team_score">Team Score:</string>
+    <string name="menu_item_team_match">Team Match</string>
 
 </resources>

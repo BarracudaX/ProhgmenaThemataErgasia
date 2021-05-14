@@ -76,9 +76,7 @@ public class InsertAthleteFragment extends BaseFragment {
                 createTeamSpinner(1);
             }
         });
-
          */
-
         //sportType = viewModel.getSportType(sportId);
         //if(sportType.equals(TEAM))
         binding.createAthleteButton.setOnClickListener((v) -> {
