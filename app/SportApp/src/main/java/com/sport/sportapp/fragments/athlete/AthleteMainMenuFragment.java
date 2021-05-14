@@ -30,7 +30,6 @@ public class AthleteMainMenuFragment extends BaseFragment {
         super.onCreate(savedInstanceState);
         viewModel = new ViewModelProvider(getActivity()).get(MainActivityViewModel.class);
     }
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -38,12 +37,9 @@ public class AthleteMainMenuFragment extends BaseFragment {
         viewModel.getAthletes().observe(this, athletes -> {
             binding.athletes.setAdapter(new AthletesAdapter(athletes,viewModel));
         });
-
         configureBottomNavigation(binding.bottomNavigationView);
         return  binding.getRoot();
-
     }
-
     @Override
     public void onStart() {
         super.onStart();
