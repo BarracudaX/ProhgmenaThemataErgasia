@@ -10,6 +10,7 @@ import androidx.room.Update;
 import java.util.List;
 
 import domain.Athlete;
+import domain.AthleteIdNameModel;
 import domain.Team;
 
 @Dao
@@ -32,4 +33,7 @@ public interface AthleteDao extends BaseDao<Athlete> {
 
     @Query("SELECT * FROM Athlete WHERE athleteCode = :athleteId")
     Athlete findAthleteById(long athleteId);
+
+    @Query("SELECT athleteCode, name, surname FROM Athlete ")
+     LiveData<List<AthleteIdNameModel>> athleteIdAndName();
 }

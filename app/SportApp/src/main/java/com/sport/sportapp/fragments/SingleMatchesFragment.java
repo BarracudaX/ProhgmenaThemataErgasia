@@ -36,7 +36,7 @@ public class SingleMatchesFragment extends BaseFragment {
         viewModel.getSingleMatches().observe(this, events -> {
             binding.events.setAdapter(new SingleMatchAdapter(events,viewModel));
         });
-       // configureBottomNavigation(binding.bottomNavigationView);
+        configureBottomNavigation(binding.bottomNavigationView);
         return binding.getRoot();
     }
     @Override

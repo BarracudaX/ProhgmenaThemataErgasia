@@ -113,7 +113,7 @@
         android:label="AthleteBySportFragment" />
     <fragment
         android:id="@+id/insertSingleMatchFragment"
-        android:name="com.sport.sportapp.insertSingleMatchFragment"
+        android:name="com.sport.sportapp.InsertSingleMatchFragment"
         android:label="fragment_insert_single_match"
         tools:layout="@layout/fragment_insert_single_match" />
     <fragment

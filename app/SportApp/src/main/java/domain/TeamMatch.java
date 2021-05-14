@@ -3,6 +3,7 @@ package domain;
 import com.google.firebase.firestore.Exclude;
 import com.google.firebase.firestore.IgnoreExtraProperties;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 

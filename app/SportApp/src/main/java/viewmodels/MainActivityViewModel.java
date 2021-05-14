@@ -18,6 +18,7 @@ import dao.MatchDao;
 import dao.SportDao;
 import dao.TeamDao;
 import domain.Athlete;
+import domain.AthleteIdNameModel;
 import domain.SingleMatch;
 import domain.Sport;
 import domain.SportIdNameModel;
@@ -33,6 +34,7 @@ public class MainActivityViewModel extends AndroidViewModel {
     private final AthleteDao athleteDao;
     private final FirestoreMatchDao matchDao;
     private LiveData<List<SportIdNameModel>> sportIdsAndNames ;
+    private LiveData<List<AthleteIdNameModel>> athleteIdAndName ;
     private LiveData<List<TeamIdNameModel>> teamIdsAndNames ;
     private LiveData<List<Team>> teams;
     private LiveData<List<Athlete>> athletes;
@@ -57,6 +59,18 @@ public class MainActivityViewModel extends AndroidViewModel {
         }
         return sportIdsAndNames;
     }
+    public LiveData<List<SportIdNameModel>> getSportIdsAndNamesByType(SportType sportType) {
+        if (sportIdsAndNames == null) {
+            sportIdsAndNames = sportDao.sportIdsAndNamesByType(sportType);
+        }
+        return sportIdsAndNames;
+    }
+    public LiveData<List<AthleteIdNameModel>> getAthleteIdAndName() {
+        if (athleteIdAndName == null) {
+            athleteIdAndName = athleteDao.athleteIdAndName();
+        }
+        return athleteIdAndName;
+    }
     public LiveData<List<TeamIdNameModel>> getTeamIdsAndNamesBySport(long sportId) {
         if (teamIdsAndNames == null) {
             teamIdsAndNames = teamDao.teamIdsAndNamesBySport(sportId);
@@ -74,6 +88,9 @@ public class MainActivityViewModel extends AndroidViewModel {
             sports = sportDao.liveLoadAllSports();
         }
         return sports;
+    }
+    public Sport getSportById(long id){
+        return sportDao.findSportById(id);
     }
 
     public LiveData<List<Team>> getTeams() {
@@ -169,5 +186,9 @@ public class MainActivityViewModel extends AndroidViewModel {
     }
     public LiveData<List<TeamMatch>> getTeamMatches(){
         return(matchDao.selectTeamMatches());
+    }
+
+    public void insertSingleMatch(SingleMatch singleMatch) {
+        matchDao.insertSingleMatch(singleMatch);
     }
 }
