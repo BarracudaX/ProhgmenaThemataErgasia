@@ -117,7 +117,8 @@
     <string name="menu_item_single_match">Single Match</string>
     <string name="event_team_score">Team Score:</string>
     <string name="menu_item_team_match">Team Match:</string>
-    <string name="create_sinle_match_title">Create  Single Match</string>
+    <string name="create_single_match_title">Create  Single Match</string>
+    <string name="create_team_match_title">Create  Team Match</string>
     <string name="match_city_label">Match City:</string>
     <string name="match_city_hint">The city the match took place.</string>
     <string name="match_country_label">Match Country:</string>

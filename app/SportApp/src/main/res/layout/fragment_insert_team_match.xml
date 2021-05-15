@@ -5,7 +5,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InsertSingleMatchFragment" >
+    tools:context=".InsertTeamMatchFragment" >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -90,7 +90,7 @@
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="@+id/matchCityLabel"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/matchAthlete2"
+            app:layout_constraintStart_toStartOf="@+id/matchTeam2"
             app:layout_constraintTop_toTopOf="@+id/matchCityLabel" />
 
         <TextView
@@ -127,7 +127,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="42dp"
-            android:text="@string/match_date_label"
+            android:text="Match Date:"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/matchCountryLabel" />
