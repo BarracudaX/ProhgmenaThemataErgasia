@@ -8,16 +8,16 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.sport.sportapp.databinding.FragmentSportTeamBinding;
-import com.sport.sportapp.databinding.FragmentTeamFormBinding;
-import com.sport.sportapp.databinding.FragmentTeamMainBinding;
 import com.sport.sportapp.fragments.BaseFragment;
-import com.sport.sportapp.views.SportsAdapter;
-import com.sport.sportapp.views.SportsButtonsAdapter;
+import com.sport.sportapp.adapters.SportsButtonsAdapter;
+
+import viewmodels.SportViewModel;
 
 public class SportsFragment extends BaseFragment {
 
@@ -27,6 +27,7 @@ public class SportsFragment extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentSportTeamBinding.inflate(getLayoutInflater(),container,false);
+        SportViewModel sportViewModel = new ViewModelProvider(getActivity()).get(SportViewModel.class);
 
         if (getActivity().getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             binding.sports.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -35,8 +36,8 @@ public class SportsFragment extends BaseFragment {
             gridLayoutManager.setOrientation(RecyclerView.VERTICAL);
             binding.sports.setLayoutManager(gridLayoutManager);
         }
-        activityViewModel.getSports().observe(this,sports -> {
-            binding.sports.setAdapter(new SportsButtonsAdapter(activityViewModel,sports));
+        sportViewModel.teamSports().observe(getViewLifecycleOwner(), sports -> {
+            binding.sports.setAdapter(new SportsButtonsAdapter(mainViewModel,sports));
         });
         return binding.getRoot();
     }

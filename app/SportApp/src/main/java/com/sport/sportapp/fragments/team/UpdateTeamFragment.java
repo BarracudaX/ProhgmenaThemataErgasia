@@ -12,20 +12,21 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.sport.sportapp.R;
 
-import domain.Team;
-import viewmodels.MainActivityViewModel;
+import domain.sport.TeamSport;
+import domain.team.Team;
+import viewmodels.MainViewModel;
 
 public class UpdateTeamFragment extends TeamFormFragment {
 
     private static final String ID_KEY = "TEAM_ID";
 
-    private MainActivityViewModel viewModel;
+    private MainViewModel viewModel;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewModel = new ViewModelProvider(getActivity()).get(MainActivityViewModel.class);
+        viewModel = new ViewModelProvider(getActivity()).get(MainViewModel.class);
     }
 
     @Override
@@ -44,7 +45,7 @@ public class UpdateTeamFragment extends TeamFormFragment {
                 getArguments().getLong(ID_KEY),team.getTeamName(),team.getStadiumName(),
                 team.getCity(),team.getCountry(),team.getFoundationDate(),team.getSportId()
         );
-        viewModel.updateTeam(updateRequest);
+        teamViewModel.updateTeam(updateRequest);
         viewModel.navigateBack();
         Toast.makeText(getActivity(), R.string.update_team_success_message, Toast.LENGTH_LONG).show();
     }
@@ -52,7 +53,7 @@ public class UpdateTeamFragment extends TeamFormFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        viewModel.getTeamById(getArguments().getLong(ID_KEY)).observe(this,team -> {
+        teamViewModel.teamById(getArguments().getLong(ID_KEY)).observe(getViewLifecycleOwner(),team -> {
             binding.teamNameInput.setText(team.getTeamName());
             binding.stadiumNameInput.setText(team.getStadiumName());
             binding.teamCityInput.setText(team.getCity());
@@ -60,8 +61,8 @@ public class UpdateTeamFragment extends TeamFormFragment {
             binding.teamFoundationInput.setText(team.getFoundationDate().toString());
             int pos = 0;
             for (int i = 0; i < binding.teamSportInput.getAdapter().getCount(); i++) {
-                String sportIdName = (String) binding.teamSportInput.getItemAtPosition(i);
-                if (team.getSportId() == Long.parseLong(sportIdName.substring(0, sportIdName.indexOf("-")))) {
+                TeamSport teamSport = (TeamSport) binding.teamSportInput.getItemAtPosition(i);
+                if (team.getSportId() == teamSport.getSportId()) {
                     pos = i;
                     break;
                 }

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,13 +13,12 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.sport.sportapp.MainActivity;
+import com.sport.sportapp.adapters.TeamsAdapter;
 import com.sport.sportapp.databinding.FragmentSportTeamsBinding;
-import com.sport.sportapp.databinding.FragmentTeamMainBinding;
 import com.sport.sportapp.fragments.BaseFragment;
-import com.sport.sportapp.views.TeamsAdapter;
 
-import viewmodels.MainActivityViewModel;
+import viewmodels.MainViewModel;
+import viewmodels.TeamViewModel;
 
 public class SportTeamsFragment extends BaseFragment {
 
@@ -31,18 +29,19 @@ public class SportTeamsFragment extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentSportTeamsBinding.  inflate(inflater);
-        MainActivityViewModel vm = new ViewModelProvider(getActivity()).get(MainActivityViewModel.class);
+        TeamViewModel teamViewModel = new ViewModelProvider(getActivity()).get(TeamViewModel.class);
+        MainViewModel mainViewModel = new ViewModelProvider(getActivity()).get(MainViewModel.class);
 
         if (getActivity().getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-            binding.sportTeams.setLayoutManager(new LinearLayoutManager(getContext()));
+            binding.teamSports.setLayoutManager(new LinearLayoutManager(getContext()));
         }else{
             GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
             gridLayoutManager.setOrientation(RecyclerView.VERTICAL);
-            binding.sportTeams.setLayoutManager(gridLayoutManager);
+            binding.teamSports.setLayoutManager(gridLayoutManager);
         }
 
-        vm.getTeamsOfSport(getArguments().getLong(SPORT_ID_KEY)).observe(this, teams -> {
-            binding.sportTeams.setAdapter(new TeamsAdapter(teams, vm));
+        teamViewModel.teamsOfSport(getArguments().getLong(SPORT_ID_KEY)).observe(getViewLifecycleOwner(), teams -> {
+            binding.teamSports.setAdapter(new TeamsAdapter(teams, teamViewModel,mainViewModel));
         });
 
         return binding.getRoot();

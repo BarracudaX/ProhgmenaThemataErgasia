@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
+    android:id="@+id/insertAthleteSport"
     app:startDestination="@id/startDestination">
 
     <fragment
@@ -46,46 +46,55 @@
         android:name="com.sport.sportapp.fragments.team.UpdateTeamFragment"
         android:label="UpdateTeamFragment" />
     <fragment
-        android:id="@+id/insertAthleteDestination"
-        android:name="com.sport.sportapp.fragments.athlete.InsertAthleteFragment"
-        android:label="Add New Athlete" />
+        android:id="@+id/insertSingleAthleteDestination"
+        android:name="com.sport.sportapp.fragments.athlete.InsertSingleAthleteFragment"
+        android:label="Add New Single Athlete" />
     <fragment
         android:id="@+id/athleteMainMenuFragment"
         android:name="com.sport.sportapp.fragments.athlete.AthleteMainMenuFragment"
         android:label="Athletes">
         <action
             android:id="@+id/action_athleteMainMenuFragment_to_insertAthleteFragment"
-            app:destination="@id/insertAthleteDestination" />
+            app:destination="@id/insertSingleAthleteDestination" />
         <action
             android:id="@+id/action_athleteMainMenuFragment_to_updateAthleteFragment"
-            app:destination="@id/updateAthleteFragment" />
+            app:destination="@id/updateSingleAthleteDestination" />
         <action
-            android:id="@+id/action_athleteMainMenuFragment_to_athleteBySportFragment"
-            app:destination="@id/athleteBySportDestination" />
+            android:id="@+id/action_athleteMainMenuFragment_to_insertTeamAthleteFragment"
+            app:destination="@id/insertTeamAthleteDestination" />
+        <action
+            android:id="@+id/action_athleteMainMenuFragment_to_updateTeamAthleteFragment2"
+            app:destination="@id/updateTeamAthleteDestination" />
     </fragment>
     <fragment
-        android:id="@+id/updateAthleteFragment"
-        android:name="com.sport.sportapp.fragments.athlete.UpdateAthleteFragment"
-        android:label="Update Athlete" />
+        android:id="@+id/updateSingleAthleteDestination"
+        android:name="com.sport.sportapp.fragments.athlete.UpdateSingleAthleteFragment"
+        android:label="Update Single Athlete" />
     <fragment
-        android:id="@+id/insertSportDestination"
-        android:name="com.sport.sportapp.fragments.InsertSportFragment"
-        android:label="Add New Sport" />
+        android:id="@+id/insertTeamSportDestination"
+        android:name="com.sport.sportapp.fragments.sport.InsertSportTeamFragment"
+        android:label="Add New Team Sport" />
     <fragment
         android:id="@+id/sportMainFragment"
-        android:name="com.sport.sportapp.fragments.SportMainFragment"
+        android:name="com.sport.sportapp.fragments.sport.SportMainFragment"
         android:label="Sports">
         <action
             android:id="@+id/action_sportMainFragment_to_insertSportFragment"
-            app:destination="@+id/insertSportDestination" />
+            app:destination="@+id/insertTeamSportDestination" />
         <action
             android:id="@+id/action_sportMainFragment_to_updateSportFragment"
-            app:destination="@+id/updateSportFragment" />
+            app:destination="@+id/updateTeamSportDestination" />
+        <action
+            android:id="@+id/action_sportMainFragment_to_insertAthleteSportFragment"
+            app:destination="@id/insertAthleteSportDestination" />
+        <action
+            android:id="@+id/action_sportMainFragment_to_updateAthleteSportFragment"
+            app:destination="@id/updateAthleteSportDestination" />
     </fragment>
     <fragment
-        android:id="@+id/updateSportFragment"
-        android:name="com.sport.sportapp.fragments.UpdateSportFragment"
-        android:label="Update Sport" />
+        android:id="@+id/updateTeamSportDestination"
+        android:name="com.sport.sportapp.fragments.sport.UpdateTeamSportFragment"
+        android:label="Update Team Sport" />
     <fragment
         android:id="@+id/eventsFragment"
         android:name="com.sport.sportapp.fragments.EventsFragment"
@@ -112,7 +121,19 @@
         android:name="com.sport.sportapp.fragments.team.SportTeamsFragment"
         android:label="@string/label_teams" />
     <fragment
-        android:id="@+id/athleteBySportDestination"
-        android:name="com.sport.sportapp.fragments.athlete.AthleteBySportFragment"
-        android:label="AthleteBySportFragment" />
+        android:id="@+id/insertAthleteSportDestination"
+        android:name="com.sport.sportapp.fragments.sport.InsertAthleteSportFragment"
+        android:label="Add New Athlete Sport" />
+    <fragment
+        android:id="@+id/updateAthleteSportDestination"
+        android:name="com.sport.sportapp.fragments.sport.UpdateAthleteSportFragment"
+        android:label="Update Athlete Sport" />
+    <fragment
+        android:id="@+id/insertTeamAthleteDestination"
+        android:name="com.sport.sportapp.fragments.athlete.InsertTeamAthleteFragment"
+        android:label="Add New Team Athlete" />
+    <fragment
+        android:id="@+id/updateTeamAthleteDestination"
+        android:name="com.sport.sportapp.fragments.athlete.UpdateTeamAthleteFragment"
+        android:label="Update Team Athlete" />
 </navigation>

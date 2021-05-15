@@ -2,34 +2,47 @@ package dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
-import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
 import java.util.List;
 
-import domain.Athlete;
-import domain.Team;
+import domain.athlete.AthleteSingle;
+import domain.athlete.AthleteTeam;
 
 @Dao
-public interface AthleteDao extends BaseDao<Athlete> {
+public interface AthleteDao {
 
-    @Query("SELECT * FROM Athlete")
-    LiveData<List<Athlete>> loadAllAthletes();
 
-    @Query("SELECT * FROM Athlete WHERE sportId = :sport")
-    List<Athlete> findAthletesBySport(long sport);
+    @Insert
+    void insertAthleteSingle(AthleteSingle athlete);
 
-    @Query("DELETE FROM Athlete WHERE athleteCode = :id")
-    void deleteById(long id);
+    @Insert
+    void insertAthleteTeam(AthleteTeam athlete);
 
-    @Query("SELECT * FROM Athlete WHERE athleteCode = :athleteId")
-    LiveData<Athlete> findById(long athleteId);
+    @Update
+    void updateAthleteSingle(AthleteSingle athlete);
 
-    @Query("SELECT * FROM Athlete")
-    List<Athlete> Athletes();
+    @Update
+    void updateAthleteTeam(AthleteTeam athlete);
 
-    @Query("SELECT * FROM Athlete WHERE athleteCode = :athleteId")
-    Athlete findAthleteById(long athleteId);
+    @Query("DELETE FROM AthleteSingle WHERE athleteId = :athleteId")
+    void deleteAthleteSingleById(Long athleteId);
+
+    @Query("DELETE FROM AthleteTeam WHERE athleteId = :athleteId")
+    void deleteAthleteTeamById(long athleteId);
+
+    @Query("SELECT * FROM AthleteSingle WHERE athleteId = :athleteId")
+    LiveData<AthleteSingle> findAthleteSingleById(long athleteId);
+
+    @Query("SELECT * FROM AthleteTeam WHERE athleteId = :athleteId")
+    LiveData<AthleteTeam> findAthleteTeamById(long athleteId);
+
+    @Query("SELECT * FROM AthleteSingle")
+    LiveData<List<AthleteSingle>> athleteSingles();
+
+    @Query("SELECT * FROM AthleteTeam")
+    LiveData<List<AthleteTeam>> athleteTeams();
+
 }

@@ -2,26 +2,25 @@ package dao;
 
 import android.content.Context;
 
-import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
-import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import java.time.LocalDate;
+import java.util.List;
 
+import converters.AthleteSportTypeConverter;
 import converters.GenderConverter;
 import converters.LocalDateConverter;
-import converters.SportTypeConverter;
-import domain.Athlete;
 import domain.Gender;
-import domain.Sport;
-import domain.SportType;
-import domain.Team;
+import domain.athlete.AthleteSingle;
+import domain.athlete.AthleteTeam;
+import domain.sport.AthleteSport;
+import domain.sport.TeamSport;
+import domain.team.Team;
 
-@Database(entities = {Team.class, Athlete.class, Sport.class}, version = 5)
-@TypeConverters({LocalDateConverter.class, GenderConverter.class, SportTypeConverter.class})
+@Database(entities = {AthleteSingle.class,AthleteTeam.class,AthleteSport.class,TeamSport.class,Team.class}, version = 9)
+@TypeConverters({LocalDateConverter.class, GenderConverter.class, AthleteSportTypeConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase instance;
@@ -41,16 +40,15 @@ public abstract class AppDatabase extends RoomDatabase {
                 .fallbackToDestructiveMigration()
                 .allowMainThreadQueries()
                 .build();
-        SportDao sportDao = instance.sportDao();
-        if (sportDao.loadAllSports().isEmpty()) {
-            sportDao.insert(new Sport("Basketball", Gender.BOTH, SportType.TEAM));
-            sportDao.insert(new Sport("Football", Gender.MALE, SportType.TEAM));
-            sportDao.insert(new Sport("Ping Pong", Gender.FEMALE, SportType.SINGLE));
+
+        SportDao sportdao = instance.sportDao();
+        List<TeamSport> teamSports = sportdao.allTeamSports();
+        if (teamSports.isEmpty()) {
+            sportdao.insertTeamSport(new TeamSport("Basketball", Gender.MALE));
+            sportdao.insertTeamSport(new TeamSport("Football", Gender.MALE));
+            sportdao.insertTeamSport(new TeamSport("Football-F", Gender.FEMALE));
         }
-        TeamDao teamDao = instance.teamDao();
-        if(teamDao.loadAllTeams().isEmpty()){
-            teamDao.insert(new Team("Test Team","Test Stadium","Test City","Test Country", LocalDate.parse("2018-11-01"),1));
-        }
+
         return instance;
     }
 

@@ -19,7 +19,7 @@
 
     <TextView
         android:id="@+id/sportNameLabel"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -68,7 +68,7 @@
         app:layout_constraintEnd_toStartOf="@+id/sportDeleteButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sportNameLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/sportTypeInput" />
 
     <Button
         android:id="@+id/sportDeleteButton"
@@ -84,6 +84,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/sportUpdateButton"
-        app:layout_constraintTop_toBottomOf="@+id/sportNameInput" />
+        app:layout_constraintTop_toBottomOf="@+id/sportTypeInput" />
+
+    <TextView
+        android:id="@+id/sportTypeLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="32dp"
+        android:text="Sport Type:"
+        app:layout_constraintEnd_toEndOf="@+id/sportNameLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sportNameLabel" />
+
+    <TextView
+        android:id="@+id/sportTypeInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        app:layout_constraintBaseline_toBaselineOf="@+id/sportTypeLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sportTypeLabel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

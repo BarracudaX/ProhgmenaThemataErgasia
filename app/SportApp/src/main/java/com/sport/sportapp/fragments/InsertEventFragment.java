@@ -5,33 +5,27 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.sport.sportapp.R;
-import com.sport.sportapp.databinding.FragmentInsertAthleteBinding;
 import com.sport.sportapp.databinding.FragmentInsertEventBinding;
 
-import java.time.LocalDate;
-
-import domain.Athlete;
-import viewmodels.MainActivityViewModel;
+import viewmodels.MainViewModel;
 
 
 public class InsertEventFragment extends BaseFragment {
     private FragmentInsertEventBinding binding;
-    protected MainActivityViewModel viewModel;
+    protected MainViewModel viewModel;
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewModel = new ViewModelProvider(getActivity()).get(MainActivityViewModel.class);
+        viewModel = new ViewModelProvider(getActivity()).get(MainViewModel.class);
     }
 
     @Nullable

@@ -9,16 +9,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.DialogFragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import java.time.LocalDate;
 import java.util.Calendar;
-
-import viewmodels.MainActivityViewModel;
+import java.util.function.Consumer;
 
 public class DatePicker extends DialogFragment implements DatePickerDialog.OnDateSetListener{
 
-    private MainActivityViewModel viewModel;
+    private LocalDate localDatePicked;
+    private final Consumer<LocalDate> pickedDateConsumer;
+
+    public DatePicker(Consumer<LocalDate> pickedDateConsumer,LocalDate defaultValue) {
+        this.pickedDateConsumer = pickedDateConsumer;
+        this.localDatePicked = defaultValue;
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @NonNull
@@ -30,14 +34,17 @@ public class DatePicker extends DialogFragment implements DatePickerDialog.OnDat
         int month = calendar.get(Calendar.MONTH);
         int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-        viewModel = new ViewModelProvider(getActivity()).get(MainActivityViewModel.class);
-
         return new DatePickerDialog(getActivity(), this, year, month, day);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onDateSet(android.widget.DatePicker view, int year, int month, int dayOfMonth) {
-        viewModel.pickedDate(LocalDate.of(year, month, dayOfMonth));
+        localDatePicked = LocalDate.of(year, month, dayOfMonth);
+        pickedDateConsumer.accept(localDatePicked);
+    }
+
+    public LocalDate getLocalDatePicked(){
+        return localDatePicked;
     }
 }

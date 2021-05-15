@@ -10,22 +10,22 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import viewmodels.MainActivityViewModel;
+import viewmodels.MainViewModel;
 
 public abstract class BaseFragment extends Fragment {
 
-    protected MainActivityViewModel activityViewModel;
+    protected MainViewModel mainViewModel;
     protected NavController navController;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityViewModel = new ViewModelProvider(getActivity()).get(MainActivityViewModel.class);
+        mainViewModel = new ViewModelProvider(getActivity()).get(MainViewModel.class);
         navController = ((NavHostFragment)getParentFragment()).getNavController();
-        activityViewModel.navigationToEvent().observe(this, request -> {
+        mainViewModel.navigationToEvent().observe(this, request -> {
             navController.navigate(request.getDestinationId(),request.getBundle());
         });
-        activityViewModel.navigateBackEvent().observe(this, ignored -> navController.navigateUp());
+        mainViewModel.navigateBackEvent().observe(this, ignored -> navController.navigateUp());
     }
 
     protected void configureBottomNavigation(BottomNavigationView bottomNavigationView) {

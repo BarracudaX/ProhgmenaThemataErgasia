@@ -1,23 +1,27 @@
 package com.sport.sportapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import android.os.Build;
 import android.os.Bundle;
 
 import com.sport.sportapp.databinding.ActivityMainBinding;
 
-import viewmodels.MainActivityViewModel;
+import viewmodels.AthleteViewModel;
+import viewmodels.MainViewModel;
+import viewmodels.SportViewModel;
+import viewmodels.TeamViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
-    private MainActivityViewModel viewModel;
+    private MainViewModel mainViewModel;
+    private SportViewModel sportViewModel;
+    private TeamViewModel teamViewModel;
+    private AthleteViewModel athleteViewModel;
     private ActivityMainBinding binding;
     private AppBarConfiguration appBarConfiguration;
 
@@ -27,7 +31,12 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        viewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
+        ViewModelProvider viewModelProvider = new ViewModelProvider(this);
+        mainViewModel = viewModelProvider.get(MainViewModel.class);
+        sportViewModel = viewModelProvider.get(SportViewModel.class);
+        teamViewModel = viewModelProvider.get(TeamViewModel.class);
+        athleteViewModel = viewModelProvider.get(AthleteViewModel.class);
+
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
         NavController navController = navHostFragment.getNavController();
         appBarConfiguration = new AppBarConfiguration

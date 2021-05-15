@@ -2,7 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/insertSportDestination"
+        android:id="@+id/insertTeamSportDestination"
         android:icon="@drawable/baseline_add_20"
-        android:title="Add Sport" />
+        android:title="Add Team Sport" />
+    <item
+        android:id="@+id/insertAthleteSportDestination"
+        android:icon="@drawable/baseline_add_20"
+        android:title="Add Athlete Sport" />
 </menu>

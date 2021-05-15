@@ -3,19 +3,16 @@
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-import domain.AthleteScore;
-import domain.Match;
-import domain.SingleMatch;
-import domain.TeamMatch;
+import domain.athlete.AthleteScore;
+import domain.match.Match;
+import domain.match.AthletesMatch;
+import domain.match.TeamMatch;
 
 public class FirestoreMatchDao implements MatchDao{
 
@@ -41,7 +38,7 @@ public class FirestoreMatchDao implements MatchDao{
     }
 
     @Override
-    public void insertSingleMatch(SingleMatch match) {
+    public void insertSingleMatch(AthletesMatch match) {
         db.collection(MatchCollectionName).add(match)
                 .addOnSuccessListener( documentReference -> {
                    match.setId(documentReference.getId());
@@ -54,7 +51,7 @@ public class FirestoreMatchDao implements MatchDao{
     }
 
     @Override
-    public void updateSingleMatch(SingleMatch match) {
+    public void updateSingleMatch(AthletesMatch match) {
 
     }
 
@@ -76,9 +73,6 @@ public class FirestoreMatchDao implements MatchDao{
                         if(document.contains("firstTeamId")){
                             TeamMatch match = document.toObject(TeamMatch.class);
                             match.setId(document.getId());
-                            match.setFirstTeam(teamDao.findTeamById(match.getFirstTeamId()));
-                            match.setSecondTeam(teamDao.findTeamById(match.getSecondTeamId()));
-                            match.setSport(sportDao.findSportById(match.getSportId()));
                             result.add(match);
                         }
                     }
@@ -88,18 +82,14 @@ public class FirestoreMatchDao implements MatchDao{
     }
 
     @Override
-    public LiveData<List<SingleMatch>> selectSingleMatches() {
-        MutableLiveData<List<SingleMatch>> matches = new MutableLiveData<>();
-        db.collection(MatchCollectionName).addSnapshotListener((querySnapshot, e) -> {
-            List<SingleMatch> result = new ArrayList<>();
+    public LiveData<List<AthletesMatch>> selectSingleMatches() {
+        MutableLiveData<List<AthletesMatch>> matches = new MutableLiveData<>();
+          db.collection(MatchCollectionName).addSnapshotListener((querySnapshot, e) -> {
+            List<AthletesMatch> result = new ArrayList<>();
             for(DocumentSnapshot document : querySnapshot.getDocuments() ){
                 if(document.contains("athleteScores")){
-                    SingleMatch match = document.toObject(SingleMatch.class);
+                    AthletesMatch match = document.toObject(AthletesMatch.class);
                     match.setId(document.getId());
-                    match.setSport(sportDao.findSportById(match.getSportId()));
-                    for(AthleteScore athleteScore : match.getAthleteScores()){
-                        athleteScore.setAthlete(athleteDao.findAthleteById(athleteScore.getAthleteId()));
-                    }
                     result.add(match);
                 }
             }

@@ -5,35 +5,30 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.sport.sportapp.R;
 import com.sport.sportapp.databinding.FragmentTeamFormBinding;
 import com.sport.sportapp.fragments.BaseFragment;
 import com.sport.sportapp.fragments.DatePicker;
+import com.sport.sportapp.spinner.SportTeamAdapter;
 
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
 
-import domain.SportIdNameModel;
-import domain.Team;
-import viewmodels.MainActivityViewModel;
+import domain.sport.TeamSport;
+import domain.team.Team;
+import viewmodels.SportViewModel;
+import viewmodels.TeamViewModel;
 
 public abstract class TeamFormFragment extends BaseFragment {
 
     protected FragmentTeamFormBinding binding;
-    private LocalDate lastDatePicked;
-    private Spinner spinner;
-    private final Set<String> spinnerData = new HashSet<>();
+    protected TeamViewModel teamViewModel;
+    protected SportViewModel sportViewModel;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -41,51 +36,37 @@ public abstract class TeamFormFragment extends BaseFragment {
         super.onCreate(savedInstanceState);
 
     }
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        teamViewModel = new ViewModelProvider(getActivity()).get(TeamViewModel.class);
+        sportViewModel = new ViewModelProvider(getActivity()).get(SportViewModel.class);
         binding = FragmentTeamFormBinding.inflate(inflater,container,false);
+        DatePicker datePicker = new DatePicker(localDate -> binding.teamFoundationInput.setText(localDate.toString()),LocalDate.now());
 
         binding.teamFoundationInput.setOnClickListener(v -> {
-            DialogFragment dialogFragment = new DatePicker();
-            dialogFragment.show(getChildFragmentManager(),"datePicker");
+             datePicker.show(getChildFragmentManager(),"datePicker");
         });
 
-        createSpinner();
+        sportViewModel.teamSports().observe(getViewLifecycleOwner(), sportTeams -> {
+            binding.teamSportInput.setAdapter(new SportTeamAdapter(getContext(),sportTeams));
+        });
 
         binding.title.setText(getTitleStringResourceId());
         binding.teamButton.setText(getButtonStringResourceId());
         binding.teamButton.setOnClickListener((v)->{
-            String sportIdAsString = ((String) spinner.getSelectedItem());
-            long sportId = Long.parseLong(sportIdAsString.substring(0, sportIdAsString.indexOf("-")));
+            TeamSport teamSport = ((TeamSport) binding.teamSportInput.getSelectedItem());
             buttonClickedEvent(new Team(
                     binding.teamNameInput.getText().toString(),
                     binding.stadiumNameInput.getText().toString(),
                     binding.teamCityInput.getText().toString(),
                     binding.teamCountryInput.getText().toString(),
-                    lastDatePicked,
-                    sportId
+                    datePicker.getLocalDatePicked(),
+                    teamSport.getSportId()
             ));
         });
-        activityViewModel.getPickedDate().observe(this,localDate -> {
-            lastDatePicked = localDate;
-            binding.teamFoundationInput.setText(localDate.toString());
-        });
         return binding.getRoot();
-    }
-
-    private void createSpinner() {
-        spinner = binding.teamSportInput;
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.support_simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        activityViewModel.getSportIdsAndNames().observe(this, sportIdNameModels -> {
-            for (SportIdNameModel sportIdNameModel : sportIdNameModels) {
-                String sportIdName = sportIdNameModel.getId() + "-" + sportIdNameModel.getSportName();
-                if (spinnerData.add(sportIdName)) {
-                    adapter.add(sportIdName);
-                }
-            }
-        });
     }
 
     public abstract int getButtonStringResourceId();

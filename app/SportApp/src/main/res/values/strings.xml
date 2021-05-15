@@ -7,8 +7,8 @@
     <string name="create_team_title">Create Team</string>
     <string name="update_team_title">Update Team</string>
 
-    <string name="create_athlete_title">Create Athlete</string>
-    <string name="update_athlete_title">Update Athlete</string>
+    <string name="create_athlete_title">Create Single Athlete</string>
+    <string name="update_athlete_title">Update Single Athlete</string>
 
     <string name="create_sport_title">Create Sport</string>
     <string name="update_sport_title">Update Sport</string>
@@ -25,8 +25,8 @@
     <string name="welcome_label">Welcome</string>
 
     <string name="athlete_label">Athlete</string>
-    <string name="athlete_name_label">Athlete Name:</string>
-    <string name="athlete_surname_label">Athlete Surame:</string>
+    <string name="athlete_name_label">Athlete First Name:</string>
+    <string name="athlete_surname_label">Athlete Last Name:</string>
     <string name="athlete_city_label">Athlete\'s City:</string>
     <string name="athlete_country_label">Athlete\'s Country:</string>d
     <string name="athlete_date_of_birth_label">Athlete\'s Date of Birth:</string>
@@ -57,7 +57,8 @@
     <string name="team_create_button">Create Team</string>
     <string name="team_update_button">Update Team</string>
     <string name="team_delete_button">Delete Team</string>
-    <string name="athlete_create_button">Create Athlete</string>
+    <string name="single_athlete_create_button">Create Single Athlete</string>
+    <string name="team_athlete_create_button">Create Team Athlete</string>
     <string name="athlete_update_button">Update Athlete</string>
     <string name="athlete_delete_button">Delete Athlete</string>
     <string name="athlete_insert_menu">Create New Athlete</string>
@@ -69,7 +70,8 @@
     <string name="menu_item_events">Events</string>
     <string name="menu_item_add_event">Add Event</string>
     <string name="menu_item_athletes">Athletes</string>
-    <string name="menu_item_add_athlete">Add Athlete</string>
+    <string name="menu_item_add_single_athlete">Add Single Athlete</string>
+    <string name="menu_item_add_team_athlete">Add Team Athlete</string>
     <string name="menu_item_delete_athlete">Delete Athlete</string>
     <string name="menu_item_sports">Sports</string>
     <string name="menu_item_add_sports">Add Sport</string>
@@ -103,7 +105,11 @@
     <string name="menu_item_teams_group_by_sport">Teams Grouped By Sport</string>
     <string name="label_available_sports">Available Sports</string>
     <string name="label_teams">Found Teams In Sport</string>
-    <string name="athlete_sport_label">Athlete Sport</string>
+    <string name="athlete_sport_label">Athelet\'s Sport</string>
     <string name="athlete_team_label">Athelet\'s Team</string>
+    <string name="athlete_type_label">Athlete Type</string>
+    <string name="team_athlete_update_button">Update Team Athlete</string>
+    <string name="update_team_athlete_title">Update Team Athlete</string>
+    <string name="create_team_athlete_title">Create Team Athlete</string>
 
 </resources>

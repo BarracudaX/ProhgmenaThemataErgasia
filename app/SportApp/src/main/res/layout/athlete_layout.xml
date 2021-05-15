@@ -68,7 +68,7 @@
         app:layout_constraintEnd_toStartOf="@+id/athleteDeleteButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/athleteNameLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/athleteTypeLabel" />
 
     <Button
         android:id="@+id/athleteDeleteButton"
@@ -84,6 +84,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/athleteUpdateButton"
-        app:layout_constraintTop_toBottomOf="@+id/athleteNameInput" />
+        app:layout_constraintTop_toBottomOf="@+id/athleteTypeValue" />
+
+    <TextView
+        android:id="@+id/athleteTypeLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/athlete_type_label"
+        app:layout_constraintEnd_toEndOf="@+id/athleteNameLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/athleteNameLabel" />
+
+    <TextView
+        android:id="@+id/athleteTypeValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        app:layout_constraintBaseline_toBaselineOf="@+id/athleteTypeLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/athleteTypeLabel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

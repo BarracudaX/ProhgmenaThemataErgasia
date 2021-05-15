@@ -4,24 +4,16 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.sport.sportapp.R;
-import com.sport.sportapp.databinding.FragmentAthleteMainMenuBinding;
 import com.sport.sportapp.databinding.FragmentEventsBinding;
-import com.sport.sportapp.views.AthletesAdapter;
-
-import viewmodels.MainActivityViewModel;
 
 public class EventsFragment extends BaseFragment {
 
     private FragmentEventsBinding binding;
-    private MainActivityViewModel viewModel;
 
     public EventsFragment() {
     }

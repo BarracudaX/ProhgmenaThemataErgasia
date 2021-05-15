@@ -9,22 +9,20 @@ import androidx.room.Update;
 
 import java.util.List;
 
-import domain.Sport;
-import domain.SportIdNameModel;
-import domain.Team;
-import domain.TeamIdNameModel;
+import domain.team.Team;
+import domain.team.TeamIdNameModel;
 
 @Dao
-public interface TeamDao extends BaseDao<Team>{
+public interface TeamDao {
 
-    @Query("SELECT * FROM Team")
-    LiveData<List<Team>> liveLoadAllTeams();
+    @Insert
+    void insert(Team team);
 
-    @Query("SELECT * FROM Team WHERE teamId = :teamId")
-    LiveData<Team> findById(long teamId);
+    @Update
+    void update(Team team);
 
-    @Query("SELECT * FROM Team WHERE teamId = :teamId")
-    Team findTeamById(long teamId);
+    @Delete
+    void delete(Team team);
 
     @Query("DELETE FROM Team WHERE teamId = :teamId")
     void deleteById(long teamId);
@@ -32,12 +30,15 @@ public interface TeamDao extends BaseDao<Team>{
     @Query("SELECT * FROM Team WHERE sportId = :sportId")
     LiveData<List<Team>> teamsBySportId(long sportId);
 
-    @Query("SELECT teamId,teamName FROM Team WHERE sportId = :id")
-    LiveData<List<TeamIdNameModel>> teamIdsAndNamesBySport(long id);
-    
+    @Query("SELECT * FROM Team")
+    LiveData<List<Team>> teams();
+
     @Query("SELECT teamId,teamName FROM Team")
     LiveData<List<TeamIdNameModel>> teamIdsAndNames();
 
-    @Query("SELECT * FROM Team")
-    List<Team> loadAllTeams();
+    @Query("SELECT * FROM Team WHERE teamId = :teamId")
+    LiveData<Team> findById(long teamId);
+
+
+
 }
