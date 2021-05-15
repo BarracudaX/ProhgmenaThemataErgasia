@@ -36,6 +36,9 @@ public class TeamMatch extends Match {
         this.secondTeamId = secondTeam.getTeamId();
     }
 
+    public TeamMatch(Date lastDatePicked, String toString, String toString1, Sport sportById) {
+    }
+
     @Exclude
     public Team getFirstTeam() {
         return firstTeam;

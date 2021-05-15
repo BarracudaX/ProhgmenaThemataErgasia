@@ -55,6 +55,7 @@ public class InsertTeamMatchFragment extends BaseFragment {
         viewModel = new ViewModelProvider(getActivity()).get(MainActivityViewModel.class);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentInsertTeamMatchBinding.inflate(inflater, container, false);
@@ -74,7 +75,7 @@ public class InsertTeamMatchFragment extends BaseFragment {
             viewModel.insertTeamMatch(new TeamMatch(lastDatePicked,binding.matchCityInput.getText().toString(),binding.matchCountryInput.getText().toString(),viewModel.getSportById(sportId)));
         });
 
-        activityViewModel.getPickedDate().observe(this,localDate -> {
+        activityViewModel.getPickedDate().observe(getViewLifecycleOwner(),localDate -> {
             lastDatePicked = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
             binding.matchDateInput.setText(localDate.toString());
         });
@@ -84,7 +85,7 @@ public class InsertTeamMatchFragment extends BaseFragment {
         sportSpinner = binding.matchSportInput;
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.support_simple_spinner_dropdown_item);
         sportSpinner.setAdapter(adapter);
-        viewModel.getSportIdsAndNamesByType(SportType.TEAM).observe(this, sportIdNameModels -> {
+        viewModel.getSportIdsAndNamesByType(SportType.TEAM).observe(getViewLifecycleOwner(), sportIdNameModels -> {
             for (SportIdNameModel sportIdNameModel : sportIdNameModels) {
                 String sportIdName = sportIdNameModel.getId() + "-" + sportIdNameModel.getSportName();
                 if (spinnerData.add(sportIdName)) {
@@ -97,7 +98,7 @@ public class InsertTeamMatchFragment extends BaseFragment {
         team1Spinner = binding.matchTeam1;
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.support_simple_spinner_dropdown_item);
         team1Spinner.setAdapter(adapter);
-        viewModel.getTeamIdsAndNames().observe(this, teamIdNameModels -> {
+        viewModel.getTeamIdsAndNames().observe(getViewLifecycleOwner(), teamIdNameModels -> {
             for (TeamIdNameModel teamIdNameModel : teamIdNameModels) {
                 String teamIdName = teamIdNameModel.getId() + "-" + teamIdNameModel.getTeamName();
                 if (team1SpinnerData.add(teamIdName)) {
@@ -111,7 +112,7 @@ public class InsertTeamMatchFragment extends BaseFragment {
         team2Spinner = binding.matchTeam2;
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.support_simple_spinner_dropdown_item);
         team2Spinner.setAdapter(adapter);
-        viewModel.getTeamIdsAndNames().observe(this, teamIdNameModels -> {
+        viewModel.getTeamIdsAndNames().observe(getViewLifecycleOwner(), teamIdNameModels -> {
             for (TeamIdNameModel teamIdNameModel : teamIdNameModels) {
                 String teamIdName = teamIdNameModel.getId() + "-" + teamIdNameModel.getTeamName();
                 if (team2SpinnerData.add(teamIdName)) {
