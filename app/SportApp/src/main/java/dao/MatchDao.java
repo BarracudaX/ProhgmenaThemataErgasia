@@ -18,11 +18,13 @@ public interface MatchDao {
 
     void updateAthleteMatch(AthletesMatch match);
 
-    void deleteMatch(Match match);
+    void deleteTeamMatch(TeamMatch match);
 
     LiveData<List<TeamMatch>> teamMatches();
 
     LiveData<List<AthletesMatch>> athleteMatches();
+
+    LiveData<TeamMatch> findById(String teamMatchId);
 
     void deleteById(long id);
 

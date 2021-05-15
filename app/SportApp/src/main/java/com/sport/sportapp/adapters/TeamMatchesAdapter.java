@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.sport.sportapp.R;
 import com.sport.sportapp.databinding.TeamMatchLayoutBinding;
+import com.sport.sportapp.fragments.match.UpdateTeamMatchFragment;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -42,7 +43,7 @@ public class TeamMatchesAdapter extends RecyclerView.Adapter<TeamMatchesAdapter.
         return new TeamMatchViewHolder(
                 LayoutInflater.from(parent.getContext()).inflate(R.layout.team_match_layout,parent,false),
                 teamViewModel,
-                matchViewModel);
+                matchViewModel, mainViewModel);
     }
 
     @Override
@@ -59,13 +60,15 @@ public class TeamMatchesAdapter extends RecyclerView.Adapter<TeamMatchesAdapter.
 
         private final TeamViewModel teamViewModel;
         private final MatchViewModel matchViewModel;
+        private final MainViewModel mainViewModel;
         private final TeamMatchLayoutBinding binding;
 
-        public TeamMatchViewHolder(@NonNull @NotNull View itemView, TeamViewModel teamViewModel, MatchViewModel matchViewModel) {
+        public TeamMatchViewHolder(@NonNull @NotNull View itemView, TeamViewModel teamViewModel, MatchViewModel matchViewModel, MainViewModel mainViewModel) {
             super(itemView);
             binding = TeamMatchLayoutBinding.bind(itemView);
             this.teamViewModel = teamViewModel;
             this.matchViewModel = matchViewModel;
+            this.mainViewModel = mainViewModel;
         }
 
         public void bindData(TeamMatch teamMatch) {
@@ -76,7 +79,7 @@ public class TeamMatchesAdapter extends RecyclerView.Adapter<TeamMatchesAdapter.
             binding.firstTeamScoreInput.setText(String.valueOf(firstTeamScore.getScore()));
             binding.secondTeamScoreInput.setText(String.valueOf(secondTeamScore.getScore()));
             binding.updateTeamMatchButton.setOnClickListener(v -> {
-                matchViewModel.updateTeamMatch(teamMatch);
+                mainViewModel.navigateTo(R.id.updateTeamMatchDestination, UpdateTeamMatchFragment.getBundleRequest(teamMatch.getId()));
             });
 
             binding.deleteTeamMatchButton.setOnClickListener(v -> {

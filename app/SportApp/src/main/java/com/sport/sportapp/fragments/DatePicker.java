@@ -47,4 +47,8 @@ public class DatePicker extends DialogFragment implements DatePickerDialog.OnDat
     public LocalDate getLocalDatePicked(){
         return localDatePicked;
     }
+
+    public void setLocalDatePicked(LocalDate localDate) {
+        this.localDatePicked = localDate;
+    }
 }

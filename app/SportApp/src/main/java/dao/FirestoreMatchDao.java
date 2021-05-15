@@ -47,7 +47,7 @@ public class FirestoreMatchDao implements MatchDao{
 
     @Override
     public void updateTeamMatch(TeamMatch match) {
-
+        db.collection(MatchCollectionName).document(match.getId()).set(match);
     }
 
     @Override
@@ -56,7 +56,7 @@ public class FirestoreMatchDao implements MatchDao{
     }
 
     @Override
-    public void deleteMatch(Match match) {
+    public void deleteTeamMatch(TeamMatch match) {
         db.collection(MatchCollectionName).document(match.getId())
                 .delete()
                 .addOnSuccessListener( (Void unused) ->{
@@ -98,6 +98,20 @@ public class FirestoreMatchDao implements MatchDao{
         });
         return matches;
     }
+
+    @Override
+    public LiveData<TeamMatch> findById(String teamMatchId) {
+        MutableLiveData<TeamMatch> teamMatchLiveData = new MutableLiveData<>();
+
+        db.collection(MatchCollectionName).document(teamMatchId).get().addOnSuccessListener(snapshot ->{
+            TeamMatch teamMatch = snapshot.toObject(TeamMatch.class);
+            teamMatch.setId(teamMatchId);
+            teamMatchLiveData.postValue(teamMatch);
+        });
+
+        return teamMatchLiveData;
+    }
+
     public void deleteById(long id){
 
     }

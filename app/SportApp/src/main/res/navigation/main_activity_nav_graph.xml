@@ -131,10 +131,17 @@
         <action
             android:id="@+id/action_teamMatchesDestination_to_insertTeamMatchFragment2"
             app:destination="@id/teamMatchInsertDestination" />
+        <action
+            android:id="@+id/action_teamMatchesDestination_to_updateTeamMatchFragment"
+            app:destination="@id/updateTeamMatchDestination" />
     </fragment>
     <fragment
         android:id="@+id/teamMatchInsertDestination"
         android:name="com.sport.sportapp.fragments.match.InsertTeamMatchFragment"
         android:label="Create Team Match" />
+    <fragment
+        android:id="@+id/updateTeamMatchDestination"
+        android:name="com.sport.sportapp.fragments.match.UpdateTeamMatchFragment"
+        android:label="Update Team Match" />
 
 </navigation>

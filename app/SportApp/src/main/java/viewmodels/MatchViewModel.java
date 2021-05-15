@@ -34,10 +34,14 @@ public class MatchViewModel extends AndroidViewModel {
     }
 
     public void deleteTeamMatch(TeamMatch teamMatch) {
-
+        matchDao.deleteTeamMatch(teamMatch);
     }
 
     public void insertTeamMatch(TeamMatch teamMatch) {
         matchDao.insertTeamMatch(teamMatch);
+    }
+
+    public LiveData<TeamMatch> findTeamMatchById(String teamMatchId) {
+        return matchDao.findById(teamMatchId);
     }
 }

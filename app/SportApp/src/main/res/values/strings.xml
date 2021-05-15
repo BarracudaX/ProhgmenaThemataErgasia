@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">SportApp</string>
 
+    <string name="update_team_match_title">Update Team Match</string>
+
     <!--    TITLES-->
     <string name="create_event_title">Create Event</string>
 
@@ -141,6 +143,7 @@
     <string name="first_team_score_label">First Team Score:</string>
     <string name="team_match_vs_label">VS</string>
     <string name="second_team_score_label">Second Team Score:</string>
+    <string name="team_match_date_label">Date Of Match:</string>
     >>>>>>> bcced1b0ce4d8aced0033f37adc1385e5b068442
 
 </resources>
