@@ -18,6 +18,8 @@ import domain.athlete.AthleteTeam;
 public class AthleteViewModel extends AndroidViewModel {
 
     private final AthleteDao athleteDao;
+    private LiveData<List<AthleteSingle>> athletesSingle;
+    private LiveData<List<AthleteTeam>> athletesTeam;
 
     public AthleteViewModel(@NonNull @NotNull Application application) {
         super(application);
@@ -57,12 +59,17 @@ public class AthleteViewModel extends AndroidViewModel {
         return athleteDao.findAthleteTeamById(athleteId);
     }
 
-
     public LiveData<List<AthleteSingle>> athletesSingle() {
-        return athleteDao.athleteSingles();
+        if (athletesSingle == null) {
+            athletesSingle = athleteDao.athleteSingles();
+        }
+        return athletesSingle;
     }
 
     public LiveData<List<AthleteTeam>> athletesTeam(){
-        return athleteDao.athleteTeams();
+        if (athletesTeam == null) {
+            athletesTeam = athleteDao.athleteTeams();
+        }
+        return athletesTeam;
     }
 }

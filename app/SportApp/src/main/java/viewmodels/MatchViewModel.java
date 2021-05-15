@@ -18,6 +18,7 @@ import domain.match.TeamMatch;
 public class MatchViewModel extends AndroidViewModel {
 
     private final MatchDao matchDao;
+    private LiveData<List<TeamMatch>> teamMatches;
 
     public MatchViewModel(@NonNull @NotNull Application application) {
         super(application);
@@ -26,7 +27,10 @@ public class MatchViewModel extends AndroidViewModel {
     }
 
     public LiveData<List<TeamMatch>> teamMatches() {
-        return matchDao.teamMatches();
+        if (teamMatches == null) {
+            teamMatches = matchDao.teamMatches();
+        }
+        return teamMatches;
     }
 
     public void updateTeamMatch(TeamMatch teamMatch) {

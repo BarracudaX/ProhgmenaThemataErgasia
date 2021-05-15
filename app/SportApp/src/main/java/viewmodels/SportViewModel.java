@@ -72,21 +72,6 @@ public class SportViewModel extends AndroidViewModel {
         return sportAthletes;
     }
 
-    public LiveData<List<Sport>> sports() {
-        MediatorLiveData<List<Sport>> sports = new MediatorLiveData<>();
-        sports.addSource(teamSports(), sportTeams -> {
-            List<Sport> sportsList = new ArrayList<>();
-            sportsList.addAll(sportTeams);
-            sports.postValue(sportsList);
-        });
-        sports.addSource(athleteSports(), sportAthletes ->{
-            List<Sport> sportsList = new ArrayList<>();
-            sportsList.addAll(sportAthletes);
-            sports.postValue(sportsList);
-        });
-
-        return sports;
-     }
 
     public void deleteAthleteSport(AthleteSport sport) {
         sportDao.deleteAthleteSportById(sport.getSportId());

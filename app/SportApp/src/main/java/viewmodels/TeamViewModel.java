@@ -18,7 +18,6 @@ import domain.team.TeamIdNameModel;
 public class TeamViewModel extends AndroidViewModel {
 
     private final TeamDao teamDao;
-    private LiveData<List<TeamIdNameModel>> teamIdsAndNames;
     private LiveData<List<Team>> teams;
 
     public TeamViewModel(@NonNull @NotNull Application application) {
@@ -26,14 +25,6 @@ public class TeamViewModel extends AndroidViewModel {
         AppDatabase appDatabase = AppDatabase.getInstance(application);
         teamDao = appDatabase.teamDao();
     }
-
-    public LiveData<List<TeamIdNameModel>> teamIdsAndNames() {
-        if(teamIdsAndNames == null){
-            teamIdsAndNames = teamDao.teamIdsAndNames();
-        }
-        return teamIdsAndNames;
-    }
-
     public LiveData<List<Team>> teams() {
 
         if(teams == null){
