@@ -12,8 +12,35 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <EditText
+            android:id="@+id/team2ScoreInput"
+            android:layout_width="214dp"
+            android:layout_height="39dp"
+            android:layout_marginBottom="1dp"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/team1ScoreLabel2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.486"
+            app:layout_constraintStart_toEndOf="@+id/team1ScoreLabel"
+            app:layout_constraintTop_toBottomOf="@+id/matchTeam2"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/team1ScoreLabel2"
+            android:layout_width="81dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/single_match_score"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/team2NameLabel" />
 
         <TextView
             android:id="@+id/CreateTeamMatchTitle"
@@ -51,19 +78,6 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divide" />
-
-        <TextView
-            android:id="@+id/team2NameLabel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="42dp"
-            android:text="Team Name:"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@+id/matchCityLabel"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/team1NameLabel" />
 
         <TextView
             android:id="@+id/matchCityLabel"
@@ -202,6 +216,21 @@
             app:layout_constraintTop_toBottomOf="@+id/team1NameLabel"
             app:layout_constraintVertical_bias="0.545" />
 
+        <TextView
+            android:id="@+id/team2NameLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Team Name:"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/team1ScoreLabel"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/team1ScoreLabel" />
+
+
         <Spinner
             android:id="@+id/matchTeam1"
             android:layout_width="203dp"
@@ -211,6 +240,31 @@
             app:layout_constraintStart_toEndOf="@+id/team1NameLabel"
             app:layout_constraintTop_toBottomOf="@+id/CreateTeamMatchTitle"
             app:layout_constraintVertical_bias="0.376" />
+
+        <EditText
+            android:id="@+id/team1ScoreInput"
+            android:layout_width="218dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="8dp"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/team1ScoreLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.487"
+            app:layout_constraintStart_toEndOf="@+id/team1ScoreLabel"
+            app:layout_constraintTop_toBottomOf="@+id/matchTeam1"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/team1ScoreLabel"
+            android:layout_width="81dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="20dp"
+            android:text="Team Score:"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/team1NameLabel" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
