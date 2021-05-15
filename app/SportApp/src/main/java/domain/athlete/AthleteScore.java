@@ -10,7 +10,6 @@ import java.util.Objects;
 
 public class AthleteScore {
 
-    private long sportId;
     private long athleteId;
     private double score;
 
@@ -19,15 +18,10 @@ public class AthleteScore {
     }
 
     public AthleteScore(AthleteSingle athlete, double score) {
-        this.sportId = athlete.getSportId();
         this.score = score;
         this.athleteId = athlete.getAthleteId();
     }
 
-    @Exclude
-    public long getSportId() {
-        return sportId;
-    }
 
     public double getScore() {
         return score;

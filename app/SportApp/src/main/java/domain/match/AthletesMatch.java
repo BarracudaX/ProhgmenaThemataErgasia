@@ -36,18 +36,9 @@ public class AthletesMatch extends Match {
 
     public void addAthlete(AthleteScore athleteScore){
         if (athleteScores.size() == maximumParticipants) {
-            throw new IllegalArgumentException("Maximum participants reached!");
+            throw new IllegalArgumentException("Can't fit more participants");
         }
-
-        if (athleteScores.contains(athleteScore)) {
-            athleteScores.set(athleteScores.indexOf(athleteScore),athleteScore);//changes the score of the athlete.
-        }else if(athleteScore.getSportId() == sportId){
-            athleteScores.add(athleteScore);
-        }else{//Athlete's sport is not the same as the sport of this match.
-            throw new IllegalArgumentException("Athlete can't be added to the participants because they are not they haven't " +
-                    "participated in the match's sport.");
-        }
-
+        athleteScores.add(athleteScore);
     }
 
 }
