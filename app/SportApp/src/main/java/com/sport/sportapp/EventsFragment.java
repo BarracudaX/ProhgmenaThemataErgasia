@@ -15,6 +15,7 @@ import com.sport.sportapp.R;
 import com.sport.sportapp.databinding.FragmentEventsBinding;
 import com.sport.sportapp.fragments.BaseFragment;
 import com.sport.sportapp.fragments.SingleMatchesFragment;
+import com.sport.sportapp.fragments.TeamMatchesFragment;
 
 import viewmodels.MainActivityViewModel;
 
@@ -31,6 +32,7 @@ public class EventsFragment extends BaseFragment {
         binding = FragmentEventsBinding.inflate(inflater, container, false);
         binding.SingleButton.setOnClickListener((v) -> {
             viewModel.navigateTo(R.id.singleMatchesFragment, SingleMatchesFragment.getBundleRequest());
+            viewModel.navigateTo(R.id.teamMatchesFragment, TeamMatchesFragment.getBundleRequest());
         });
         configureBottomNavigation(binding.bottomNavigationView);
         return  binding.getRoot();

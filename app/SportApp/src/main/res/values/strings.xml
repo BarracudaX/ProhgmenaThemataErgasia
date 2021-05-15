@@ -128,5 +128,7 @@
     <string name="match_sport_label">Sport:</string>
     <string name="single_match_create_button">Create Single Match</string>
     <string name="single_match_score">AthleteScore:</string>
+    <string name="team_match_create_button">Create Team Match</string>
+    <string name="team_match_score">Team Score:</string>
 
 </resources>
