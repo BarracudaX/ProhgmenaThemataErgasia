@@ -26,11 +26,7 @@ public class UpdateAthleteFragment extends InsertAthleteFragment {
     private static final String ID_KEY = "ATHLETE_ID";
 
     private MainActivityViewModel viewModel;
-
-    private Spinner spinner;
-    private Spinner teamSpinner;
-    private final Set<String> spinnerData = new HashSet<>();
-    private final Set<String> teamSpinnerData = new HashSet<>();
+    private LocalDate lastDatePicked;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -50,7 +46,7 @@ public class UpdateAthleteFragment extends InsertAthleteFragment {
     public void buttonClickedEvent(Athlete athlete) {
         Athlete updateRequest = new Athlete(
                 getArguments().getLong(ID_KEY),athlete.getAthleteName(),athlete.getSurname(),
-                athlete.getCity(),athlete.getCountry(),athlete.getDateOfBirth(),athlete.getSportId(), athlete.getTeamId()
+                athlete.getCity(),athlete.getCountry(),athlete.getDateOfBirth(),athlete.getSportId()
         );
         viewModel.updateAthlete(updateRequest);
         viewModel.navigateBack();
@@ -76,26 +72,17 @@ public class UpdateAthleteFragment extends InsertAthleteFragment {
                 }
             }
             binding.athleteSportInput.setSelection(pos);
-            int teamPos = 0;
-            for (int i = 0; i < binding.athleteTeamInput.getAdapter().getCount(); i++) {
-                String teamIdName = (String) binding.athleteTeamInput.getItemAtPosition(i);
-                if (athlete.getTeamId() == Long.parseLong(teamIdName.substring(0, teamIdName.indexOf("-")))) {
-                    teamPos = i;
-                    break;
-                }
-            }
-            binding.athleteTeamInput.setSelection(teamPos);
         });
         binding.createAthleteButton.setOnClickListener((v) -> {
             String sportIdAsString = ((String) binding.athleteSportInput.getSelectedItem());
             long sportId = Long.parseLong(sportIdAsString.substring(0, sportIdAsString.indexOf("-")));
 
-            String teamIdAsString = ((String) binding.athleteTeamInput.getSelectedItem());
-            long teamId = Long.parseLong(teamIdAsString.substring(0, teamIdAsString.indexOf("-")));
-
             Athlete athUpdate = new Athlete(getArguments().getLong(ID_KEY),binding.athleteNameInput.getText().toString(),binding.athleteSurnameInput.getText().toString(),
-                    binding.athleteCityInput.getText().toString(), binding.athleteCountryInput.getText().toString(), LocalDate.parse("2018-11-01"),
-                    sportId,teamId);
+                    binding.athleteCityInput.getText().toString(), binding.athleteCountryInput.getText().toString(), lastDatePicked,sportId);
+            activityViewModel.getPickedDate().observe(this,localDate -> {
+                lastDatePicked = localDate;
+                binding.athleteDateOfBirthInput.setText(localDate.toString());
+            });
             viewModel.updateAthlete(athUpdate);
             viewModel.navigateBack();
             Toast.makeText(getActivity(), R.string.update_athlete_success_message, Toast.LENGTH_LONG).show();

@@ -8,7 +8,6 @@ import androidx.room.PrimaryKey;
 import java.time.LocalDate;
 @Entity(foreignKeys = {
         @ForeignKey(entity = Sport.class,parentColumns = "sportId",childColumns = "sportId",onDelete = ForeignKey.CASCADE),
-        @ForeignKey(entity = Team.class,parentColumns = "teamId",childColumns = "teamId",onDelete = ForeignKey.CASCADE)
 })
 public class Athlete {
 
@@ -27,20 +26,18 @@ public class Athlete {
 
     public LocalDate dateOfBirth;
 
-    public long teamId;
 
     @Ignore
-    public Athlete(String name, String surname, String city, String country, LocalDate dateOfBirth, long sportId, long teamId) {
+    public Athlete(String name, String surname, String city, String country, LocalDate dateOfBirth, long sportId) {
         this.name = name;
         this.surname = surname;
         this.city = city;
         this.country = country;
         this.dateOfBirth = dateOfBirth;
         this.sportId = sportId;
-        this.teamId = teamId;
     }
 
-    public Athlete(long athleteCode, String name, String surname, String city, String country, LocalDate dateOfBirth, long sportId, long teamId) {
+    public Athlete(long athleteCode, String name, String surname, String city, String country, LocalDate dateOfBirth, long sportId) {
         this.athleteCode = athleteCode;
         this.name = name;
         this.surname = surname;
@@ -48,7 +45,6 @@ public class Athlete {
         this.country = country;
         this.dateOfBirth = dateOfBirth;
         this.sportId = sportId;
-        this.teamId = teamId;
     }
 
     public long getAthleteCode() {
@@ -76,8 +72,6 @@ public class Athlete {
     }
 
     public long getSportId() { return sportId; }
-
-    public long getTeamId() { return teamId; }
 
     public void setAthleteCode(long athleteCode) {
         this.athleteCode = athleteCode;

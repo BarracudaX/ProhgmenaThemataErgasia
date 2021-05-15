@@ -6,9 +6,11 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +22,7 @@ import android.widget.Toast;
 import com.sport.sportapp.R;
 import com.sport.sportapp.databinding.FragmentInsertAthleteBinding;
 import com.sport.sportapp.fragments.BaseFragment;
+import com.sport.sportapp.fragments.DatePicker;
 
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -41,10 +44,8 @@ public class InsertAthleteFragment extends BaseFragment {
     protected FragmentInsertAthleteBinding binding;
     protected MainActivityViewModel viewModel;
     private Spinner spinner;
-    private Spinner teamSpinner;
+    private LocalDate lastDatePicked;
     private final Set<String> spinnerData = new HashSet<>();
-    private final Set<String> teamSpinnerData = new HashSet<>();
-    private SportType sportType = TEAM;
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -60,42 +61,31 @@ public class InsertAthleteFragment extends BaseFragment {
         binding = FragmentInsertAthleteBinding.inflate(inflater, container, false);
         binding = FragmentInsertAthleteBinding.inflate(inflater);
 
-        createSpinner();
-        createTeamSpinner();
-        /*
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                String sportIdAsString = ((String) spinner.getSelectedItem());
-                sportId = Long.parseLong(sportIdAsString.substring(0, sportIdAsString.indexOf("-")));
-                //createTeamSpinner(sportId);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-                createTeamSpinner(1);
-            }
+        binding.athleteDateOfBirthInput.setOnClickListener(v -> {
+            DialogFragment dialogFragment = new DatePicker();
+            dialogFragment.show(getChildFragmentManager(),"datePicker");
         });
-         */
-        //sportType = viewModel.getSportType(sportId);
-        //if(sportType.equals(TEAM))
+        activityViewModel.getPickedDate().observe(this,localDate -> {
+            lastDatePicked = localDate;
+            binding.athleteDateOfBirthInput.setText(lastDatePicked.toString());
+        });
+        createSpinner();
         binding.createAthleteButton.setOnClickListener((v) -> {
+            Log.d("THISSSSS: ",lastDatePicked.toString());
             String sportIdAsString = ((String) spinner.getSelectedItem());
             long sportId = Long.parseLong(sportIdAsString.substring(0, sportIdAsString.indexOf("-")));
-            String teamIdAsString = ((String) teamSpinner.getSelectedItem());
-            long teamId = Long.parseLong(teamIdAsString.substring(0, teamIdAsString.indexOf("-")));
-                viewModel.insertAthlete(new Athlete(
+            viewModel.insertAthlete(new Athlete(
                     binding.athleteNameInput.getText().toString(),
                     binding.athleteSurnameInput.getText().toString(),
                     binding.athleteCityInput.getText().toString(),
                     binding.athleteCountryInput.getText().toString(),
-                    LocalDate.parse("2018-11-01"),
-                    sportId,
-                    teamId
-                ));
+                    lastDatePicked,
+                    sportId
+            ));
 
             viewModel.navigateBack();
             Toast.makeText(getActivity(), R.string.added_athlete_success_message, Toast.LENGTH_LONG).show();
+            Log.d("THISSSSS: ",lastDatePicked.toString());
         });
         return binding.getRoot();
     }
@@ -109,19 +99,6 @@ public class InsertAthleteFragment extends BaseFragment {
                 String sportIdName = sportIdNameModel.getId() + "-" + sportIdNameModel.getSportName();
                 if (spinnerData.add(sportIdName)) {
                     adapter.add(sportIdName);
-                }
-            }
-        });
-    }
-    private void createTeamSpinner() {
-        teamSpinner = binding.athleteTeamInput;
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.support_simple_spinner_dropdown_item);
-        teamSpinner.setAdapter(adapter);
-        viewModel.getTeamIdsAndNames().observe(this, teamIdNameModels -> {
-            for (TeamIdNameModel teamIdNameModel : teamIdNameModels) {
-                String teamIdName = teamIdNameModel.getId() + "-" + teamIdNameModel.getTeamName();
-                if (teamSpinnerData.add(teamIdName)) {
-                    adapter.add(teamIdName);
                 }
             }
         });

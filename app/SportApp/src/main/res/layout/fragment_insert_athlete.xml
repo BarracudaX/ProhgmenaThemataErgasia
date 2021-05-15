@@ -165,7 +165,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/athleteCountryLabel" />
 
-                <EditText
+                <TextView
                     android:id="@+id/athleteDateOfBirthInput"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -205,7 +205,7 @@
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@+id/athleteSportLabel"
                     app:layout_constraintTop_toBottomOf="@+id/athleteDateOfBirthInput" />
-
+<!--
                 <TextView
                     android:id="@+id/athleteTeamLabel"
                     android:layout_width="0dp"
@@ -232,14 +232,14 @@
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@+id/athleteTeamLabel"
                     app:layout_constraintTop_toBottomOf="@+id/athleteSportInput" />
-
+-->
                 <Button
                     android:id="@+id/createAthleteButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginTop="42dp"
+                    android:layout_marginTop="104dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginBottom="8dp"
@@ -247,9 +247,9 @@
                     app:backgroundTint="@color/green"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.48"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/athleteTeamLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/athleteSportLabel"
                     app:layout_constraintVertical_bias="0.0" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

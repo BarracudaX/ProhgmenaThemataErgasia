@@ -60,7 +60,8 @@ public class AthletesAdapter extends RecyclerView.Adapter<AthletesAdapter.Athlet
 
         private void bindData(Athlete athlete) {
             binding.athleteIdInput.setText(String.valueOf(athlete.getAthleteCode()));
-            binding.athleteNameInput.setText(athlete.getAthleteName());
+            binding.athleteNameInput.setText(athlete.getAthleteName()+" "+athlete.getSurname());
+            binding.athletesSportInput.setText(viewModel.getSportById(athlete.getSportId()).getSportName());
         }
 
         private void onUpdateButtonClicked(View view) {

@@ -104,7 +104,7 @@
     <string name="menu_item_teams_group_by_sport">Teams Grouped By Sport</string>
     <string name="label_available_sports">Available Sports</string>
     <string name="label_teams">Found Teams In Sport</string>
-    <string name="athlete_sport_label">Athlete Sport</string>
+    <string name="athlete_sport_label">Athlete Sport:</string>
     <string name="athlete_team_label">Athelet\'s Team</string>
     <string name="event_delete_button">Delete Event</string>
     <string name="event_update_button">Update Event</string>
