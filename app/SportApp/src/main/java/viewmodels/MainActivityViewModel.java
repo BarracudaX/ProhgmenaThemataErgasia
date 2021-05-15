@@ -191,4 +191,8 @@ public class MainActivityViewModel extends AndroidViewModel {
     public void insertSingleMatch(SingleMatch singleMatch) {
         matchDao.insertSingleMatch(singleMatch);
     }
+
+    public void insertTeamMatch(TeamMatch teamMatch) {
+        matchDao.insertTeamMatch(teamMatch);
+    }
 }
