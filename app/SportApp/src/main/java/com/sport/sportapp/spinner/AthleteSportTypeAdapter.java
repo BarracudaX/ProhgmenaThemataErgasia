@@ -15,7 +15,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-import domain.Gender;
 import domain.sport.AthleteSportType;
 
 public class AthleteSportTypeAdapter extends ArrayAdapter<AthleteSportType> {

@@ -40,5 +40,6 @@ public interface TeamDao {
     LiveData<Team> findById(long teamId);
 
 
-
+    @Query("SELECT * FROM Team WHERE teamId = :teamId")
+    Team getById(long teamId);
 }

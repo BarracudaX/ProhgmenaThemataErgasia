@@ -2,23 +2,21 @@ package domain.match;
 
 import com.google.firebase.firestore.Exclude;
 
+import domain.sport.TeamSport;
 import domain.team.Team;
 
 public class TeamScore {
 
-    private long sportId;
     private double score;
     private long teamId;
 
-    public TeamScore(Team team, double score) {
-        this.sportId = team.getSportId();
-        this.score = score;
-        this.teamId = team.getTeamId();
+    public TeamScore(){
+
     }
 
-    @Exclude
-    public long getSportId() {
-        return sportId;
+    public TeamScore(Team team, double score) {
+        this.score = score;
+        this.teamId = team.getTeamId();
     }
 
     public double getScore() {

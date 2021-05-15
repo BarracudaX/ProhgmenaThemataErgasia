@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/secondTeamScoreInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/secondTeamScoreLabel"
+        app:layout_constraintStart_toEndOf="@+id/secondTeamScoreLabel"
+        tools:layout_editor_absoluteY="243dp" />
+
+    <TextView
+        android:id="@+id/secondTeamScoreLabel"
+        android:layout_width="80dp"
+        android:layout_height="17dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/event_team_score"
+        app:layout_constraintEnd_toEndOf="@+id/secondTeamNameLabel"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/secondTeamNameLabel" />
+
+    <TextView
+        android:id="@+id/teamMatchTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/firstTeamIdInput"
+        app:layout_constraintEnd_toEndOf="@+id/firstTeamIdInput"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/firstTeamIdLabel"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/eventIdInput"
+        android:visibility = "gone"
+        android:layout_width="387dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="2dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/firstTeamIdInput"
+        app:layout_constraintEnd_toEndOf="@+id/teamMatchTitle"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/teamMatchTitle"
+        app:layout_constraintTop_toBottomOf="@+id/teamMatchTitle"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <TextView
+        android:id="@+id/firstTeamIdInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        app:layout_constraintBaseline_toBaselineOf="@+id/firstTeamIdLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/firstTeamIdLabel" />
+
+    <TextView
+        android:id="@+id/firstTeamIdLabel"
+        android:layout_width="78dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="88dp"
+        android:text="@string/team_id_label"
+        app:layout_constraintEnd_toEndOf="@+id/firstTeamNameLabel"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/firstTeamNameLabel"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/firstTeamNameInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        app:layout_constraintBaseline_toBaselineOf="@+id/firstTeamNameLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/firstTeamNameLabel" />
+
+    <TextView
+        android:id="@+id/firstTeamNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/team_name_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstTeamIdLabel" />
+
+    <TextView
+        android:id="@+id/secondTeamIdLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/team_id_label"
+        app:layout_constraintEnd_toEndOf="@+id/secondTeamNameLabel"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/secondTeamNameLabel"
+        app:layout_constraintTop_toBottomOf="@+id/firstTeamScoreLabel" />
+
+    <TextView
+        android:id="@+id/secondTeamIdInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        app:layout_constraintBaseline_toBaselineOf="@+id/secondTeamIdLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/secondTeamIdLabel" />
+
+    <TextView
+        android:id="@+id/secondTeamNameInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        app:layout_constraintBaseline_toBaselineOf="@+id/secondTeamNameLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/secondTeamNameLabel" />
+
+    <TextView
+        android:id="@+id/secondTeamNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/team_name_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/secondTeamIdLabel" />
+
+    <Button
+        android:id="@+id/updateTeamMatchButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="@string/team_match_update_button"
+        app:backgroundTint="@color/green"
+        app:layout_constraintEnd_toStartOf="@+id/deleteTeamMatchButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/secondTeamScoreLabel" />
+
+    <Button
+        android:id="@+id/deleteTeamMatchButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="@string/team_match_delete_button"
+        app:backgroundTint="@color/warning"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/updateTeamMatchButton"
+        app:layout_constraintTop_toTopOf="@+id/updateTeamMatchButton" />
+
+    <TextView
+        android:id="@+id/firstTeamScoreLabel"
+        android:layout_width="79dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/event_team_score"
+        app:layout_constraintEnd_toEndOf="@+id/firstTeamNameLabel"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstTeamNameLabel" />
+
+    <TextView
+        android:id="@+id/firstTeamScoreInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/firstTeamScoreLabel"
+        app:layout_constraintStart_toEndOf="@+id/firstTeamScoreLabel"
+        tools:layout_editor_absoluteY="138dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

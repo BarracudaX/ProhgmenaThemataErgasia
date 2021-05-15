@@ -38,7 +38,7 @@ public class FirestoreMatchDao implements MatchDao{
     }
 
     @Override
-    public void insertSingleMatch(AthletesMatch match) {
+    public void insertAthleteMatch(AthletesMatch match) {
         db.collection(MatchCollectionName).add(match)
                 .addOnSuccessListener( documentReference -> {
                    match.setId(documentReference.getId());
@@ -51,7 +51,7 @@ public class FirestoreMatchDao implements MatchDao{
     }
 
     @Override
-    public void updateSingleMatch(AthletesMatch match) {
+    public void updateAthleteMatch(AthletesMatch match) {
 
     }
 
@@ -65,24 +65,25 @@ public class FirestoreMatchDao implements MatchDao{
     }
 
     @Override
-    public LiveData<List<TeamMatch>> selectTeamMatches() {
+    public LiveData<List<TeamMatch>> teamMatches() {
         MutableLiveData<List<TeamMatch>> matches = new MutableLiveData<>();
         db.collection(MatchCollectionName).addSnapshotListener((querySnapshot, e) ->{
-                    List<TeamMatch> result = new ArrayList<>();
-                    for(DocumentSnapshot document : querySnapshot.getDocuments() ){
-                        if(document.contains("firstTeamId")){
-                            TeamMatch match = document.toObject(TeamMatch.class);
-                            match.setId(document.getId());
-                            result.add(match);
-                        }
-                    }
-                    matches.postValue(result);
-                });
+            List<TeamMatch> result = new ArrayList<>();
+            for(DocumentSnapshot document : querySnapshot.getDocuments() ){
+                if(document.contains("firstTeamScore")){
+                    TeamMatch match = document.toObject(TeamMatch.class);
+                    match.setId(document.getId());
+                    result.add(match);
+                }
+            }
+            matches.postValue(result);
+        });
         return matches;
     }
 
+
     @Override
-    public LiveData<List<AthletesMatch>> selectSingleMatches() {
+    public LiveData<List<AthletesMatch>> athleteMatches() {
         MutableLiveData<List<AthletesMatch>> matches = new MutableLiveData<>();
           db.collection(MatchCollectionName).addSnapshotListener((querySnapshot, e) -> {
             List<AthletesMatch> result = new ArrayList<>();
@@ -97,4 +98,8 @@ public class FirestoreMatchDao implements MatchDao{
         });
         return matches;
     }
+    public void deleteById(long id){
+
+    }
+
 }

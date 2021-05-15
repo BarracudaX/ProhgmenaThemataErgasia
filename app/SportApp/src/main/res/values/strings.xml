@@ -67,8 +67,9 @@
     <string name="sport_delete_button">Delete Sport</string>
 
     <!--    MENU-->
-    <string name="menu_item_events">Events</string>
-    <string name="menu_item_add_event">Add Event</string>
+    <string name="menu_item_team_matches">Team Matches</string>
+    <string name="menu_item_add_single_match">Add Single Match</string>
+    <string name="menu_item_add_team_match">Add Team Match</string>
     <string name="menu_item_athletes">Athletes</string>
     <string name="menu_item_add_single_athlete">Add Single Athlete</string>
     <string name="menu_item_add_team_athlete">Add Team Athlete</string>
@@ -111,5 +112,35 @@
     <string name="team_athlete_update_button">Update Team Athlete</string>
     <string name="update_team_athlete_title">Update Team Athlete</string>
     <string name="create_team_athlete_title">Create Team Athlete</string>
+    <string name="team_match_delete_button">Delete Team Match</string>
+    <string name="team_match_update_button">Update Team Match</string>
+    <string name="event_athlete_score">Athlete Score:</string>
+    <string name="event_type_select_hint">Select the type of event at the bottom.</string>
+    <string name="event_single_button">Single Match</string>
+    <string name="event_track_button">Track Event</string>
+    <string name="event_race_button">Race</string>
+    <string name="event_team_button">Team Match</string>
+    <string name="menu_item_single_match">Athlete Match</string>
+    <string name="event_team_score">Team Score:</string>
+    <string name="menu_item_team_match">Team Match</string>
+    <string name="create_single_match_title">Create  Single Match</string>
+    <string name="create_team_match_title">Create  Team Match</string>
+    <string name="match_city_label">Match City:</string>
+    <string name="match_city_hint">The city the match took place.</string>
+    <string name="match_country_label">Match Country:</string>
+    <string name="match_country_hint">The country the match took place in.</string>
+    <string name="match_date_label">Match Date:</string>
+    <string name="match_date_hint">When did the match take place.</string>
+    <string name="match_sport_label">Sport:</string>
+    <string name="single_match_create_button">Create Single Match</string>
+    <string name="single_match_score">AthleteScore:</string>
+    <string name="team_match_create_button">Create Team Match</string>
+    <string name="team_match_score">Team Score:</string>
+    <string name="first_team_label">First Team:</string>
+    <string name="second_team_label">Second Team:</string>
+    <string name="first_team_score_label">First Team Score:</string>
+    <string name="team_match_vs_label">VS</string>
+    <string name="second_team_score_label">Second Team Score:</string>
+    >>>>>>> bcced1b0ce4d8aced0033f37adc1385e5b068442
 
 </resources>

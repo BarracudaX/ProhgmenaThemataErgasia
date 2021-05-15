@@ -55,6 +55,10 @@ public class TeamViewModel extends AndroidViewModel {
         return teamDao.findById(teamId);
     }
 
+    public Team getTeam(long teamId) {
+        return teamDao.getById(teamId);
+    }
+
     public void deleteTeamById(long id) {
         teamDao.deleteById(id);
     }

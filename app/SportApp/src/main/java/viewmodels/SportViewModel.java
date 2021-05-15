@@ -17,6 +17,7 @@ import dao.SportDao;
 import domain.sport.AthleteSport;
 import domain.sport.Sport;
 import domain.sport.TeamSport;
+import domain.team.Team;
 
 public class SportViewModel extends AndroidViewModel {
 
@@ -93,5 +94,9 @@ public class SportViewModel extends AndroidViewModel {
 
     public void deleteTeamSport(TeamSport sport) {
         sportDao.deleteTeamSportById(sport.getSportId());
+    }
+
+    public TeamSport getSportTeam(long sportId) {
+        return sportDao.getSportTeamById(sportId);
     }
 }

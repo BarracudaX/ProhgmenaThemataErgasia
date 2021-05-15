@@ -6,6 +6,7 @@ import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 import domain.sport.TeamSport;
 
@@ -79,5 +80,18 @@ public final class Team {
 
     public long getSportId() {
         return sportId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Team team = (Team) o;
+        return teamId == team.teamId;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(teamId);
     }
 }

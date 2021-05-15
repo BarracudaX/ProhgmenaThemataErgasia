@@ -13,6 +13,7 @@ import com.sport.sportapp.databinding.ActivityMainBinding;
 
 import viewmodels.AthleteViewModel;
 import viewmodels.MainViewModel;
+import viewmodels.MatchViewModel;
 import viewmodels.SportViewModel;
 import viewmodels.TeamViewModel;
 
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private SportViewModel sportViewModel;
     private TeamViewModel teamViewModel;
     private AthleteViewModel athleteViewModel;
+    private MatchViewModel matchViewModel;
     private ActivityMainBinding binding;
     private AppBarConfiguration appBarConfiguration;
 
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         sportViewModel = viewModelProvider.get(SportViewModel.class);
         teamViewModel = viewModelProvider.get(TeamViewModel.class);
         athleteViewModel = viewModelProvider.get(AthleteViewModel.class);
+        matchViewModel = viewModelProvider.get(MatchViewModel.class);
 
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
         NavController navController = navHostFragment.getNavController();

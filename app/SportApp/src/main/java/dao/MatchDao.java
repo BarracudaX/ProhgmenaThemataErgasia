@@ -12,16 +12,18 @@ public interface MatchDao {
 
     void insertTeamMatch(TeamMatch match);
 
-    void insertSingleMatch(AthletesMatch match);
+    void insertAthleteMatch(AthletesMatch match);
 
     void updateTeamMatch(TeamMatch match);
 
-    void updateSingleMatch(AthletesMatch match);
+    void updateAthleteMatch(AthletesMatch match);
 
     void deleteMatch(Match match);
 
-    LiveData<List<TeamMatch>> selectTeamMatches();
+    LiveData<List<TeamMatch>> teamMatches();
 
-    LiveData<List<AthletesMatch>> selectSingleMatches();
+    LiveData<List<AthletesMatch>> athleteMatches();
+
+    void deleteById(long id);
 
 }

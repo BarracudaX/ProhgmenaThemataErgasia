@@ -1,9 +1,5 @@
 package domain.sport;
 
-import androidx.room.Entity;
-import androidx.room.Ignore;
-import androidx.room.PrimaryKey;
-
 import domain.Gender;
 
 public abstract class Sport {

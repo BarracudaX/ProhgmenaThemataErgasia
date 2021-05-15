@@ -20,8 +20,8 @@
             android:id="@+id/action_startDestination_to_sportMainFragment"
             app:destination="@id/sportMainFragment" />
         <action
-            android:id="@+id/action_startDestination_to_eventsFragment"
-            app:destination="@id/eventsFragment" />
+            android:id="@+id/action_startDestination_to_teamMatchesDestination"
+            app:destination="@id/teamMatchesDestination" />
     </fragment>
     <fragment
         android:id="@+id/teamsDestination"
@@ -95,19 +95,7 @@
         android:id="@+id/updateTeamSportDestination"
         android:name="com.sport.sportapp.fragments.sport.UpdateTeamSportFragment"
         android:label="Update Team Sport" />
-    <fragment
-        android:id="@+id/eventsFragment"
-        android:name="com.sport.sportapp.fragments.EventsFragment"
-        android:label="fragment_events"
-        tools:layout="@layout/fragment_events">
-        <action
-            android:id="@+id/action_eventsFragment_to_insertEventFragment"
-            app:destination="@id/insertEventFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/insertEventFragment"
-        android:name="com.sport.sportapp.fragments.InsertEventFragment"
-        android:label="InsertEventFragment" />
+
     <fragment
         android:id="@+id/sportsDestination"
         android:name="com.sport.sportapp.fragments.team.SportsFragment"
@@ -136,4 +124,17 @@
         android:id="@+id/updateTeamAthleteDestination"
         android:name="com.sport.sportapp.fragments.athlete.UpdateTeamAthleteFragment"
         android:label="Update Team Athlete" />
+    <fragment
+        android:id="@+id/teamMatchesDestination"
+        android:name="com.sport.sportapp.fragments.match.TeamMatchesFragment"
+        android:label="Team Matches" >
+        <action
+            android:id="@+id/action_teamMatchesDestination_to_insertTeamMatchFragment2"
+            app:destination="@id/teamMatchInsertDestination" />
+    </fragment>
+    <fragment
+        android:id="@+id/teamMatchInsertDestination"
+        android:name="com.sport.sportapp.fragments.match.InsertTeamMatchFragment"
+        android:label="Create Team Match" />
+
 </navigation>

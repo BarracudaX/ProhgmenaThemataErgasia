@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import domain.sport.AthleteSport;
+import domain.sport.Sport;
 import domain.sport.TeamSport;
 
 @Dao
@@ -47,4 +48,7 @@ public interface SportDao {
 
     @Query("DELETE FROM TeamSport WHERE sportId = :sportId")
     void deleteTeamSportById(long sportId);
+
+    @Query("SELECT * FROM TeamSport WHERE sportId = :sportId")
+    TeamSport getSportTeamById(long sportId);
 }
