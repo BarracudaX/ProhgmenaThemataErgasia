@@ -109,7 +109,7 @@
     <string name="event_delete_button">Delete Event</string>
     <string name="event_update_button">Update Event</string>
     <string name="event_athlete_score">Athlete Score:</string>
-    <string name="event_type_select_hint">Select the type of event:</string>
+    <string name="event_type_select_hint">Select the type of event at the bottom.</string>
     <string name="event_single_button">Single Match</string>
     <string name="event_track_button">Track Event</string>
     <string name="event_race_button">Race</string>
@@ -127,5 +127,6 @@
     <string name="match_date_hint">When did the match take place.</string>
     <string name="match_sport_label">Sport:</string>
     <string name="single_match_create_button">Create Single Match</string>
+    <string name="single_match_score">AthleteScore:</string>
 
 </resources>

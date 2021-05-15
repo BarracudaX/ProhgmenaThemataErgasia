@@ -177,6 +177,9 @@ public class MainActivityViewModel extends AndroidViewModel {
     public LiveData<Athlete> getAthleteById(long athleteId){
         return athleteDao.findById(athleteId);
     }
+    public Athlete findAthleteById(long athleteId){
+        return athleteDao.findAthleteById(athleteId);
+    }
 
     public LiveData<List<Team>> getTeamsOfSport(long sportId) {
         return teamDao.teamsBySportId(sportId);

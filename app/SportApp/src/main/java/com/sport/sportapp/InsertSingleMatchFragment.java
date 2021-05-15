@@ -10,6 +10,7 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,7 @@ import java.util.Set;
 
 import dao.SportDao;
 import domain.AthleteIdNameModel;
+import domain.AthleteScore;
 import domain.SingleMatch;
 import domain.SportIdNameModel;
 import domain.SportType;
@@ -68,17 +70,21 @@ public class InsertSingleMatchFragment extends BaseFragment {
         binding.createSingleEventButton.setOnClickListener((v) -> {
             String sportIdAsString = ((String) sportSpinner.getSelectedItem());
             long sportId = Long.parseLong(sportIdAsString.substring(0, sportIdAsString.indexOf("-")));
-            viewModel.insertSingleMatch(new SingleMatch(lastDatePicked,binding.matchCityInput.getText().toString(),binding.matchCountryInput.getText().toString(),viewModel.getSportById(sportId)));
+            String athleteScore1 = ((String)athlete1Spinner.getSelectedItem());
+            long athlete1Id = Long.parseLong(athleteScore1.substring(0, sportIdAsString.indexOf("-")));
+            AthleteScore athlete1 = new AthleteScore(viewModel.findAthleteById(athlete1Id), new Double(String.valueOf(binding.athlete1ScoreInput.getText().toString())));
+            String athleteScore2 = ((String)athlete2Spinner.getSelectedItem());
+            long athlete2Id = Long.parseLong(athleteScore2.substring(0, sportIdAsString.indexOf("-")));
+            AthleteScore athlete2 = new AthleteScore(viewModel.findAthleteById(athlete2Id), new Double(String.valueOf(binding.athlete2ScoreInput.getText().toString())));
+            viewModel.insertSingleMatch(new SingleMatch(lastDatePicked,binding.matchCityInput.getText().toString(),binding.matchCountryInput.getText().toString(),viewModel.getSportById(sportId),athlete1,athlete2));
         });
-        activityViewModel.getPickedDate().observe(this,localDate -> {
+        activityViewModel.getPickedDate().observe(getViewLifecycleOwner(),localDate -> {
                     lastDatePicked = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
                     binding.matchDateInput.setText(localDate.toString());
         });
             return binding.getRoot();
-
-
-
     }
+
     private void createSportSpinner() {
         sportSpinner = binding.matchSportInput;
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.support_simple_spinner_dropdown_item);

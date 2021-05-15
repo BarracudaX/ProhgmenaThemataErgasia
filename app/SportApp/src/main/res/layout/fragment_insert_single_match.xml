@@ -12,15 +12,42 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <EditText
+            android:id="@+id/athlete2ScoreInput"
+            android:layout_width="214dp"
+            android:layout_height="39dp"
+            android:layout_marginBottom="1dp"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/athlete1ScoreLabel2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.486"
+            app:layout_constraintStart_toEndOf="@+id/athlete1ScoreLabel"
+            app:layout_constraintTop_toBottomOf="@+id/matchAthlete2"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/athlete1ScoreLabel2"
+            android:layout_width="81dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/single_match_score"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/athlete2NameLabel" />
 
         <TextView
             android:id="@+id/CreateSingleMatchTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="@string/create_sinle_match_title"
+            android:text="@string/create_single_match_title"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
@@ -53,35 +80,21 @@
             app:layout_constraintTop_toBottomOf="@+id/divide" />
 
         <TextView
-            android:id="@+id/athlete2NameLabel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="42dp"
-            android:text="@string/athlete_name_label"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@+id/matchCityLabel"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/athlete1NameLabel" />
-
-        <TextView
             android:id="@+id/matchCityLabel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="42dp"
+            android:layout_width="95dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="32dp"
             android:text="@string/match_city_label"
             android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@+id/matchCountryLabel"
+            app:layout_constraintEnd_toStartOf="@+id/matchCityInput"
+            app:layout_constraintHorizontal_bias="0.166"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/athlete2NameLabel" />
+            app:layout_constraintTop_toBottomOf="@+id/athlete1ScoreLabel2" />
 
         <EditText
             android:id="@+id/matchCityInput"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="236dp"
+            android:layout_height="37dp"
             android:layout_marginEnd="32dp"
             android:layout_marginRight="32dp"
             android:ems="10"
@@ -90,8 +103,10 @@
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="@+id/matchCityLabel"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/matchAthlete2"
-            app:layout_constraintTop_toTopOf="@+id/matchCityLabel" />
+            app:layout_constraintTop_toTopOf="@+id/matchCityLabel"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/matchCountryLabel"
@@ -108,27 +123,27 @@
 
         <EditText
             android:id="@+id/matchCountryInput"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_width="231dp"
+            android:layout_height="31dp"
             android:ems="10"
             android:hint="@string/match_country_hint"
             android:inputType="textPersonName"
             android:textSize="10sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/matchCountryLabel"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.162"
             app:layout_constraintStart_toStartOf="@+id/matchCityInput" />
 
         <TextView
             android:id="@+id/matchDateLabel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="42dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="52dp"
             android:text="@string/match_date_label"
             android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/matchDateInput"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/matchCountryLabel" />
 
@@ -144,6 +159,7 @@
             android:textSize="10sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/matchDateLabel"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/matchCountryInput" />
 
         <TextView
@@ -154,6 +170,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="42dp"
             android:text="@string/match_sport_label"
+            app:layout_constraintBottom_toBottomOf="@+id/matchSportInput"
             app:layout_constraintEnd_toEndOf="@+id/matchDateLabel"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/matchDateLabel" />
@@ -179,7 +196,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="104dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
@@ -187,7 +204,7 @@
             app:backgroundTint="@color/green"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.48"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/matchSportLabel"
             app:layout_constraintVertical_bias="0.0" />
@@ -196,21 +213,63 @@
             android:id="@+id/matchAthlete2"
             android:layout_width="203dp"
             android:layout_height="15dp"
-            app:layout_constraintBottom_toTopOf="@+id/matchCityInput"
+            android:layout_marginBottom="1dp"
+            app:layout_constraintBottom_toBottomOf="@+id/athlete2NameLabel"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.471"
             app:layout_constraintStart_toEndOf="@+id/athlete2NameLabel"
-            app:layout_constraintTop_toBottomOf="@+id/athlete1NameLabel"
-            app:layout_constraintVertical_bias="0.545" />
+            app:layout_constraintTop_toBottomOf="@+id/athlete1ScoreInput"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/athlete2NameLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/athlete_name_label"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/athlete1ScoreLabel"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/athlete1ScoreLabel" />
 
         <Spinner
             android:id="@+id/matchAthlete1"
             android:layout_width="203dp"
             android:layout_height="15dp"
-            app:layout_constraintBottom_toTopOf="@+id/matchAthlete2"
+            app:layout_constraintBottom_toBottomOf="@+id/athlete1NameLabel"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.471"
             app:layout_constraintStart_toEndOf="@+id/athlete1NameLabel"
             app:layout_constraintTop_toBottomOf="@+id/CreateSingleMatchTitle"
-            app:layout_constraintVertical_bias="0.376" />
+            app:layout_constraintVertical_bias="1.0" />
+
+        <EditText
+            android:id="@+id/athlete1ScoreInput"
+            android:layout_width="218dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="8dp"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/athlete1ScoreLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.487"
+            app:layout_constraintStart_toEndOf="@+id/athlete1ScoreLabel"
+            app:layout_constraintTop_toBottomOf="@+id/matchAthlete1"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/athlete1ScoreLabel"
+            android:layout_width="81dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/single_match_score"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/athlete1NameLabel" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
