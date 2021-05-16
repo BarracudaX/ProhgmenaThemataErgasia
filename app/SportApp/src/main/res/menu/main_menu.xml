@@ -17,4 +17,8 @@
         android:id="@+id/teamMatchesDestination"
         android:icon="@android:drawable/btn_star_big_on"
         android:title="@string/menu_item_team_matches" />
+    <item
+        android:id="@+id/teamAthletesDestination"
+        android:icon="@android:drawable/btn_star_big_on"
+        android:title="@string/menu_item_team_athletes" />
 </menu>
